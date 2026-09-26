@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.0](https://github.com/iurysza/logcayo/compare/v0.1.0...v0.2.0) (2026-09-26)
+
+
+### Features
+
+* **tui:** wrap the detail screen instead of clipping it ([c191d6d](https://github.com/iurysza/logcayo/commit/c191d6d02e96ea17e8016a6cc9047f9d44e116a4))
+
 ## 0.1.0
 
 First public release.

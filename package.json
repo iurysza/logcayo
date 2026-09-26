@@ -1,9 +1,11 @@
 {
   "name": "logcayo",
   "private": true,
-  "version": "0.1.0",
+  "version": "0.2.0",
   "type": "module",
-  "workspaces": ["packages/*"],
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
     "logcayo": "bun packages/cli/src/main.ts",
     "lint": "bun --bun oxlint -c oxlint.config.ts packages tests bench",
