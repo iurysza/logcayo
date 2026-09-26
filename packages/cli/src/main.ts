@@ -1,3 +1,4 @@
+#!/usr/bin/env bun
 import { EMPTY_FILTER, err, ok, type FilterSpec, type Result, type SourceKind } from "@logcayo/core";
 import {
 	createAdbPackageResolver,
