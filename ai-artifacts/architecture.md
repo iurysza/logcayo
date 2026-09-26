@@ -88,13 +88,14 @@ The history charge is accounting, not measured process memory. The performance t
 
 ## Commands, configuration, and sources
 
-`packages/cli/src/main.ts` parses three commands:
+`packages/cli/src/main.ts` parses four commands:
 
 | Command | Source and result |
 | --- | --- |
 | `live` | Builds an ADB source. It needs one usable device unless `--serial` selects one. |
 | `record` | Streams raw source packets to a new recording and finalizes a footer. It does not create a viewer session or load the TUI. |
 | `replay` | Reads a recording through the replay source. Timed and instant replay use the normal session ingestion path. |
+| `query` | Streams matching events as NDJSON from a recording or a bounded `--live` capture, without loading the TUI. `packages/cli/src/query.ts` owns it. See [Query line and Jev](query-and-jev.md). |
 
 For `live` and `replay`, the CLI loads `logcayo.json` from the working directory unless `--config PATH` is supplied. `packages/cli/src/config.ts` validates the file with Effect Schema. Command-line flags override config values. `TYPESAFE_DEFAULT_MODEL` overrides the semantic model, and `TYPESAFE_API_KEY` stays in the environment.
 
@@ -112,9 +113,9 @@ A recording is UTF-8 JSON Lines:
 
 ## Filters and navigation
 
-`parseQuery` in `packages/core/src/query.ts` turns the one-line query into a `FilterSpec` and a `SearchMode`. A `~` before the text selects Jev; the TUI and `logcayo query` share this parser. `completeQuery` in `packages/core/src/completion.ts` returns a ghost suffix and alternatives from `Session.queryCandidates()`, which `packages/engine/src/vocabulary.ts` counts as events arrive.
+`parseQuery` in `packages/core/src/query.ts` turns the one-line query into a `FilterSpec` and a `SearchMode`. A `~` before the text selects Jev; the TUI and `logcayo query` share this parser. [Query line and Jev](query-and-jev.md) covers the grammar, completion, when each mode applies, and how Jev scores reach the CLI.
 
-`@logcayo/core` prepares a filter from minimum level, exact tag, PID, and text. Local filtering combines populated fields with AND. The text match is a case-insensitive literal match over retained source text. `reduceInteraction` turns normalized keys into session commands or local focus changes. It keeps editor drafts in the TUI layer until Enter commits a filter command.
+`@logcayo/core` prepares a filter from minimum level, exact tag, PID, package, and text. The session resolves a package name to UIDs before it starts the filter job. Local filtering combines populated fields with AND. The text match is a case-insensitive literal match over retained source text. `reduceInteraction` turns normalized keys into session commands or local focus changes. It keeps editor drafts in the TUI layer until Enter commits a filter command.
 
 When a filter changes, `Session` starts a revisioned `FilterJob` in `packages/engine/src/reindex.ts`. The old visible index remains active while the new candidate index scans retained events in slices. New arrivals are tested against both filters. Only the newest completed revision can replace the active index. This prevents an old scan from publishing after a later query.
 
@@ -134,7 +135,9 @@ Semantic filtering is active only when the CLI has created a Jev classifier and 
 - It validates response session ID, request ID, query revision, and every returned event ID before applying annotations.
 - It retries one transient batch failure. It marks a permanent failure, skipped item, or oversized item as unknown.
 
-`set-filter` carries an optional `searchMode`, so a `~` query and a literal query use one command. The session retains semantic annotations separately from `LogEvent` data. `SemanticStats` reports relevant, pending, failed, and skipped counts plus `lastError`. The terminal UI displays their state and dims scored rows below the configured threshold. `toggle-below-threshold` switches the snapshot to `belowThreshold: "hide"`; the session then builds navigation and rows from a relevant-only view of the active index. `readMatches` still returns every local match. `Session.classificationOf(id)` exposes one row's score, which `logcayo query` uses to add `score` and `verdict` to NDJSON after `sourceDone` resolves. Semantic work never blocks source ingestion or removes raw events from history.
+`set-filter` carries an optional `searchMode`, so a `~` query and a literal query use one command. The session retains semantic annotations separately from `LogEvent` data. `SemanticStats` reports relevant, pending, failed, and skipped counts plus `lastError`. Semantic work never blocks source ingestion or removes raw events from history.
+
+[Query line and Jev](query-and-jev.md) describes the row states, the dim and hide views, and how `logcayo query` reads scores through `classificationOf` after `sourceDone`.
 
 ## Terminal UI and shutdown
 
@@ -165,7 +168,9 @@ Use `ManualScheduler` and scripted sources for state tests. Use the pinned termi
 ## Documents in this repository
 
 - [`README.md`](../README.md) is the command and development guide.
+- [`query-and-jev.md`](query-and-jev.md) explains the shared query language, completion, Jev states, and the CLI Jev output.
+- [`demo/index.html`](demo/index.html) is a visual walkthrough with videos. Open it locally.
 - [`specs/2026-09-18-logcayo-prd.md`](../specs/2026-09-18-logcayo-prd.md) is the original product proposal.
 - [`specs/2026-09-18-logcayo-technical-design.md`](../specs/2026-09-18-logcayo-technical-design.md) is the original architecture handoff. It marks its proposed behavior and file map as design material.
 
-The checkout may also contain untracked planning artifacts under `ai-artifacts/`. Do not treat those artifacts as accepted behavior until they are added to the repository. When the implementation and a proposal differ, treat the source and its tests as the description of current behavior. Update this page with the implementation change when you move a boundary, change a limit, or alter a lifecycle guarantee.
+`ai-artifacts/specs/`, `goals/`, `handoffs/`, and `research/` hold design and planning history. They record intent at the time, not current behavior. When the implementation and a proposal differ, treat the source and its tests as the description of current behavior. Update this page with the implementation change when you move a boundary, change a limit, or alter a lifecycle guarantee.
