@@ -143,7 +143,7 @@ Agents can ask the same question: `logcayo query sessions/bug.lvr.jsonl '~databa
 
 ## Name
 
-logcayo is named after *Leopardus tilcayo*, a small wild cat.
+logcayo is named after *Leopardus tilcayo*, a spotted cat from the Bolivian Andes and [the first new cat species found in 100 years](https://www.nationalgeographic.com/animals/article/meet-the-first-new-cat-species-discovered-in-100-years). It hid in plain sight for years. So do the log lines you're looking for.
 
 ## License
 
