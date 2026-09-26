@@ -1,185 +1,150 @@
 # logcayo
 
-Keyboard-driven Android log viewer. Live capture, recording, and replay share one byte pipeline. The same `Session` API supports headless tests and the optional ANSI terminal UI.
+![logcayo](./assets/logcayo-banner.png)
 
-## Requirements
+[![CI](https://github.com/iurysza/logcayo/actions/workflows/ci.yml/badge.svg)](https://github.com/iurysza/logcayo/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+![Bun 1.4+](https://img.shields.io/badge/bun-1.4%2B-f9f1e1)
+![platforms: macOS • Linux](https://img.shields.io/badge/platforms-macOS%20%E2%80%A2%20Linux-informational)
 
-- [Bun](https://bun.sh) 1.4+
-- An authorized Android device only for live capture (`adb`)
+Read Android logs from the keyboard.
 
-## Commands
+logcayo streams `adb logcat` into a fast terminal viewer. Filter by level, tag, PID, package, or text as you type, then open any event to see its full message. Record a session to a file and replay it later, on your machine or in CI.
 
-```sh
-bun run logcayo live --serial DEVICE
-bun run logcayo record --serial DEVICE --out sessions/example.lvr.jsonl --duration 60
-bun run logcayo replay sessions/example.lvr.jsonl
-bun run logcayo replay sessions/example.lvr.jsonl --speed 4
-bun run logcayo replay sessions/example.lvr.jsonl --speed instant --headless
-bun run logcayo replay sessions/example.lvr.jsonl --semantic --filter-text "database locks"
-bun run logcayo replay sessions/example.lvr.jsonl --config logcayo.json
-```
+- Filter live with one query line, for example `level:W tag:Database lock`, with Tab completion from the session.
+- Inspect, copy, and pivot: jump from an event to its tag or PID in one key.
+- Record once, replay at any speed, and get the same results every time.
+- Let an agent query logs as JSON with `logcayo query`, without opening the viewer.
 
-`--headless` prints one JSON `HeadlessOutput` line after the source completes. Diagnostics go to stderr. Exit codes: `0` success (including a size-limit recording), `1` source/recording failure, `2` invalid arguments.
+![logcayo filtering a replayed session](./assets/demo/tui-query.gif)
 
-## Agent CLI
+## Who is this for
 
-`query` streams matched events from a recording or live ADB without loading the TUI. It does not write files.
+- **Android developers** who live in the terminal and want something faster than scrolling through Logcat in Android Studio.
+- **Anyone chasing a bug in a noisy log.** Record the session once, then replay and filter it as often as you need.
+- **Coding agents and scripts.** `logcayo query` returns structured NDJSON from a recording or a live device, so an agent can read logs without screen-scraping.
 
-```sh
-bun run logcayo query sessions/example.lvr.jsonl 'level:W tag:Database lock' --limit 20
-bun run logcayo query --live 'pid:4321' --serial DEVICE --timeout 5s
-bun run logcayo query --check 'level:w tag:Database'
-bun run logcayo query sessions/example.lvr.jsonl '~database locks' --limit 5
-bun run logcayo query sessions/example.lvr.jsonl 'level:W database locks' --semantic
-```
+logcayo is not a log shipper or a crash reporter. It reads one device at a time on your machine.
 
-Terms `level:`, `tag:`, `pid:`, and `pkg:` filter events. Other terms search text. Put `~` before the text to ask Jev instead, as in `level:W ~database locks`; `--semantic` does the same for plain text. Run `logcayo query --help` for the full grammar. `--since` accepts an ISO-8601 time with timezone or epoch seconds; live queries also accept a relative duration such as `30s`. Live queries time out after 10 seconds unless you set `--timeout`.
+## Install
 
-Default output is NDJSON: one event per line, then one summary line. An event has `v`, `type`, `id`, `time` (ISO), `epochMicros`, `level`, `pid`, `tid`, `uid`, `tag`, `message`, `raw`, and `continuations`. Events without parsed metadata have null metadata fields. The summary has `query`, `emitted`, `matched`, `stop`, `terminal`, `evictedBeforeRead`, and `timeout_ms` (for live queries). `evictedBeforeRead` estimates unread eviction from the eviction count and last-read ID; it can include nonmatching events. `--format text` sends raw lines and continuations to stdout and the JSON summary to stderr. Exit codes: `0` success, `1` source failure, `2` invalid arguments or query.
-
-A Jev query reads a recording to the end, waits for Jev to score it, and then prints only relevant events. Each event gains `score` (0 to 1) and `verdict` (`relevant`). The summary gains `jev`: `threshold`, `relevant`, `belowThreshold`, `unscored`, and `error`. It uses the same engine `Session` and classifier as the TUI. It needs `TYPESAFE_API_KEY`; without it the command exits `2` with kind `missing-api-key`. If Jev fails and scores nothing, it exits `1` with kind `jev-failure`. Jev queries do not run with `--live`.
-
-## Config file
-
-`live` and `replay` read `logcayo.json` in the working directory. Pass `--config PATH` to use another file. Flags override the file. Keep `TYPESAFE_API_KEY` in the environment.
-
-```json
-{
-  "filter": { "text": "database locks" },
-  "semantic": {
-    "enabled": true,
-    "threshold": 0.5,
-    "model": "jev-1.13.0",
-    "flushMs": 50,
-    "batchItems": 100,
-    "historyEvents": 100,
-    "maxInFlight": 2,
-    "maxQueued": 2000,
-    "maxRequestBytes": 131072,
-    "timeoutMs": 30000
-  }
-}
-```
-
-`semantic.enabled` is the file equivalent of `--semantic`. `--no-semantic` turns it off for one run. `TYPESAFE_DEFAULT_MODEL` overrides `semantic.model` when set.
-
-## Capture profile
-
-Live capture uses this argument vector, not a shell string:
-
-```
-adb -s <serial> logcat -b main -b system -b crash -v threadtime -v epoch -v usec *:V
-```
-
-## Headless development
+You need [Bun](https://bun.sh) 1.4 or later. You need `adb` from the Android SDK platform tools only for live capture.
 
 ```sh
-bun run test:headless
-bun run check
+git clone https://github.com/iurysza/logcayo.git
+cd logcayo
+bun install
+cd packages/cli && bun link
 ```
 
-`test:headless` runs **anti-slop** (Oxlint) then core, engine, CLI, architecture, and quality tests. It does not load the terminal UI, start a physical ADB server, or sleep on wall-clock timers. Tests drive the public `Session` API with a scripted source and a manual scheduler.
+`bun link` puts `logcayo` in `~/.bun/bin`. Add that directory to your `PATH` if needed. You can also run it from the checkout with `bun run logcayo`.
 
-`bun run check` is the default quality path: anti-slop + TypeScript + the same headless tests.
+logcayo is at version 0.1. Expect changes to commands and file formats.
 
-### anti-slop quality gate
+## Try it without a device
 
-This repository vendors [anti-slop](https://github.com/dmmulroy/anti-slop) at `tools/oxlint/anti-slop/` from commit `c44ef22ca116d0ba62a3ff663a0bd13a3f3fa40b`. There is no npm package; the plugin is local source registered in `oxlint.config.ts`. Companion packages are pinned together:
-
-- `oxlint@1.83.0`
-- `@oxlint/plugins@1.83.0`
-
-Effect-specific rules are enabled because `effect` is a direct dependency. `bun run lint` must fail on slop (filter/map chains, unknown parameters, unguarded type assertions, and the Effect tagged-value rules). Provenance: `tools/oxlint/UPSTREAM.md`.
+The repository includes a sample recording:
 
 ```sh
-bun run lint
-bun run lint:fix   # readable-spacing autofix, then re-lint
+logcayo replay tests/fixtures/real/sanitized-aosp-pattern.lvr.jsonl
 ```
 
-## Live ADB smoke
+Press `/`, type `level:W`, and press Enter. Press `?` for all keys, and `q` to quit.
 
-CI uses a fake `adb` at `tests/support/adb-stubs/` so live capture can be exercised without a phone:
+## Watch a device
+
+Connect a device with USB debugging on, then run:
 
 ```sh
-bun run test:adapters
-bun run logcayo live --headless --adb tests/support/adb-stubs/one-device --serial emulator-5554
+logcayo live
 ```
 
-On a real authorized device:
+If more than one device is connected, pass `--serial DEVICE`. `adb devices` lists the serials.
+
+To keep a session for later:
 
 ```sh
-bun run logcayo live --serial DEVICE
-bun run logcayo record --serial DEVICE --out sessions/device.lvr.jsonl --duration 10
+logcayo record --out sessions/bug.lvr.jsonl --duration 60
+logcayo replay sessions/bug.lvr.jsonl --speed 4
 ```
 
-With no device, several devices and no `--serial`, or an unauthorized/offline serial, the command explains the problem and exits `1`.
+`--speed instant` loads the whole recording at once.
 
-## Terminal UI
+## Keys
 
-Interactive live/replay loads the TUI only when stdout is a TTY. Replay the sanitized fixture:
+| Key | Action |
+| --- | --- |
+| `↑` `↓` or `j` `k` | Select the previous or next event |
+| `PgUp` `PgDn` or `Ctrl-U` `Ctrl-D` | Move one page |
+| `G` or `End` | Follow the newest logs |
+| `Home` | Go to the first event |
+| `/` | Edit the query. Tab completes, `x` clears, `u` undoes, `c` copies |
+| `f` | Change filters |
+| `Enter` | Inspect the event. In the inspector, `t` filters by tag and `p` by PID |
+| `y` | Copy the selected event |
+| `w` | Turn line wrapping on or off |
+| `?` | Show help |
+| `q` | Quit |
+
+Set `NO_COLOR=1` for plain output.
+
+## Query language
+
+One query line filters the viewer and the CLI:
+
+```text
+level:W tag:Database pkg:com.example.app "lock timeout"
+```
+
+- `level:` shows that level and above: `V`, `D`, `I`, `W`, `E`, or `F`.
+- `tag:`, `pid:`, and `pkg:` match those fields. `pkg:` resolves the package to its app UID.
+- Other words search the message text. Use quotes around text with spaces.
+
+[Query line and Jev](docs/query-and-jev.md) has the full grammar.
+
+## Query logs from an agent
+
+`logcayo query` streams matching events as NDJSON: one JSON object per event, then a summary line. It never opens the viewer or writes files.
 
 ```sh
-bun run logcayo replay tests/fixtures/real/sanitized-aosp-pattern.lvr.jsonl --speed instant
-bun run test:tui
+logcayo query sessions/bug.lvr.jsonl 'level:W tag:Database lock' --limit 20
+logcayo query --live 'pid:4321' --timeout 5s
+logcayo query --check 'level:w tag:Database'
 ```
 
-`test:tui` covers chrome, key decoding, the bounded row pool, public-`Session` state transitions, and real PTY scenarios. The PTY scenarios start the CLI with the sanitized fixture. They verify replay navigation, inspector layouts at 120 and 119 columns, help, burst filter input, zero matches, 48-column chrome, the minimum-size warning, highlighting, `NO_COLOR`, quit, exit status, and terminal restoration.
+`--check` validates a query and prints its normalized form. Live queries stop after 10 seconds unless you pass `--timeout`. Run `logcayo query --help` for every option.
 
-Use the pinned `@kitlangton/terminal-control@0.4.1` workflow for visual checks:
+![logcayo query streaming NDJSON](./assets/demo/agent-cli.gif)
 
-```sh
-bun run test:ui
-bun run ui:verify --scenario inspect --out generated/ui/inspect
-bun run ui:update --scenario inspect
-```
+## Ask questions with Jev (optional)
 
-`ui:verify` reads the committed styled-cell baseline. It always saves the final PNG, visible text, terminal cells, compact styled snapshot, and metadata to `--out`. Missing or changed baselines fail and save expected cells plus a property-level diff. It never changes a baseline. Run `ui:update` only after you review the generated PNGs and snapshot diff. `ui:update` is the only command that writes `packages/tui/test/baselines/`. Generated evidence stays under the ignored `generated/ui/` directory.
+Some bugs are hard to match with keywords. [Jev](https://docs.typesafe.ai/) is a hosted classifier from TypeSafe. It scores each log line against a question such as "database locks" or "why did the app restart".
 
-The TUI inherits the terminal background and uses **Catppuccin Mocha** for accents. Header and footer stay fixed. Messages get Tailspin-style highlights after control characters are sanitized. Selection uses a `▸` marker and a full-row fill. Enter inspects the selected event. In the query line, Tab (or Right at the end) accepts the grey fish-style completion for keys and for tag, PID, package, and level values seen in the session. Set `NO_COLOR=1` for a plain dump.
+Jev is off by default. It is a paid service and needs an API key. When it is on, logcayo sends the text of matching log lines to TypeSafe. Do not use it on logs that must stay on your machine.
 
-## Fixtures
+To use it:
 
-- `tests/fixtures/synthetic/` — tiny recordings for schema and CLI tests.
-- `tests/fixtures/real/sanitized-aosp-pattern.lvr.jsonl` — reviewed sanitized real-pattern capture (`provenance: sanitized-real`). See `tests/fixtures/real/MANIFEST.md`.
+1. Get an API key from [TypeSafe](https://typesafe.ai) and set `TYPESAFE_API_KEY`.
+2. Start logcayo with `--semantic`.
+3. In the query line, put `~` before a question: `level:W ~database locks`.
 
-## Benchmarks
+Keyed terms such as `level:` still filter on your machine first. Jev scores only the events that pass them. In the viewer, a question runs when you press Enter, not while you type. `m` switches between text and Jev, and `v` hides or dims low-scoring rows.
 
-PRD timings stay **advisory** on shared runners. Structural bounds (visible row count, history charge, drained queue, filter publication) run in `bun run check`.
+![Asking Jev about database locks](./assets/demo/jev.gif)
 
-```sh
-bun run bench:headless
-bun run bench:full          # 100k-event filter with a 128 MiB history-charge cap
-```
+Agents can ask the same question: `logcayo query sessions/bug.lvr.jsonl '~database locks'`.
 
-Each JSON report records Bun version, OS, CPU, memory, seed, line-size plan, RSS/heap, filter time, and navigation p95. Do not treat a single FPS number as proof of responsiveness.
+## Documentation
 
-## Architecture
+- [Configuration and output](docs/configuration.md): `logcayo.json`, the capture command, JSON output, and exit codes
+- [Query line and Jev](docs/query-and-jev.md): grammar, completion, and Jev states
+- [Architecture](docs/architecture.md): packages, the session lifecycle, and rendering
+- [Development](docs/development.md): tests, the lint gate, UI baselines, and benchmarks
 
-Functional core (`@logcayo/core`) plus an imperative shell (`@logcayo/engine`). Core has no Bun or terminal imports. The terminal UI is a direct ANSI adapter in `@logcayo/tui`, and the CLI dynamically loads it only for an interactive terminal. Effect is internal:
+## Name
 
-- `Either` / `Effect` at session construction, mapped to documented `Result` types at public boundaries
-- `Match` for tagged commands and recording records
-- `Schema` for recording JSONL and `logcayo.json`
-- `Context.Tag` layers for scheduler, source, files, and processes
-- `Effect.scoped` / finalizers for recording and process lifetime
+logcayo is named after *Leopardus tilcayo*, a small wild cat.
 
-Read [the architecture reference](ai-artifacts/architecture.md) for the implemented package boundaries, session lifecycle, recordings, filtering, semantic queries, terminal rendering, and test seams. Read [Query line and Jev](ai-artifacts/query-and-jev.md) for the query grammar, completion, and how Jev scores reach the TUI and the CLI. `specs/2026-09-18-logcayo-technical-design.md` remains the original design handoff; source and tests define current contracts.
+## License
 
-Natural-language filtering uses TypeSafe **Jev**. Enable it with `--semantic` or `semantic.enabled` in `logcayo.json`, and set `TYPESAFE_API_KEY`. In the `/` query line, plain text filters live as you type; `~question` asks Jev when you press Enter, because each question is a paid call. A purple ` ✦ Jev ` badge marks Jev in the query line, the filter chips, and the status bar. `m` switches the current text between literal and Jev. `v` hides or dims rows scored below the threshold. When you apply a query, Jev classifies the newest `semantic.historyEvents` locally eligible retained logs, which defaults to 100. New locally eligible arrivals continue to be classified while the query is active. Older rows stay visible with an unrequested icon. Rows scored below the threshold are dimmed. Headless tests never call Jev.
-
-## Scripts
-
-| Script | What it does |
-|---|---|
-| `bun run test:headless` | anti-slop + headless tests |
-| `bun run test:adapters` | process, recording, sanitized fixture, and live-ADB stub tests |
-| `bun run test:tui` | TUI chrome, state, and real-PTY tests |
-| `bun run test:ui` | Styled-baseline policy, public-`Session` state, and real-PTY UI scenarios |
-| `bun run ui:verify --scenario NAME --out PATH` | Verify one named UI scenario and save review evidence |
-| `bun run ui:update --scenario NAME` | Explicitly replace one scenario's reviewed styled-cell baseline |
-| `bun run typecheck` | `tsc --noEmit` |
-| `bun run check` | lint + typecheck + headless tests |
-| `bun run bench:headless` | fixed-seed ingest, burst, and filter measurement |
-| `bun run bench:full` | PRD-scale filter measurement (advisory timings) |
-
-Recordings under `sessions/` are gitignored. Keep synthetic fixtures in `tests/fixtures/synthetic/`.
+[MIT](LICENSE)

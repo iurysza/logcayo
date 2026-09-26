@@ -167,10 +167,10 @@ Use `ManualScheduler` and scripted sources for state tests. Use the pinned termi
 
 ## Documents in this repository
 
-- [`README.md`](../README.md) is the command and development guide.
+- [`README.md`](../README.md) is the user guide.
+- [`development.md`](development.md) covers tests, the lint gate, UI baselines, and benchmarks.
 - [`query-and-jev.md`](query-and-jev.md) explains the shared query language, completion, Jev states, and the CLI Jev output.
-- [`demo/index.html`](demo/index.html) is a visual walkthrough with videos. Open it locally.
-- [`specs/2026-09-18-logcayo-prd.md`](../specs/2026-09-18-logcayo-prd.md) is the original product proposal.
-- [`specs/2026-09-18-logcayo-technical-design.md`](../specs/2026-09-18-logcayo-technical-design.md) is the original architecture handoff. It marks its proposed behavior and file map as design material.
+- [`design/2026-09-18-prd.md`](design/2026-09-18-prd.md) is the original product proposal.
+- [`design/2026-09-18-technical-design.md`](design/2026-09-18-technical-design.md) is the original architecture handoff. It marks its proposed behavior and file map as design material.
 
-`ai-artifacts/specs/`, `goals/`, `handoffs/`, and `research/` hold design and planning history. They record intent at the time, not current behavior. When the implementation and a proposal differ, treat the source and its tests as the description of current behavior. Update this page with the implementation change when you move a boundary, change a limit, or alter a lifecycle guarantee.
+The design documents record intent at the time, not current behavior. When the implementation and a proposal differ, treat the source and its tests as the description of current behavior. Update this page with the implementation change when you move a boundary, change a limit, or alter a lifecycle guarantee.

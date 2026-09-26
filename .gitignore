@@ -18,3 +18,6 @@ dist/
 private-recordings/
 agent-tools/
 uploads/
+
+# Internal agent notes, plans, and handoffs
+ai-artifacts/
