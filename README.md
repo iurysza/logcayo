@@ -1,3 +1,7 @@
+
+
+
+
 # logcayo
 
 ![logcayo](./assets/logcayo-banner.png)
@@ -9,7 +13,7 @@
 
 A modern terminal UI for Android logs.
 
-[![Watch the logcayo launch video](./assets/demo/logcayo-launch-poster.jpg)](https://github.com/iurysza/logcayo/raw/main/assets/demo/logcayo-launch.mp4)
+[![Watch the logcayo launch video](./assets/demo/logcayo-launch-poster.jpg)](https://github.com/user-attachments/assets/46a917fd-c448-404b-8e32-b2814e1c1ddb)
 
 <sub>39-second launch video. Every screen is the real TUI running on a redacted Samsung capture.</sub>
 
