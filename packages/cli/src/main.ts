@@ -24,6 +24,7 @@ import {
 import { runHeadless } from "./headless.ts";
 import { runRecord } from "./record.ts";
 import { runQuery, type QueryWriter } from "./query.ts";
+import packageJson from "../package.json" with { type: "json" };
 
 type CliError = { exit: 1 | 2; message: string };
 
@@ -63,7 +64,8 @@ type ParsedCli =
 			durationSec: number | null;
 			maxFileBytes: number;
 	  }
-	| { command: "help" };
+	| { command: "help" }
+	| { command: "version" };
 
 function usage(): string {
 	return `logcayo — keyboard-driven Android log viewer
@@ -75,6 +77,7 @@ Usage:
   logcayo query PATH [QUERY] [--limit N] [--since TIME] [--format ndjson|text]
   logcayo query --live [QUERY] [--timeout DUR] [--limit N]
   logcayo query --check QUERY
+  logcayo --version
 
 Jev visual filter:
   Set TYPESAFE_API_KEY. Enable with --semantic or semantic.enabled in logcayo.json.
@@ -101,6 +104,10 @@ function parseArgs(argv: string[]): Result<ParsedCli, CliError> {
 
 	if (args.length === 0 || args[0] === "--help" || args[0] === "-h" || args[0] === "help") {
 		return ok({ command: "help" });
+	}
+
+	if (args[0] === "--version" || args[0] === "-v" || args[0] === "version") {
+		return ok({ command: "version" });
 	}
 
 	const command = args[0];
@@ -429,6 +436,12 @@ export async function main(argv = process.argv, queryWriter?: QueryWriter): Prom
 
 	if (request.command === "help") {
 		process.stdout.write(`${usage()}\n`);
+
+		return 0;
+	}
+
+	if (request.command === "version") {
+		process.stdout.write(`logcayo ${packageJson.version}\n`);
 
 		return 0;
 	}

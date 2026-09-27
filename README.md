@@ -37,7 +37,19 @@ logcayo is not a log shipper or a crash reporter. It reads one device at a time 
 
 ## Install
 
-You need [Bun](https://bun.sh) 1.4 or later. You need `adb` from the Android SDK platform tools only for live capture.
+On macOS or Linux:
+
+```sh
+curl -fsSL https://github.com/iurysza/logcayo/releases/latest/download/install.sh | sh
+```
+
+The script downloads a standalone binary for your platform, checks its SHA-256 checksum, and puts `logcayo` in `~/.local/bin`. You do not need Bun. Set `LOGCAYO_INSTALL_DIR` to install somewhere else, or `LOGCAYO_VERSION=v0.2.0` to pin a release.
+
+You need `adb` from the Android SDK platform tools only for live capture.
+
+### From source
+
+You need [Bun](https://bun.sh) 1.4 or later.
 
 ```sh
 git clone https://github.com/iurysza/logcayo.git
@@ -46,16 +58,17 @@ bun install
 cd packages/cli && bun link
 ```
 
-`bun link` puts `logcayo` in `~/.bun/bin`. Add that directory to your `PATH` if needed. You can also run it from the checkout with `bun run logcayo`.
+`bun link` puts `logcayo` in `~/.bun/bin`. You can also run it from the checkout with `bun run logcayo`.
 
 logcayo is at version 0.2. Expect changes to commands and file formats.
 
 ## Try it without a device
 
-The repository includes a sample recording:
+Download the sample recording and replay it:
 
 ```sh
-logcayo replay tests/fixtures/real/sanitized-aosp-pattern.lvr.jsonl
+curl -fsSLO https://raw.githubusercontent.com/iurysza/logcayo/main/tests/fixtures/real/sanitized-aosp-pattern.lvr.jsonl
+logcayo replay sanitized-aosp-pattern.lvr.jsonl
 ```
 
 Press `/`, type `level:W`, and press Enter. Press `?` for all keys, and `q` to quit.
