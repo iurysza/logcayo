@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.3.0](https://github.com/iurysza/logcayo/compare/v0.2.0...v0.3.0) (2026-09-27)
+
+
+### Features
+
+* install standalone binaries with a curl script ([bff3bc7](https://github.com/iurysza/logcayo/commit/bff3bc70905a0a54caded1303f47ab626108f29f))
+* install standalone binaries with a curl script ([62dec19](https://github.com/iurysza/logcayo/commit/62dec195977f0bb1aff9fb3543881ca212eaed62))
+
 ## [0.2.0](https://github.com/iurysza/logcayo/compare/v0.1.0...v0.2.0) (2026-09-26)
 
 
