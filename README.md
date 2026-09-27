@@ -7,12 +7,17 @@
 ![Bun 1.4+](https://img.shields.io/badge/bun-1.4%2B-f9f1e1)
 ![platforms: macOS • Linux](https://img.shields.io/badge/platforms-macOS%20%E2%80%A2%20Linux-informational)
 
-Read Android logs from the keyboard.
+A modern terminal UI for Android logs.
+
+[![Watch the logcayo launch video](./assets/demo/logcayo-launch-poster.jpg)](https://github.com/iurysza/logcayo/raw/main/assets/demo/logcayo-launch.mp4)
+
+<sub>39-second launch video. Every screen is the real TUI running on a redacted Samsung capture.</sub>
 
 logcayo streams `adb logcat` into a fast terminal viewer. Filter by level, tag, PID, package, or text as you type, then open any event to see its full message. Record a session to a file and replay it later, on your machine or in CI.
 
 - Filter live with one query line, for example `level:W tag:Database lock`, with Tab completion from the session.
 - Inspect, copy, and pivot: jump from an event to its tag or PID in one key.
+- Ask Jev in plain English, for example `~battery stats not saved`, when you don't know the keyword. Press `v` to hide weak matches.
 - Record once, replay at any speed, and get the same results every time.
 - Let an agent query logs as JSON with `logcayo query`, without opening the viewer.
 
@@ -39,7 +44,7 @@ cd packages/cli && bun link
 
 `bun link` puts `logcayo` in `~/.bun/bin`. Add that directory to your `PATH` if needed. You can also run it from the checkout with `bun run logcayo`.
 
-logcayo is at version 0.1. Expect changes to commands and file formats.
+logcayo is at version 0.2. Expect changes to commands and file formats.
 
 ## Try it without a device
 
