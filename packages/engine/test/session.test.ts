@@ -270,6 +270,28 @@ describe("headless session", () => {
 		await scenario.session.stop();
 	});
 
+	test("keeps a named-UID line from another process as its own event", async () => {
+		const scenario = await openScenario({ maxEvents: 20, rows: 16, columns: 120 });
+		scenario.source.pushLine("         1790602081.734290 10079  7119  7119 I KeyguardTransition: STARTED", 1);
+		scenario.source.pushLine("         1790602081.734294 radio  6284  6284 D NtnCapabilityResolver: isNtn=false", 1);
+		await tick(scenario.scheduler);
+		scenario.source.pushLine("         1790602081.734297 radio  6284  6284 D NtnCapabilityResolver: isDtcSupported=false", 2);
+		await tick(scenario.scheduler);
+
+		const snap = scenario.session.snapshot();
+		expect(snap.stats.admittedEvents).toBe(3);
+		expect(snap.stats.unparsedEvents).toBe(0);
+		const events = scenario.session.readMatches(null, 10);
+		expect(events.map((event) => [event.metadata?.pid, event.metadata?.uid, event.continuations.length])).toEqual([
+			[7119, 10079, 0],
+			[6284, 1001, 0],
+			[6284, 1001, 0],
+		]);
+
+		await scenario.finish();
+		await scenario.session.stop();
+	});
+
 	test("groups lines that repeat one log call's header into one event", async () => {
 		const scenario = await openScenario({ maxEvents: 20, rows: 16, columns: 100 });
 		const line = (message: string) => threadtimeLine(1, { level: "W", tag: "IgMetaConfig", message });
