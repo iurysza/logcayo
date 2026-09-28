@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.0](https://github.com/iurysza/logcayo/compare/v0.3.0...v0.4.0) (2026-09-28)
+
+
+### Features
+
+* **jev:** classify with ~ only and settle results before showing ([cdd0bb3](https://github.com/iurysza/logcayo/commit/cdd0bb38bed2fed1c1c3920188933c336f3f9908))
+
 ## [0.3.0](https://github.com/iurysza/logcayo/compare/v0.2.0...v0.3.0) (2026-09-27)
 
 
