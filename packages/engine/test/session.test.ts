@@ -269,4 +269,28 @@ describe("headless session", () => {
 		await scenario.finish();
 		await scenario.session.stop();
 	});
+
+	test("groups lines that repeat one log call's header into one event", async () => {
+		const scenario = await openScenario({ maxEvents: 20, rows: 16, columns: 100 });
+		const line = (message: string) => threadtimeLine(1, { level: "W", tag: "IgMetaConfig", message });
+		scenario.source.pushLine(line("java.lang.RuntimeException: boom"), 1);
+		scenario.source.pushLine(line("\tat X.01ow.A05(:18)"), 1);
+		await tick(scenario.scheduler);
+		scenario.source.pushLine(line("\tat X.01ow.A04(:7)"), 2);
+		scenario.source.pushLine(threadtimeLine(2, { level: "W", tag: "IgMetaConfig", message: "next call" }), 3);
+		await tick(scenario.scheduler);
+
+		const snap = scenario.session.snapshot();
+		expect(snap.stats.admittedEvents).toBe(2);
+		expect(snap.stats.unparsedEvents).toBe(0);
+		const trace = scenario.session.dispatch({ kind: "oldest" });
+		expect(trace.ok).toBe(true);
+		const first = scenario.session.snapshot();
+		expect(first.selectedEvent?.continuations).toEqual([line("\tat X.01ow.A05(:18)"), line("\tat X.01ow.A04(:7)")]);
+		const frames = first.rows.filter((row) => row.kind === "continuation").map((row) => row.spans.filter((span) => span.role === "message").map((span) => span.text).join(""));
+		expect(frames.map((frame) => frame.trim())).toEqual(["at X.01ow.A05(:18)", "at X.01ow.A04(:7)"]);
+
+		await scenario.finish();
+		await scenario.session.stop();
+	});
 });

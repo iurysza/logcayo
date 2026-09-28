@@ -1,6 +1,6 @@
 import { NONE_CLASSIFICATION, type ClassificationMark, type RowKind, type RowSpan, type ViewRow } from "./commands.ts";
 import { clipToWidth, displayWidth, type EscapedUnit, escapeDisplayText, padToWidth } from "./display-text.ts";
-import { messageText, tagText } from "./logcat.ts";
+import { continuationText, messageText, tagText } from "./logcat.ts";
 import type { EventId, LogEvent, LogLevel } from "./types.ts";
 import { CHROME_ROWS, MIN_TERMINAL_COLUMNS, MIN_TERMINAL_ROWS } from "./types.ts";
 
@@ -298,7 +298,11 @@ function projectMore(event: LogEvent, selected: boolean, layout: ColumnLayout, h
 }
 
 function eventMessage(event: LogEvent): string {
-	return event.metadata ? messageText(event.rawText, event.metadata.message).replace(/^ +/, "") : event.rawText;
+	return event.metadata ? messageText(event.rawText, event.metadata.message).replace(/^[ \t]+/, "") : event.rawText;
+}
+
+function listContinuation(line: string): string {
+	return continuationText(line);
 }
 
 function messageWidth(event: LogEvent, columns: number, layout: ColumnLayout): number {
@@ -322,7 +326,7 @@ export function eventScreenRows(event: LogEvent, columns = 80, lineDisplay: "cli
 	const limit = Math.min(event.continuations.length, MAX_LIST_CONTINUATIONS);
 
 	for (let i = 0; i < limit; i += 1) {
-		rows += projectText(event.continuations[i]!, layout.messageWidth, lineDisplay).length;
+		rows += projectText(listContinuation(event.continuations[i]!), layout.messageWidth, lineDisplay).length;
 	}
 
 	return event.continuations.length > MAX_LIST_CONTINUATIONS ? rows + 1 : rows;
@@ -344,7 +348,7 @@ export function projectEventRows(
 	const limit = Math.min(event.continuations.length, MAX_LIST_CONTINUATIONS);
 
 	for (let i = 0; i < limit; i += 1) {
-		for (const line of projectText(event.continuations[i]!, layout.messageWidth, lineDisplay)) {
+		for (const line of projectText(listContinuation(event.continuations[i]!), layout.messageWidth, lineDisplay)) {
 			rows.push(projectContinuation(event, selected, layout, line));
 		}
 	}

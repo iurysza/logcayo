@@ -1,4 +1,5 @@
 import {
+	continuationText,
 	displayWidth,
 	messageText,
 	sanitizeDisplay,
@@ -199,8 +200,9 @@ function inspectorContent(
 	}
 
 	if (event.continuations.length > 0) {
-		const isStackTrace = event.continuations.some(isStackTraceLine);
-		const frameCount = event.continuations.filter(isStackFrame).length;
+		const continuations = event.continuations.map(continuationText);
+		const isStackTrace = continuations.some(isStackTraceLine);
+		const frameCount = continuations.filter(isStackFrame).length;
 
 		const title = isStackTrace
 			? frameCount === 0
@@ -210,7 +212,7 @@ function inspectorContent(
 
 		pushSection(lines, title, width);
 
-		for (const line of event.continuations) {
+		for (const line of continuations) {
 			if (isStackTrace) appendStackLine(lines, line, width);
 			else appendContinuation(lines, line, width);
 		}

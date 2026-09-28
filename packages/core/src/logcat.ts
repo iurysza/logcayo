@@ -123,3 +123,20 @@ export function tagText(rawText: string, tag: TextSlice): string {
 export function messageText(rawText: string, message: TextSlice): string {
 	return rawText.slice(message.start, message.end);
 }
+
+/** Android splits one log call into lines that repeat the same header. */
+export function isSameLogCall(headRaw: string, head: LogMetadata, lineRaw: string, line: LogMetadata): boolean {
+	return head.epochMicros === line.epochMicros
+		&& head.pid === line.pid
+		&& head.tid === line.tid
+		&& head.level === line.level
+		&& (head.uid ?? null) === (line.uid ?? null)
+		&& tagText(headRaw, head.tag) === tagText(lineRaw, line.tag);
+}
+
+/** Returns a continuation's message, without the repeated logcat header when it has one. */
+export function continuationText(line: string): string {
+	const metadata = parseMetadata(line);
+
+	return metadata ? messageText(line, metadata.message) : line;
+}

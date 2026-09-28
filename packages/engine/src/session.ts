@@ -3,6 +3,7 @@ import {
 	classificationColumnLayout,
 	err,
 	eventChargeBytes,
+	isSameLogCall,
 	logViewportHeight,
 	matches,
 	matchesLocal,
@@ -26,6 +27,7 @@ import {
 	type FramerState,
 	type LineDisplay,
 	type LogEvent,
+	type LogMetadata,
 	type PreparedFilter,
 	type QueryCandidates,
 	type Result,
@@ -529,7 +531,11 @@ class SessionImpl implements Session {
 			if (parsed.kind === "control") continue;
 
 			if (parsed.metadata === null) {
-				const attached = this.attachContinuation(admitted, parsed.rawText, line.omittedBytes, parsed.invalidUtf8);
+				const attached = this.attachContinuation(admitted, parsed.rawText, line.omittedBytes, parsed.invalidUtf8, true);
+
+				if (attached) continue;
+			} else if (this.continuesLastCall(admitted, parsed.rawText, parsed.metadata)) {
+				const attached = this.attachContinuation(admitted, parsed.rawText, line.omittedBytes, parsed.invalidUtf8, false);
 
 				if (attached) continue;
 			}
@@ -563,11 +569,19 @@ class SessionImpl implements Session {
 		return drain.lines.length >= this.options.maxLinesPerSlice || (this.eof && !this.queue.empty);
 	}
 
+	private continuesLastCall(admitted: readonly LogEvent[], rawText: string, metadata: LogMetadata): boolean {
+		const lastId = this.history.bounds().lastId;
+		const last = admitted[admitted.length - 1] ?? (lastId === null ? undefined : this.history.get(lastId));
+
+		return last?.metadata != null && isSameLogCall(last.rawText, last.metadata, rawText, metadata);
+	}
+
 	private attachContinuation(
 		admitted: LogEvent[],
 		rawText: string,
 		omittedBytes: number,
 		invalidUtf8: boolean,
+		unparsed: boolean,
 	): boolean {
 		const pending = admitted[admitted.length - 1];
 
@@ -580,7 +594,8 @@ class SessionImpl implements Session {
 				invalidUtf8: pending.invalidUtf8 || invalidUtf8,
 				chargeBytes: eventChargeBytes(pending.rawText, continuations),
 			};
-			this.unparsedEvents += 1;
+
+			if (unparsed) this.unparsedEvents += 1;
 
 			return true;
 		}
@@ -593,7 +608,7 @@ class SessionImpl implements Session {
 
 		if (!updated) return false;
 
-		this.unparsedEvents += 1;
+		if (unparsed) this.unparsedEvents += 1;
 		this.refreshMatch(updated);
 		this.bump();
 		this.schedulePublish();
