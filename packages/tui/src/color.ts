@@ -88,12 +88,13 @@ export function paintRow(
 	row: ViewRow,
 	style: PaintStyle,
 	columns?: number,
-	options: Readonly<{ dimmed?: boolean; filter?: FilterSpec }> = {},
+	options: Readonly<{ dimmed?: boolean; filter?: FilterSpec; fill?: boolean }> = {},
 ): string {
 	const width = columns === undefined ? Number.MAX_SAFE_INTEGER : Math.max(0, columns);
 	const dimmed = options.dimmed === true;
 	const filter = options.filter ?? EMPTY_FILTER;
-	const bg = row.selected && row.kind === "header" ? THEME.selection : THEME.canvas;
+	const selected = row.selected && row.kind === "header";
+	const bg = selected ? THEME.selection : options.fill === false ? null : THEME.canvas;
 	const marker = markerFor(row);
 	const pieces: RowSpan[] = [{ text: marker, role: "gutter" }, ...row.spans];
 	let used = 0;

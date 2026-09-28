@@ -151,7 +151,7 @@ describe("agent query CLI with Jev", () => {
 		}
 	}
 
-	test("~ asks Jev and emits only relevant events with score and verdict", async () => {
+	test("~ classifies with Jev and emits only relevant events with score and verdict", async () => {
 		const run = await withJev("score", () => query(fixture, "~database locks"));
 		const lines = run.out.map((line) => Schema.decodeUnknownSync(JevEvent)(line));
 		const events = lines.filter((line) => line.type === "event");
@@ -161,15 +161,6 @@ describe("agent query CLI with Jev", () => {
 		expect(events.every((line) => line.verdict === "relevant" && (line.score ?? 0) >= 0.5)).toBe(true);
 		expect(lines.at(-1)?.query).toBe("~database locks");
 		expect(lines.at(-1)?.jev).toEqual({ relevant: 4, belowThreshold: 11, unscored: 0 });
-	});
-
-	test("--semantic is the same as the ~ prefix and keeps local keys", async () => {
-		const run = await withJev("score", () => query(fixture, "level:W database locks", "--semantic"));
-		const lines = run.out.map((line) => Schema.decodeUnknownSync(JevEvent)(line));
-
-		expect(run.code).toBe(0);
-		expect(lines.filter((line) => line.type === "event").map((line) => line.id)).toEqual([6]);
-		expect(lines.at(-1)?.query).toBe("level:W ~database locks");
 	});
 
 	test("--check reports the search mode without calling Jev", async () => {

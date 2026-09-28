@@ -226,10 +226,10 @@
         "overline": false,
         "underline": null
       },
-      "text": " · 11 hidden"
+      "text": " ≥ 0.50"
     },
     {
-      "x": 97,
+      "x": 92,
       "y": 0,
       "foreground": {
         "r": 195,
@@ -253,7 +253,7 @@
       "text": "  "
     },
     {
-      "x": 99,
+      "x": 94,
       "y": 0,
       "foreground": {
         "r": 135,
@@ -277,7 +277,7 @@
       "text": "1 filters"
     },
     {
-      "x": 108,
+      "x": 103,
       "y": 0,
       "foreground": {
         "r": 195,
@@ -298,7 +298,7 @@
         "overline": false,
         "underline": null
       },
-      "text": "            "
+      "text": "                 "
     },
     {
       "x": 0,
@@ -592,6 +592,222 @@
       "x": 0,
       "y": 3,
       "foreground": {
+        "r": 82,
+        "g": 98,
+        "b": 127
+      },
+      "background": {
+        "r": 17,
+        "g": 24,
+        "b": 32
+      },
+      "attributes": {
+        "bold": false,
+        "italic": false,
+        "faint": false,
+        "invisible": false,
+        "strikethrough": false,
+        "overline": false,
+        "underline": null
+      },
+      "text": "  08:55:00.000   I    1186:1186 Zygote            Process 4321 created for com.example.logview.demo      "
+    },
+    {
+      "x": 105,
+      "y": 3,
+      "foreground": {
+        "r": 82,
+        "g": 98,
+        "b": 127
+      },
+      "background": {
+        "r": 13,
+        "g": 17,
+        "b": 23
+      },
+      "attributes": {
+        "bold": false,
+        "italic": false,
+        "faint": false,
+        "invisible": false,
+        "strikethrough": false,
+        "overline": false,
+        "underline": null
+      },
+      "text": "│"
+    },
+    {
+      "x": 106,
+      "y": 3,
+      "foreground": {
+        "r": 82,
+        "g": 98,
+        "b": 127
+      },
+      "background": {
+        "r": 17,
+        "g": 24,
+        "b": 32
+      },
+      "attributes": {
+        "bold": false,
+        "italic": false,
+        "faint": false,
+        "invisible": false,
+        "strikethrough": false,
+        "overline": false,
+        "underline": null
+      },
+      "text": " ━╌╌╌╌ 0.08   "
+    },
+    {
+      "x": 0,
+      "y": 4,
+      "foreground": {
+        "r": 82,
+        "g": 98,
+        "b": 127
+      },
+      "background": {
+        "r": 17,
+        "g": 24,
+        "b": 32
+      },
+      "attributes": {
+        "bold": false,
+        "italic": false,
+        "faint": false,
+        "invisible": false,
+        "strikethrough": false,
+        "overline": false,
+        "underline": null
+      },
+      "text": "  08:55:00.000   I    1234:1250 ActivityManager   Start proc 4321:com.example.logview.demo/u0a42 for ac… "
+    },
+    {
+      "x": 105,
+      "y": 4,
+      "foreground": {
+        "r": 82,
+        "g": 98,
+        "b": 127
+      },
+      "background": {
+        "r": 13,
+        "g": 17,
+        "b": 23
+      },
+      "attributes": {
+        "bold": false,
+        "italic": false,
+        "faint": false,
+        "invisible": false,
+        "strikethrough": false,
+        "overline": false,
+        "underline": null
+      },
+      "text": "│"
+    },
+    {
+      "x": 106,
+      "y": 4,
+      "foreground": {
+        "r": 82,
+        "g": 98,
+        "b": 127
+      },
+      "background": {
+        "r": 17,
+        "g": 24,
+        "b": 32
+      },
+      "attributes": {
+        "bold": false,
+        "italic": false,
+        "faint": false,
+        "invisible": false,
+        "strikethrough": false,
+        "overline": false,
+        "underline": null
+      },
+      "text": " ━╌╌╌╌ 0.08   "
+    },
+    {
+      "x": 0,
+      "y": 5,
+      "foreground": {
+        "r": 82,
+        "g": 98,
+        "b": 127
+      },
+      "background": {
+        "r": 17,
+        "g": 24,
+        "b": 32
+      },
+      "attributes": {
+        "bold": false,
+        "italic": false,
+        "faint": false,
+        "invisible": false,
+        "strikethrough": false,
+        "overline": false,
+        "underline": null
+      },
+      "text": "  08:55:00.001   D    4321:4321 logview-demo      session opened                                         "
+    },
+    {
+      "x": 105,
+      "y": 5,
+      "foreground": {
+        "r": 82,
+        "g": 98,
+        "b": 127
+      },
+      "background": {
+        "r": 13,
+        "g": 17,
+        "b": 23
+      },
+      "attributes": {
+        "bold": false,
+        "italic": false,
+        "faint": false,
+        "invisible": false,
+        "strikethrough": false,
+        "overline": false,
+        "underline": null
+      },
+      "text": "│"
+    },
+    {
+      "x": 106,
+      "y": 5,
+      "foreground": {
+        "r": 82,
+        "g": 98,
+        "b": 127
+      },
+      "background": {
+        "r": 17,
+        "g": 24,
+        "b": 32
+      },
+      "attributes": {
+        "bold": false,
+        "italic": false,
+        "faint": false,
+        "invisible": false,
+        "strikethrough": false,
+        "overline": false,
+        "underline": null
+      },
+      "text": " ━╌╌╌╌ 0.08   "
+    },
+    {
+      "x": 0,
+      "y": 6,
+      "foreground": {
         "r": 135,
         "g": 150,
         "b": 181
@@ -614,7 +830,7 @@
     },
     {
       "x": 16,
-      "y": 3,
+      "y": 6,
       "foreground": {
         "r": 126,
         "g": 231,
@@ -638,7 +854,7 @@
     },
     {
       "x": 18,
-      "y": 3,
+      "y": 6,
       "foreground": {
         "r": 135,
         "g": 150,
@@ -662,7 +878,7 @@
     },
     {
       "x": 20,
-      "y": 3,
+      "y": 6,
       "foreground": {
         "r": 69,
         "g": 150,
@@ -686,7 +902,7 @@
     },
     {
       "x": 31,
-      "y": 3,
+      "y": 6,
       "foreground": {
         "r": 135,
         "g": 150,
@@ -710,7 +926,7 @@
     },
     {
       "x": 32,
-      "y": 3,
+      "y": 6,
       "foreground": {
         "r": 126,
         "g": 231,
@@ -734,7 +950,7 @@
     },
     {
       "x": 48,
-      "y": 3,
+      "y": 6,
       "foreground": {
         "r": 135,
         "g": 150,
@@ -758,7 +974,7 @@
     },
     {
       "x": 50,
-      "y": 3,
+      "y": 6,
       "foreground": {
         "r": 195,
         "g": 205,
@@ -782,7 +998,7 @@
     },
     {
       "x": 105,
-      "y": 3,
+      "y": 6,
       "foreground": {
         "r": 82,
         "g": 98,
@@ -806,7 +1022,7 @@
     },
     {
       "x": 106,
-      "y": 3,
+      "y": 6,
       "foreground": {
         "r": 199,
         "g": 146,
@@ -830,7 +1046,7 @@
     },
     {
       "x": 111,
-      "y": 3,
+      "y": 6,
       "foreground": {
         "r": 82,
         "g": 98,
@@ -854,7 +1070,7 @@
     },
     {
       "x": 112,
-      "y": 3,
+      "y": 6,
       "foreground": {
         "r": 199,
         "g": 146,
@@ -878,7 +1094,7 @@
     },
     {
       "x": 0,
-      "y": 4,
+      "y": 7,
       "foreground": {
         "r": 135,
         "g": 150,
@@ -902,7 +1118,7 @@
     },
     {
       "x": 16,
-      "y": 4,
+      "y": 7,
       "foreground": {
         "r": 126,
         "g": 231,
@@ -926,7 +1142,7 @@
     },
     {
       "x": 18,
-      "y": 4,
+      "y": 7,
       "foreground": {
         "r": 135,
         "g": 150,
@@ -950,7 +1166,7 @@
     },
     {
       "x": 20,
-      "y": 4,
+      "y": 7,
       "foreground": {
         "r": 69,
         "g": 150,
@@ -974,7 +1190,7 @@
     },
     {
       "x": 31,
-      "y": 4,
+      "y": 7,
       "foreground": {
         "r": 135,
         "g": 150,
@@ -998,7 +1214,7 @@
     },
     {
       "x": 32,
-      "y": 4,
+      "y": 7,
       "foreground": {
         "r": 126,
         "g": 231,
@@ -1022,7 +1238,7 @@
     },
     {
       "x": 48,
-      "y": 4,
+      "y": 7,
       "foreground": {
         "r": 135,
         "g": 150,
@@ -1046,7 +1262,7 @@
     },
     {
       "x": 50,
-      "y": 4,
+      "y": 7,
       "foreground": {
         "r": 195,
         "g": 205,
@@ -1070,7 +1286,7 @@
     },
     {
       "x": 70,
-      "y": 4,
+      "y": 7,
       "foreground": {
         "r": 53,
         "g": 212,
@@ -1094,7 +1310,7 @@
     },
     {
       "x": 72,
-      "y": 4,
+      "y": 7,
       "foreground": {
         "r": 195,
         "g": 205,
@@ -1118,7 +1334,7 @@
     },
     {
       "x": 105,
-      "y": 4,
+      "y": 7,
       "foreground": {
         "r": 82,
         "g": 98,
@@ -1142,7 +1358,7 @@
     },
     {
       "x": 106,
-      "y": 4,
+      "y": 7,
       "foreground": {
         "r": 199,
         "g": 146,
@@ -1166,7 +1382,7 @@
     },
     {
       "x": 111,
-      "y": 4,
+      "y": 7,
       "foreground": {
         "r": 82,
         "g": 98,
@@ -1190,7 +1406,7 @@
     },
     {
       "x": 112,
-      "y": 4,
+      "y": 7,
       "foreground": {
         "r": 199,
         "g": 146,
@@ -1214,7 +1430,7 @@
     },
     {
       "x": 0,
-      "y": 5,
+      "y": 8,
       "foreground": {
         "r": 135,
         "g": 150,
@@ -1238,7 +1454,7 @@
     },
     {
       "x": 16,
-      "y": 5,
+      "y": 8,
       "foreground": {
         "r": 244,
         "g": 201,
@@ -1262,7 +1478,7 @@
     },
     {
       "x": 18,
-      "y": 5,
+      "y": 8,
       "foreground": {
         "r": 135,
         "g": 150,
@@ -1286,7 +1502,7 @@
     },
     {
       "x": 20,
-      "y": 5,
+      "y": 8,
       "foreground": {
         "r": 69,
         "g": 150,
@@ -1310,7 +1526,7 @@
     },
     {
       "x": 31,
-      "y": 5,
+      "y": 8,
       "foreground": {
         "r": 135,
         "g": 150,
@@ -1334,7 +1550,7 @@
     },
     {
       "x": 32,
-      "y": 5,
+      "y": 8,
       "foreground": {
         "r": 244,
         "g": 201,
@@ -1358,7 +1574,7 @@
     },
     {
       "x": 48,
-      "y": 5,
+      "y": 8,
       "foreground": {
         "r": 135,
         "g": 150,
@@ -1382,7 +1598,7 @@
     },
     {
       "x": 50,
-      "y": 5,
+      "y": 8,
       "foreground": {
         "r": 195,
         "g": 205,
@@ -1406,7 +1622,7 @@
     },
     {
       "x": 105,
-      "y": 5,
+      "y": 8,
       "foreground": {
         "r": 82,
         "g": 98,
@@ -1430,7 +1646,7 @@
     },
     {
       "x": 106,
-      "y": 5,
+      "y": 8,
       "foreground": {
         "r": 199,
         "g": 146,
@@ -1454,7 +1670,7 @@
     },
     {
       "x": 0,
-      "y": 6,
+      "y": 9,
       "foreground": {
         "r": 82,
         "g": 98,
@@ -1478,7 +1694,7 @@
     },
     {
       "x": 51,
-      "y": 6,
+      "y": 9,
       "foreground": {
         "r": 135,
         "g": 150,
@@ -1502,7 +1718,7 @@
     },
     {
       "x": 105,
-      "y": 6,
+      "y": 9,
       "foreground": {
         "r": 82,
         "g": 98,
@@ -1526,7 +1742,7 @@
     },
     {
       "x": 106,
-      "y": 6,
+      "y": 9,
       "foreground": {
         "r": 82,
         "g": 98,
@@ -1550,7 +1766,7 @@
     },
     {
       "x": 0,
-      "y": 7,
+      "y": 10,
       "foreground": {
         "r": 82,
         "g": 98,
@@ -1574,7 +1790,7 @@
     },
     {
       "x": 51,
-      "y": 7,
+      "y": 10,
       "foreground": {
         "r": 135,
         "g": 150,
@@ -1598,7 +1814,7 @@
     },
     {
       "x": 105,
-      "y": 7,
+      "y": 10,
       "foreground": {
         "r": 82,
         "g": 98,
@@ -1622,7 +1838,7 @@
     },
     {
       "x": 106,
-      "y": 7,
+      "y": 10,
       "foreground": {
         "r": 82,
         "g": 98,
@@ -1646,40 +1862,16 @@
     },
     {
       "x": 0,
-      "y": 8,
-      "foreground": {
-        "r": 69,
-        "g": 150,
-        "b": 255
-      },
-      "background": {
-        "r": 28,
-        "g": 46,
-        "b": 74
-      },
-      "attributes": {
-        "bold": true,
-        "italic": false,
-        "faint": false,
-        "invisible": false,
-        "strikethrough": false,
-        "overline": false,
-        "underline": null
-      },
-      "text": "▸ "
-    },
-    {
-      "x": 2,
-      "y": 8,
+      "y": 11,
       "foreground": {
         "r": 135,
         "g": 150,
         "b": 181
       },
       "background": {
-        "r": 28,
-        "g": 46,
-        "b": 74
+        "r": 17,
+        "g": 24,
+        "b": 32
       },
       "attributes": {
         "bold": false,
@@ -1690,20 +1882,20 @@
         "overline": false,
         "underline": null
       },
-      "text": "08:55:00.003  "
+      "text": "  08:55:00.003  "
     },
     {
       "x": 16,
-      "y": 8,
+      "y": 11,
       "foreground": {
         "r": 126,
         "g": 231,
         "b": 135
       },
       "background": {
-        "r": 28,
-        "g": 46,
-        "b": 74
+        "r": 17,
+        "g": 24,
+        "b": 32
       },
       "attributes": {
         "bold": false,
@@ -1718,16 +1910,16 @@
     },
     {
       "x": 18,
-      "y": 8,
+      "y": 11,
       "foreground": {
         "r": 135,
         "g": 150,
         "b": 181
       },
       "background": {
-        "r": 28,
-        "g": 46,
-        "b": 74
+        "r": 17,
+        "g": 24,
+        "b": 32
       },
       "attributes": {
         "bold": false,
@@ -1742,16 +1934,16 @@
     },
     {
       "x": 20,
-      "y": 8,
+      "y": 11,
       "foreground": {
         "r": 69,
         "g": 150,
         "b": 255
       },
       "background": {
-        "r": 28,
-        "g": 46,
-        "b": 74
+        "r": 17,
+        "g": 24,
+        "b": 32
       },
       "attributes": {
         "bold": false,
@@ -1766,16 +1958,16 @@
     },
     {
       "x": 31,
-      "y": 8,
+      "y": 11,
       "foreground": {
         "r": 135,
         "g": 150,
         "b": 181
       },
       "background": {
-        "r": 28,
-        "g": 46,
-        "b": 74
+        "r": 17,
+        "g": 24,
+        "b": 32
       },
       "attributes": {
         "bold": false,
@@ -1790,16 +1982,16 @@
     },
     {
       "x": 32,
-      "y": 8,
+      "y": 11,
       "foreground": {
         "r": 126,
         "g": 231,
         "b": 135
       },
       "background": {
-        "r": 28,
-        "g": 46,
-        "b": 74
+        "r": 17,
+        "g": 24,
+        "b": 32
       },
       "attributes": {
         "bold": false,
@@ -1814,16 +2006,16 @@
     },
     {
       "x": 48,
-      "y": 8,
+      "y": 11,
       "foreground": {
         "r": 135,
         "g": 150,
         "b": 181
       },
       "background": {
-        "r": 28,
-        "g": 46,
-        "b": 74
+        "r": 17,
+        "g": 24,
+        "b": 32
       },
       "attributes": {
         "bold": false,
@@ -1838,16 +2030,16 @@
     },
     {
       "x": 50,
-      "y": 8,
+      "y": 11,
       "foreground": {
         "r": 195,
         "g": 205,
         "b": 232
       },
       "background": {
-        "r": 28,
-        "g": 46,
-        "b": 74
+        "r": 17,
+        "g": 24,
+        "b": 32
       },
       "attributes": {
         "bold": false,
@@ -1862,7 +2054,7 @@
     },
     {
       "x": 105,
-      "y": 8,
+      "y": 11,
       "foreground": {
         "r": 82,
         "g": 98,
@@ -1886,11 +2078,659 @@
     },
     {
       "x": 106,
-      "y": 8,
+      "y": 11,
       "foreground": {
         "r": 199,
         "g": 146,
         "b": 234
+      },
+      "background": {
+        "r": 17,
+        "g": 24,
+        "b": 32
+      },
+      "attributes": {
+        "bold": false,
+        "italic": false,
+        "faint": false,
+        "invisible": false,
+        "strikethrough": false,
+        "overline": false,
+        "underline": null
+      },
+      "text": " ━━━━━ 0.93   "
+    },
+    {
+      "x": 0,
+      "y": 12,
+      "foreground": {
+        "r": 82,
+        "g": 98,
+        "b": 127
+      },
+      "background": {
+        "r": 17,
+        "g": 24,
+        "b": 32
+      },
+      "attributes": {
+        "bold": false,
+        "italic": false,
+        "faint": false,
+        "invisible": false,
+        "strikethrough": false,
+        "overline": false,
+        "underline": null
+      },
+      "text": "  08:55:00.003   E    4321:4321 logview-demo      failed to parse token=REDACTED                         "
+    },
+    {
+      "x": 105,
+      "y": 12,
+      "foreground": {
+        "r": 82,
+        "g": 98,
+        "b": 127
+      },
+      "background": {
+        "r": 13,
+        "g": 17,
+        "b": 23
+      },
+      "attributes": {
+        "bold": false,
+        "italic": false,
+        "faint": false,
+        "invisible": false,
+        "strikethrough": false,
+        "overline": false,
+        "underline": null
+      },
+      "text": "│"
+    },
+    {
+      "x": 106,
+      "y": 12,
+      "foreground": {
+        "r": 82,
+        "g": 98,
+        "b": 127
+      },
+      "background": {
+        "r": 17,
+        "g": 24,
+        "b": 32
+      },
+      "attributes": {
+        "bold": false,
+        "italic": false,
+        "faint": false,
+        "invisible": false,
+        "strikethrough": false,
+        "overline": false,
+        "underline": null
+      },
+      "text": " ━╌╌╌╌ 0.08   "
+    },
+    {
+      "x": 0,
+      "y": 13,
+      "foreground": {
+        "r": 82,
+        "g": 98,
+        "b": 127
+      },
+      "background": {
+        "r": 17,
+        "g": 24,
+        "b": 32
+      },
+      "attributes": {
+        "bold": false,
+        "italic": false,
+        "faint": false,
+        "invisible": false,
+        "strikethrough": false,
+        "overline": false,
+        "underline": null
+      },
+      "text": "  08:55:00.003   W    4321:4321 logview-demo      stray sequence ^[[31m in payload                       "
+    },
+    {
+      "x": 105,
+      "y": 13,
+      "foreground": {
+        "r": 82,
+        "g": 98,
+        "b": 127
+      },
+      "background": {
+        "r": 13,
+        "g": 17,
+        "b": 23
+      },
+      "attributes": {
+        "bold": false,
+        "italic": false,
+        "faint": false,
+        "invisible": false,
+        "strikethrough": false,
+        "overline": false,
+        "underline": null
+      },
+      "text": "│"
+    },
+    {
+      "x": 106,
+      "y": 13,
+      "foreground": {
+        "r": 82,
+        "g": 98,
+        "b": 127
+      },
+      "background": {
+        "r": 17,
+        "g": 24,
+        "b": 32
+      },
+      "attributes": {
+        "bold": false,
+        "italic": false,
+        "faint": false,
+        "invisible": false,
+        "strikethrough": false,
+        "overline": false,
+        "underline": null
+      },
+      "text": " ━╌╌╌╌ 0.08   "
+    },
+    {
+      "x": 0,
+      "y": 14,
+      "foreground": {
+        "r": 82,
+        "g": 98,
+        "b": 127
+      },
+      "background": {
+        "r": 17,
+        "g": 24,
+        "b": 32
+      },
+      "attributes": {
+        "bold": false,
+        "italic": false,
+        "faint": false,
+        "invisible": false,
+        "strikethrough": false,
+        "overline": false,
+        "underline": null
+      },
+      "text": "  08:55:00.003   I    4321:4321 logview-demo      café already open                                      "
+    },
+    {
+      "x": 105,
+      "y": 14,
+      "foreground": {
+        "r": 82,
+        "g": 98,
+        "b": 127
+      },
+      "background": {
+        "r": 13,
+        "g": 17,
+        "b": 23
+      },
+      "attributes": {
+        "bold": false,
+        "italic": false,
+        "faint": false,
+        "invisible": false,
+        "strikethrough": false,
+        "overline": false,
+        "underline": null
+      },
+      "text": "│"
+    },
+    {
+      "x": 106,
+      "y": 14,
+      "foreground": {
+        "r": 82,
+        "g": 98,
+        "b": 127
+      },
+      "background": {
+        "r": 17,
+        "g": 24,
+        "b": 32
+      },
+      "attributes": {
+        "bold": false,
+        "italic": false,
+        "faint": false,
+        "invisible": false,
+        "strikethrough": false,
+        "overline": false,
+        "underline": null
+      },
+      "text": " ━╌╌╌╌ 0.08   "
+    },
+    {
+      "x": 0,
+      "y": 15,
+      "foreground": {
+        "r": 82,
+        "g": 98,
+        "b": 127
+      },
+      "background": {
+        "r": 17,
+        "g": 24,
+        "b": 32
+      },
+      "attributes": {
+        "bold": false,
+        "italic": false,
+        "faint": false,
+        "invisible": false,
+        "strikethrough": false,
+        "overline": false,
+        "underline": null
+      },
+      "text": "  08:55:00.003   F          1:1 libc              Fatal signal 11 (SIGSEGV), code 1, fault addr 0x0 in … "
+    },
+    {
+      "x": 105,
+      "y": 15,
+      "foreground": {
+        "r": 82,
+        "g": 98,
+        "b": 127
+      },
+      "background": {
+        "r": 13,
+        "g": 17,
+        "b": 23
+      },
+      "attributes": {
+        "bold": false,
+        "italic": false,
+        "faint": false,
+        "invisible": false,
+        "strikethrough": false,
+        "overline": false,
+        "underline": null
+      },
+      "text": "│"
+    },
+    {
+      "x": 106,
+      "y": 15,
+      "foreground": {
+        "r": 82,
+        "g": 98,
+        "b": 127
+      },
+      "background": {
+        "r": 17,
+        "g": 24,
+        "b": 32
+      },
+      "attributes": {
+        "bold": false,
+        "italic": false,
+        "faint": false,
+        "invisible": false,
+        "strikethrough": false,
+        "overline": false,
+        "underline": null
+      },
+      "text": " ━╌╌╌╌ 0.08   "
+    },
+    {
+      "x": 0,
+      "y": 16,
+      "foreground": {
+        "r": 82,
+        "g": 98,
+        "b": 127
+      },
+      "background": {
+        "r": 17,
+        "g": 24,
+        "b": 32
+      },
+      "attributes": {
+        "bold": false,
+        "italic": false,
+        "faint": false,
+        "invisible": false,
+        "strikethrough": false,
+        "overline": false,
+        "underline": null
+      },
+      "text": "  │                                                "
+    },
+    {
+      "x": 51,
+      "y": 16,
+      "foreground": {
+        "r": 135,
+        "g": 150,
+        "b": 181
+      },
+      "background": {
+        "r": 17,
+        "g": 24,
+        "b": 32
+      },
+      "attributes": {
+        "bold": false,
+        "italic": false,
+        "faint": false,
+        "invisible": false,
+        "strikethrough": false,
+        "overline": false,
+        "underline": null
+      },
+      "text": "not a header line"
+    },
+    {
+      "x": 68,
+      "y": 16,
+      "foreground": {
+        "r": 82,
+        "g": 98,
+        "b": 127
+      },
+      "background": {
+        "r": 17,
+        "g": 24,
+        "b": 32
+      },
+      "attributes": {
+        "bold": false,
+        "italic": false,
+        "faint": false,
+        "invisible": false,
+        "strikethrough": false,
+        "overline": false,
+        "underline": null
+      },
+      "text": "                                     "
+    },
+    {
+      "x": 105,
+      "y": 16,
+      "foreground": {
+        "r": 82,
+        "g": 98,
+        "b": 127
+      },
+      "background": {
+        "r": 13,
+        "g": 17,
+        "b": 23
+      },
+      "attributes": {
+        "bold": false,
+        "italic": false,
+        "faint": false,
+        "invisible": false,
+        "strikethrough": false,
+        "overline": false,
+        "underline": null
+      },
+      "text": "│"
+    },
+    {
+      "x": 106,
+      "y": 16,
+      "foreground": {
+        "r": 82,
+        "g": 98,
+        "b": 127
+      },
+      "background": {
+        "r": 17,
+        "g": 24,
+        "b": 32
+      },
+      "attributes": {
+        "bold": false,
+        "italic": false,
+        "faint": false,
+        "invisible": false,
+        "strikethrough": false,
+        "overline": false,
+        "underline": null
+      },
+      "text": "              "
+    },
+    {
+      "x": 0,
+      "y": 17,
+      "foreground": {
+        "r": 82,
+        "g": 98,
+        "b": 127
+      },
+      "background": {
+        "r": 17,
+        "g": 24,
+        "b": 32
+      },
+      "attributes": {
+        "bold": false,
+        "italic": false,
+        "faint": false,
+        "invisible": false,
+        "strikethrough": false,
+        "overline": false,
+        "underline": null
+      },
+      "text": "  08:55:00.003   V    4321:4321 logview-demo      verbose heartbeat                                      "
+    },
+    {
+      "x": 105,
+      "y": 17,
+      "foreground": {
+        "r": 82,
+        "g": 98,
+        "b": 127
+      },
+      "background": {
+        "r": 13,
+        "g": 17,
+        "b": 23
+      },
+      "attributes": {
+        "bold": false,
+        "italic": false,
+        "faint": false,
+        "invisible": false,
+        "strikethrough": false,
+        "overline": false,
+        "underline": null
+      },
+      "text": "│"
+    },
+    {
+      "x": 106,
+      "y": 17,
+      "foreground": {
+        "r": 82,
+        "g": 98,
+        "b": 127
+      },
+      "background": {
+        "r": 17,
+        "g": 24,
+        "b": 32
+      },
+      "attributes": {
+        "bold": false,
+        "italic": false,
+        "faint": false,
+        "invisible": false,
+        "strikethrough": false,
+        "overline": false,
+        "underline": null
+      },
+      "text": " ━╌╌╌╌ 0.08   "
+    },
+    {
+      "x": 0,
+      "y": 18,
+      "foreground": {
+        "r": 82,
+        "g": 98,
+        "b": 127
+      },
+      "background": {
+        "r": 17,
+        "g": 24,
+        "b": 32
+      },
+      "attributes": {
+        "bold": false,
+        "italic": false,
+        "faint": false,
+        "invisible": false,
+        "strikethrough": false,
+        "overline": false,
+        "underline": null
+      },
+      "text": "  08:54:59.999   I    4321:4321 logview-demo      clock went backward                                    "
+    },
+    {
+      "x": 105,
+      "y": 18,
+      "foreground": {
+        "r": 82,
+        "g": 98,
+        "b": 127
+      },
+      "background": {
+        "r": 13,
+        "g": 17,
+        "b": 23
+      },
+      "attributes": {
+        "bold": false,
+        "italic": false,
+        "faint": false,
+        "invisible": false,
+        "strikethrough": false,
+        "overline": false,
+        "underline": null
+      },
+      "text": "│"
+    },
+    {
+      "x": 106,
+      "y": 18,
+      "foreground": {
+        "r": 82,
+        "g": 98,
+        "b": 127
+      },
+      "background": {
+        "r": 17,
+        "g": 24,
+        "b": 32
+      },
+      "attributes": {
+        "bold": false,
+        "italic": false,
+        "faint": false,
+        "invisible": false,
+        "strikethrough": false,
+        "overline": false,
+        "underline": null
+      },
+      "text": " ━╌╌╌╌ 0.08   "
+    },
+    {
+      "x": 0,
+      "y": 19,
+      "foreground": {
+        "r": 82,
+        "g": 98,
+        "b": 127
+      },
+      "background": {
+        "r": 17,
+        "g": 24,
+        "b": 32
+      },
+      "attributes": {
+        "bold": false,
+        "italic": false,
+        "faint": false,
+        "invisible": false,
+        "strikethrough": false,
+        "overline": false,
+        "underline": null
+      },
+      "text": "  08:55:00.004   I    1001:1001 chatty            uid=10042(u0_a42) expire 4 lines                       "
+    },
+    {
+      "x": 105,
+      "y": 19,
+      "foreground": {
+        "r": 82,
+        "g": 98,
+        "b": 127
+      },
+      "background": {
+        "r": 13,
+        "g": 17,
+        "b": 23
+      },
+      "attributes": {
+        "bold": false,
+        "italic": false,
+        "faint": false,
+        "invisible": false,
+        "strikethrough": false,
+        "overline": false,
+        "underline": null
+      },
+      "text": "│"
+    },
+    {
+      "x": 106,
+      "y": 19,
+      "foreground": {
+        "r": 82,
+        "g": 98,
+        "b": 127
+      },
+      "background": {
+        "r": 17,
+        "g": 24,
+        "b": 32
+      },
+      "attributes": {
+        "bold": false,
+        "italic": false,
+        "faint": false,
+        "invisible": false,
+        "strikethrough": false,
+        "overline": false,
+        "underline": null
+      },
+      "text": " ━╌╌╌╌ 0.08   "
+    },
+    {
+      "x": 0,
+      "y": 20,
+      "foreground": {
+        "r": 82,
+        "g": 98,
+        "b": 127
       },
       "background": {
         "r": 28,
@@ -1906,284 +2746,124 @@
         "overline": false,
         "underline": null
       },
-      "text": " ━━━━━ 0.93   "
+      "text": "▸ 08:55:00.004   I    4321:4321 logview-demo      日本語 ok                                              ",
+      "widths": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        2,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
     },
     {
-      "x": 0,
-      "y": 9,
-      "foreground": {
-        "r": 195,
-        "g": 205,
-        "b": 232
-      },
-      "background": {
-        "r": 17,
-        "g": 24,
-        "b": 32
-      },
-      "attributes": {
-        "bold": false,
-        "italic": false,
-        "faint": false,
-        "invisible": false,
-        "strikethrough": false,
-        "overline": false,
-        "underline": null
-      },
-      "text": "                                                                                                                        "
-    },
-    {
-      "x": 0,
-      "y": 10,
-      "foreground": {
-        "r": 195,
-        "g": 205,
-        "b": 232
-      },
-      "background": {
-        "r": 17,
-        "g": 24,
-        "b": 32
-      },
-      "attributes": {
-        "bold": false,
-        "italic": false,
-        "faint": false,
-        "invisible": false,
-        "strikethrough": false,
-        "overline": false,
-        "underline": null
-      },
-      "text": "                                                                                                                        "
-    },
-    {
-      "x": 0,
-      "y": 11,
-      "foreground": {
-        "r": 195,
-        "g": 205,
-        "b": 232
-      },
-      "background": {
-        "r": 17,
-        "g": 24,
-        "b": 32
-      },
-      "attributes": {
-        "bold": false,
-        "italic": false,
-        "faint": false,
-        "invisible": false,
-        "strikethrough": false,
-        "overline": false,
-        "underline": null
-      },
-      "text": "                                                                                                                        "
-    },
-    {
-      "x": 0,
-      "y": 12,
-      "foreground": {
-        "r": 195,
-        "g": 205,
-        "b": 232
-      },
-      "background": {
-        "r": 17,
-        "g": 24,
-        "b": 32
-      },
-      "attributes": {
-        "bold": false,
-        "italic": false,
-        "faint": false,
-        "invisible": false,
-        "strikethrough": false,
-        "overline": false,
-        "underline": null
-      },
-      "text": "                                                                                                                        "
-    },
-    {
-      "x": 0,
-      "y": 13,
-      "foreground": {
-        "r": 195,
-        "g": 205,
-        "b": 232
-      },
-      "background": {
-        "r": 17,
-        "g": 24,
-        "b": 32
-      },
-      "attributes": {
-        "bold": false,
-        "italic": false,
-        "faint": false,
-        "invisible": false,
-        "strikethrough": false,
-        "overline": false,
-        "underline": null
-      },
-      "text": "                                                                                                                        "
-    },
-    {
-      "x": 0,
-      "y": 14,
-      "foreground": {
-        "r": 195,
-        "g": 205,
-        "b": 232
-      },
-      "background": {
-        "r": 17,
-        "g": 24,
-        "b": 32
-      },
-      "attributes": {
-        "bold": false,
-        "italic": false,
-        "faint": false,
-        "invisible": false,
-        "strikethrough": false,
-        "overline": false,
-        "underline": null
-      },
-      "text": "                                                                                                                        "
-    },
-    {
-      "x": 0,
-      "y": 15,
-      "foreground": {
-        "r": 195,
-        "g": 205,
-        "b": 232
-      },
-      "background": {
-        "r": 17,
-        "g": 24,
-        "b": 32
-      },
-      "attributes": {
-        "bold": false,
-        "italic": false,
-        "faint": false,
-        "invisible": false,
-        "strikethrough": false,
-        "overline": false,
-        "underline": null
-      },
-      "text": "                                                                                                                        "
-    },
-    {
-      "x": 0,
-      "y": 16,
-      "foreground": {
-        "r": 195,
-        "g": 205,
-        "b": 232
-      },
-      "background": {
-        "r": 17,
-        "g": 24,
-        "b": 32
-      },
-      "attributes": {
-        "bold": false,
-        "italic": false,
-        "faint": false,
-        "invisible": false,
-        "strikethrough": false,
-        "overline": false,
-        "underline": null
-      },
-      "text": "                                                                                                                        "
-    },
-    {
-      "x": 0,
-      "y": 17,
-      "foreground": {
-        "r": 195,
-        "g": 205,
-        "b": 232
-      },
-      "background": {
-        "r": 17,
-        "g": 24,
-        "b": 32
-      },
-      "attributes": {
-        "bold": false,
-        "italic": false,
-        "faint": false,
-        "invisible": false,
-        "strikethrough": false,
-        "overline": false,
-        "underline": null
-      },
-      "text": "                                                                                                                        "
-    },
-    {
-      "x": 0,
-      "y": 18,
-      "foreground": {
-        "r": 195,
-        "g": 205,
-        "b": 232
-      },
-      "background": {
-        "r": 17,
-        "g": 24,
-        "b": 32
-      },
-      "attributes": {
-        "bold": false,
-        "italic": false,
-        "faint": false,
-        "invisible": false,
-        "strikethrough": false,
-        "overline": false,
-        "underline": null
-      },
-      "text": "                                                                                                                        "
-    },
-    {
-      "x": 0,
-      "y": 19,
-      "foreground": {
-        "r": 195,
-        "g": 205,
-        "b": 232
-      },
-      "background": {
-        "r": 17,
-        "g": 24,
-        "b": 32
-      },
-      "attributes": {
-        "bold": false,
-        "italic": false,
-        "faint": false,
-        "invisible": false,
-        "strikethrough": false,
-        "overline": false,
-        "underline": null
-      },
-      "text": "                                                                                                                        "
-    },
-    {
-      "x": 0,
+      "x": 105,
       "y": 20,
       "foreground": {
-        "r": 195,
-        "g": 205,
-        "b": 232
+        "r": 82,
+        "g": 98,
+        "b": 127
       },
       "background": {
-        "r": 17,
-        "g": 24,
-        "b": 32
+        "r": 13,
+        "g": 17,
+        "b": 23
       },
       "attributes": {
         "bold": false,
@@ -2194,7 +2874,31 @@
         "overline": false,
         "underline": null
       },
-      "text": "                                                                                                                        "
+      "text": "│"
+    },
+    {
+      "x": 106,
+      "y": 20,
+      "foreground": {
+        "r": 82,
+        "g": 98,
+        "b": 127
+      },
+      "background": {
+        "r": 28,
+        "g": 46,
+        "b": 74
+      },
+      "attributes": {
+        "bold": false,
+        "italic": false,
+        "faint": false,
+        "invisible": false,
+        "strikethrough": false,
+        "overline": false,
+        "underline": null
+      },
+      "text": " ━╌╌╌╌ 0.08   "
     },
     {
       "x": 0,
@@ -2434,10 +3138,10 @@
         "overline": false,
         "underline": null
       },
-      "text": " m "
+      "text": " [ ] "
     },
     {
-      "x": 39,
+      "x": 41,
       "y": 22,
       "foreground": {
         "r": 135,
@@ -2458,10 +3162,10 @@
         "overline": false,
         "underline": null
       },
-      "text": " Use text"
+      "text": " Threshold"
     },
     {
-      "x": 48,
+      "x": 51,
       "y": 22,
       "foreground": {
         "r": 195,
@@ -2485,7 +3189,7 @@
       "text": "  "
     },
     {
-      "x": 50,
+      "x": 53,
       "y": 22,
       "foreground": {
         "r": 195,
@@ -2506,10 +3210,10 @@
         "overline": false,
         "underline": null
       },
-      "text": " v "
+      "text": " h "
     },
     {
-      "x": 53,
+      "x": 56,
       "y": 22,
       "foreground": {
         "r": 135,
@@ -2530,10 +3234,10 @@
         "overline": false,
         "underline": null
       },
-      "text": " Show all"
+      "text": " Hide weak"
     },
     {
-      "x": 62,
+      "x": 66,
       "y": 22,
       "foreground": {
         "r": 195,
@@ -2557,7 +3261,7 @@
       "text": "  "
     },
     {
-      "x": 64,
+      "x": 68,
       "y": 22,
       "foreground": {
         "r": 195,
@@ -2581,7 +3285,7 @@
       "text": " f "
     },
     {
-      "x": 67,
+      "x": 71,
       "y": 22,
       "foreground": {
         "r": 135,
@@ -2605,7 +3309,7 @@
       "text": " Filters"
     },
     {
-      "x": 75,
+      "x": 79,
       "y": 22,
       "foreground": {
         "r": 195,
@@ -2629,7 +3333,7 @@
       "text": "  "
     },
     {
-      "x": 77,
+      "x": 81,
       "y": 22,
       "foreground": {
         "r": 195,
@@ -2653,7 +3357,7 @@
       "text": " x "
     },
     {
-      "x": 80,
+      "x": 84,
       "y": 22,
       "foreground": {
         "r": 135,
@@ -2677,7 +3381,7 @@
       "text": " Clear"
     },
     {
-      "x": 86,
+      "x": 90,
       "y": 22,
       "foreground": {
         "r": 195,
@@ -2701,7 +3405,7 @@
       "text": "  "
     },
     {
-      "x": 88,
+      "x": 92,
       "y": 22,
       "foreground": {
         "r": 195,
@@ -2725,7 +3429,7 @@
       "text": " u "
     },
     {
-      "x": 91,
+      "x": 95,
       "y": 22,
       "foreground": {
         "r": 135,
@@ -2749,7 +3453,7 @@
       "text": " Undo"
     },
     {
-      "x": 96,
+      "x": 100,
       "y": 22,
       "foreground": {
         "r": 195,
@@ -2773,7 +3477,7 @@
       "text": "  "
     },
     {
-      "x": 98,
+      "x": 102,
       "y": 22,
       "foreground": {
         "r": 195,
@@ -2797,7 +3501,7 @@
       "text": " q "
     },
     {
-      "x": 101,
+      "x": 105,
       "y": 22,
       "foreground": {
         "r": 135,
@@ -2821,7 +3525,7 @@
       "text": " Quit"
     },
     {
-      "x": 106,
+      "x": 110,
       "y": 22,
       "foreground": {
         "r": 195,
@@ -2842,7 +3546,7 @@
         "overline": false,
         "underline": null
       },
-      "text": "              "
+      "text": "          "
     },
     {
       "x": 0,

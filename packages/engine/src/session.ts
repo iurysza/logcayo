@@ -77,6 +77,12 @@ export { defaultSessionOptions, validateSessionOptions };
 
 const DATA_PUBLISH_MS = 1000 / 30;
 
+const THRESHOLD_STEP = 0.05;
+
+const MIN_THRESHOLD = 0.05;
+
+const MAX_THRESHOLD = 0.95;
+
 type SemanticVisibleCounts = {
 	classifiedEvents: number;
 	relevantEvents: number;
@@ -122,7 +128,10 @@ class SessionImpl implements Session {
 	private rows: number;
 	private lineDisplay: LineDisplay = "clip";
 	private searchMode: SearchMode = "text";
-	private belowThreshold: BelowThreshold = "dim";
+	private belowThreshold: BelowThreshold = "hide";
+	private threshold: number;
+	/** While a new Jev query classifies its first batch: the list to keep showing, and the IDs still being scored. */
+	private settling: { view: VisibleIndexStore; ids: Set<number> | null; total: number } | null = null;
 	/** Relevant-only view of activeIndex; rebuilt lazily while hide is on. */
 	private hiddenView: VisibleIndexStore | null = null;
 	private readonly vocabulary = new QueryVocabulary();
@@ -177,6 +186,7 @@ class SessionImpl implements Session {
 			this.sourceDoneResolve = resolve;
 		});
 		this.semanticOptions = { ...defaultSemanticOptions(), ...deps.semantic };
+		this.threshold = this.semanticOptions.threshold;
 		this.coordinator = deps.classifier
 			? new SemanticCoordinator(
 					options.sessionId,
@@ -193,9 +203,10 @@ class SessionImpl implements Session {
 				)
 			: null;
 
-		if (this.coordinator) this.searchMode = "jev";
+		if (this.coordinator && options.initialSearchMode === "jev") this.searchMode = "jev";
 
-		if (this.coordinator && options.initialFilter.text.length > 0) {
+		if (this.semanticQueryActive(options.initialFilter)) {
+			this.settling = { view: new VisibleIndexStore(), ids: null, total: 0 };
 			this.replaceSemanticQuery(options.initialFilter);
 		}
 	}
@@ -227,8 +238,8 @@ class SessionImpl implements Session {
 			}),
 			Match.when({ kind: "toggle-line-display" }, () => this.commandToggleLineDisplay()),
 			Match.when({ kind: "request-package-attribution" }, () => this.commandPackageAttribution()),
-			Match.when({ kind: "toggle-search-mode" }, () => this.commandToggleSearchMode()),
 			Match.when({ kind: "toggle-below-threshold" }, () => this.commandToggleBelowThreshold()),
+			Match.when({ kind: "adjust-threshold" }, (adjust) => this.commandAdjustThreshold(adjust.delta)),
 			Match.when({ kind: "set-filter" }, (set) => this.commandSetFilter(set.filter, set.searchMode)),
 			Match.when({ kind: "resize" }, (resize) => this.commandResize(resize.columns, resize.rows)),
 			Match.exhaustive,
@@ -299,6 +310,9 @@ class SessionImpl implements Session {
 
 		this.requestedRevision += 1;
 		this.filterCancel?.();
+		this.settling = this.semanticQueryActive(prepared.value.spec)
+			? { view: this.settling?.view ?? this.displayedIndex(), ids: null, total: 0 }
+			: null;
 		this.syncSemanticQuery(prepared.value.spec);
 		this.beginFilter(prepared.value, this.requestedRevision);
 		this.bump();
@@ -350,13 +364,36 @@ class SessionImpl implements Session {
 		return ok(undefined);
 	}
 
-	/** The ranks the list scrolls through. Hide mode drops scored rows below the threshold. */
+	private commandAdjustThreshold(delta: -1 | 1): Result<void, CommandError> {
+		if (!this.coordinator) return ok(undefined);
+
+		const next = Math.round((this.threshold + delta * THRESHOLD_STEP) * 100) / 100;
+		this.threshold = Math.min(MAX_THRESHOLD, Math.max(MIN_THRESHOLD, next));
+		this.resetSemanticVisibleCounts();
+		this.applyNavigation({ kind: "resize" }, 0);
+		this.bump();
+		this.publishImmediate();
+
+		return ok(undefined);
+	}
+
+	/** What the list shows now: the previous list while a new Jev query settles, otherwise the view index. */
+	private displayedIndex(): VisibleIndexStore {
+		return this.settling?.view ?? this.viewIndex();
+	}
+
+	/**
+	 * The ranks a settled list scrolls through. A Jev query shows only scored rows, so rows never
+	 * appear and then vanish. Hide mode also drops scores below the threshold. Dim mode keeps them
+	 * and rows Jev could not score.
+	 */
 	private viewIndex(): VisibleIndexStore {
-		if (this.belowThreshold === "dim" || !this.semanticQueryActive()) return this.activeIndex;
+		if (!this.semanticQueryActive()) return this.activeIndex;
 
 		if (this.hiddenView !== null) return this.hiddenView;
 
 		const threshold = this.semanticThreshold();
+		const hide = this.belowThreshold === "hide";
 		const kept: number[] = [];
 
 		for (let rank = 0; rank < this.activeIndex.size; rank += 1) {
@@ -366,7 +403,8 @@ class SessionImpl implements Session {
 
 			const mark = this.classificationMark(id);
 
-			if (mark.kind !== "scored" || mark.relevance >= threshold) kept.push(id);
+			if (mark.kind === "scored" && (!hide || mark.relevance >= threshold)) kept.push(id);
+			else if (mark.kind === "unknown" && !hide) kept.push(id);
 		}
 
 		const view = new VisibleIndexStore();
@@ -374,14 +412,6 @@ class SessionImpl implements Session {
 		this.hiddenView = view;
 
 		return view;
-	}
-
-	private commandToggleSearchMode(): Result<void, CommandError> {
-		if (!this.coordinator) return ok(undefined);
-
-		this.searchMode = this.searchMode === "text" ? "jev" : "text";
-
-		return this.commandFilter(this.activeFilter);
 	}
 
 	private commandResize(columns: number, rows: number): Result<void, CommandError> {
@@ -728,7 +758,9 @@ class SessionImpl implements Session {
 		this.resetSemanticVisibleCounts();
 
 		const historyStart = Math.max(0, job.prefix.size - this.semanticOptions.historyEvents);
-		this.enqueueSemantic(job.prefix.window(historyStart, this.semanticOptions.historyEvents), "backfill");
+		const backfill = job.prefix.window(historyStart, this.semanticOptions.historyEvents);
+		this.enqueueSemantic(backfill, "backfill");
+		this.trackSettling(backfill);
 
 		this.applyNavigation({ kind: "filter-committed" }, 0);
 		this.bump();
@@ -860,8 +892,53 @@ class SessionImpl implements Session {
 		this.coordinator.enqueue(ids, priority);
 	}
 
+	/** Records which backfill IDs the first result waits for. An empty set settles at once. */
+	private trackSettling(ids: readonly number[]): void {
+		if (this.settling === null) return;
+
+		const waiting = new Set<number>();
+
+		for (const id of ids) {
+			if (this.classificationMark(id).kind === "pending") waiting.add(id);
+		}
+
+		this.settling.ids = waiting;
+		this.settling.total = ids.length;
+
+		if (waiting.size === 0) this.settling = null;
+	}
+
+	/** Ends the settling phase once every backfill ID has a result or left history. */
+	private settleIfReady(): boolean {
+		const ids = this.settling?.ids;
+
+		if (!ids) return false;
+
+		const firstId = this.history.bounds().firstId;
+
+		for (const id of ids) {
+			const gone = firstId === null || id < firstId;
+
+			if (gone || this.classificationMark(id).kind !== "pending") ids.delete(id);
+		}
+
+		if (ids.size > 0) return false;
+
+		this.settling = null;
+
+		return true;
+	}
+
 	private onSemanticApplied(): void {
 		if (this.closed || this.stopRequested || this.pendingJob) return;
+
+		if (this.settleIfReady()) {
+			this.applyNavigation({ kind: "filter-committed" }, 0);
+			this.bump();
+			this.publishImmediate();
+
+			return;
+		}
 
 		this.applyNavigation({ kind: "retention" }, 0);
 		this.bump();
@@ -869,7 +946,7 @@ class SessionImpl implements Session {
 	}
 
 	private classifyRows(rows: readonly ViewRow[]): readonly ViewRow[] {
-		if (!this.coordinator || !this.semanticQueryActive()) return rows;
+		if (!this.coordinator || !this.semanticQueryActive() || this.settling !== null) return rows;
 
 		const next: ViewRow[] = [];
 
@@ -903,12 +980,23 @@ class SessionImpl implements Session {
 			threshold: this.semanticThreshold(),
 			...this.semanticVisibleCounts,
 			inFlight: this.coordinator.inFlightCount,
+			classifying: this.classifyingProgress(),
 			lastError: this.semanticQueryActive() ? this.coordinator.lastError : null,
 		};
 	}
 
+	private classifyingProgress(): SemanticStats["classifying"] {
+		if (this.settling === null || !this.semanticQueryActive()) return null;
+
+		const ids = this.settling.ids;
+
+		if (ids === null) return { done: 0, total: 0 };
+
+		return { done: this.settling.total - ids.size, total: this.settling.total };
+	}
+
 	private semanticThreshold(): number {
-		return this.coordinator?.activeQuery()?.threshold ?? this.semanticOptions.threshold;
+		return this.threshold;
 	}
 
 	private semanticDisplayActive(): boolean {
@@ -983,7 +1071,7 @@ class SessionImpl implements Session {
 		newMatchingArrivals: number,
 	): void {
 		this.hiddenView = null;
-		const index = this.viewIndex();
+		const index = this.displayedIndex();
 		const visibleHeight = Math.max(1, logViewportHeight(this.rows));
 		const projectionColumns = this.projectionColumns();
 
@@ -1012,7 +1100,7 @@ class SessionImpl implements Session {
 	}
 
 	private buildSnapshot(): SessionSnapshot {
-		const index = this.viewIndex();
+		const index = this.displayedIndex();
 		const height = visibleLogRows(this.rows);
 		const topRank = this.view.topId === null ? 0 : (index.locate(this.view.topId).exactRank ?? 0);
 		const events: LogEvent[] = [];

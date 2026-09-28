@@ -23,6 +23,7 @@ const NaturalInt = Schema.Number.pipe(Schema.int(), Schema.greaterThan(0));
 const DelayMs = Schema.Number.pipe(Schema.int(), Schema.greaterThanOrEqualTo(0));
 
 const SemanticFileSchema = Schema.Struct({
+	/** Ignored. Kept so older config files still load. TYPESAFE_API_KEY alone turns Jev on. */
 	enabled: Schema.optional(Schema.Boolean),
 	threshold: Schema.optional(UnitInterval),
 	model: Schema.optional(Schema.NonEmptyString),
@@ -49,14 +50,12 @@ const LogcayoFileJsonSchema = Schema.parseJson(LogcayoFileSchema);
 export type LogcayoFile = typeof LogcayoFileSchema.Type;
 
 export type CliOverlay = Readonly<{
-	enabled: boolean | null;
 	threshold: number | null;
 	filterText: string | null;
 	modelFromEnv: string | null;
 }>;
 
 export type ResolvedSemantic = Readonly<{
-	enabled: boolean;
 	threshold: number;
 	modelId: string;
 	timeoutMs: number;
@@ -147,7 +146,6 @@ export function resolveViewerSettings(
 	return {
 		filterText: overlay.filterText ?? filterFile?.text ?? "",
 		semantic: {
-			enabled: overlay.enabled ?? semanticFile?.enabled ?? false,
 			threshold: overlay.threshold ?? semanticFile?.threshold ?? defaults.threshold,
 			modelId: overlay.modelFromEnv ?? semanticFile?.model ?? JEV_MODEL_ID,
 			timeoutMs: semanticFile?.timeoutMs ?? DEFAULT_JEV_TIMEOUT_MS,

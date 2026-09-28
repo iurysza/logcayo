@@ -7,8 +7,8 @@ export type SessionCommand =
 	| { kind: "oldest" }
 	| { kind: "tail" }
 	| { kind: "toggle-line-display" }
-	| { kind: "toggle-search-mode" }
 	| { kind: "toggle-below-threshold" }
+	| { kind: "adjust-threshold"; delta: -1 | 1 }
 	| { kind: "request-package-attribution" }
 	| { kind: "set-filter"; filter: FilterSpec; searchMode?: SearchMode }
 	| { kind: "resize"; columns: number; rows: number };

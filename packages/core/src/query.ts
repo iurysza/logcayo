@@ -12,7 +12,7 @@ import { err, ok } from "./types.ts";
  *   value = bare | '"' (char | \" | \\)* '"'
  *
  * Non-key terms are text. Text terms are joined with one space.
- * A `~` before the first text term (or as its own term) asks Jev: the text
+ * A `~` before the first text term (or as its own term) classifies with Jev: the text
  * becomes a natural-language query instead of a literal search. A `~` later
  * in the text is literal.
  */
@@ -126,7 +126,7 @@ function tokenize(query: string): Result<readonly Token[], QueryError> {
 	return ok(tokens);
 }
 
-/** Parses a query that may ask Jev with `~`. */
+/** Parses a query that may classify with Jev through `~`. */
 export function parseQuery(query: string): Result<ParsedQuery, QueryError> {
 	const tokens = tokenize(query);
 
@@ -204,7 +204,7 @@ export function parseFilterQuery(query: string): Result<FilterSpec, QueryError> 
 	if (!parsed.ok) return parsed;
 
 	if (parsed.value.searchMode === "jev") {
-		return queryError("text", "~ asks Jev, which this command does not support", query.indexOf("~"));
+		return queryError("text", "~ classifies with Jev, which this command does not support", query.indexOf("~"));
 	}
 
 	return ok(parsed.value.filter);
@@ -231,7 +231,7 @@ function formatSemanticText(text: string): string {
 	return bare ? text : quote(text);
 }
 
-/** Literal text that starts with `~` is quoted so it does not ask Jev. */
+/** Literal text that starts with `~` is quoted so it does not classify with Jev. */
 function formatText(text: string): string {
 	return text.startsWith("~") ? quote(text) : formatSemanticText(text);
 }

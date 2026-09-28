@@ -514,7 +514,7 @@
         "overline": false,
         "underline": null
       },
-      "text": "~            ask Jev in the query: / ~database locks                    "
+      "text": "~            classify by meaning in the query: / ~database locks        "
     },
     {
       "x": 0,
@@ -538,7 +538,7 @@
         "overline": false,
         "underline": null
       },
-      "text": "m · v        switch literal/Jev · hide or dim weak Jev rows             "
+      "text": "[ ] · h      Jev threshold down/up · show or hide weak rows             "
     },
     {
       "x": 0,
@@ -562,7 +562,7 @@
         "overline": false,
         "underline": null
       },
-      "text": "h            fill empty list space                                      "
+      "text": "b            toggle list background                                     "
     },
     {
       "x": 0,

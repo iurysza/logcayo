@@ -91,6 +91,8 @@ export type SessionOptions = Readonly<{
 	columns: number;
 	rows: number;
 	initialFilter: FilterSpec;
+	/** `jev` only when the initial filter came from a `~` query. */
+	initialSearchMode: SearchMode;
 }>;
 
 export type BelowThreshold = "dim" | "hide";
@@ -143,6 +145,7 @@ export function defaultSessionOptions(
 		columns: 80,
 		rows: 24,
 		initialFilter: EMPTY_FILTER,
+		initialSearchMode: "text",
 		sourceKind: "live",
 		label: overrides.sessionId,
 		...overrides,

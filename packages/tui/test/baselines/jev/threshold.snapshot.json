@@ -154,10 +154,106 @@
         "overline": false,
         "underline": null
       },
-      "text": "  0 of 15  "
+      "text": "  15 of 15  "
     },
     {
-      "x": 66,
+      "x": 67,
+      "y": 0,
+      "foreground": {
+        "r": 17,
+        "g": 24,
+        "b": 32
+      },
+      "background": {
+        "r": 199,
+        "g": 146,
+        "b": 234
+      },
+      "attributes": {
+        "bold": true,
+        "italic": false,
+        "faint": false,
+        "invisible": false,
+        "strikethrough": false,
+        "overline": false,
+        "underline": null
+      },
+      "text": " ✦ Jev "
+    },
+    {
+      "x": 74,
+      "y": 0,
+      "foreground": {
+        "r": 199,
+        "g": 146,
+        "b": 234
+      },
+      "background": {
+        "r": 29,
+        "g": 38,
+        "b": 51
+      },
+      "attributes": {
+        "bold": false,
+        "italic": false,
+        "faint": false,
+        "invisible": false,
+        "strikethrough": false,
+        "overline": false,
+        "underline": null
+      },
+      "text": " 2 relevant"
+    },
+    {
+      "x": 85,
+      "y": 0,
+      "foreground": {
+        "r": 135,
+        "g": 150,
+        "b": 181
+      },
+      "background": {
+        "r": 29,
+        "g": 38,
+        "b": 51
+      },
+      "attributes": {
+        "bold": false,
+        "italic": false,
+        "faint": false,
+        "invisible": false,
+        "strikethrough": false,
+        "overline": false,
+        "underline": null
+      },
+      "text": " ≥ 0.75 · 13 hidden"
+    },
+    {
+      "x": 104,
+      "y": 0,
+      "foreground": {
+        "r": 195,
+        "g": 205,
+        "b": 232
+      },
+      "background": {
+        "r": 29,
+        "g": 38,
+        "b": 51
+      },
+      "attributes": {
+        "bold": false,
+        "italic": false,
+        "faint": false,
+        "invisible": false,
+        "strikethrough": false,
+        "overline": false,
+        "underline": null
+      },
+      "text": "  "
+    },
+    {
+      "x": 106,
       "y": 0,
       "foreground": {
         "r": 135,
@@ -181,7 +277,7 @@
       "text": "1 filters"
     },
     {
-      "x": 75,
+      "x": 115,
       "y": 0,
       "foreground": {
         "r": 195,
@@ -202,7 +298,7 @@
         "overline": false,
         "underline": null
       },
-      "text": "                                             "
+      "text": "     "
     },
     {
       "x": 0,
@@ -400,14 +496,14 @@
       "x": 46,
       "y": 1,
       "foreground": {
-        "r": 69,
-        "g": 150,
-        "b": 255
+        "r": 17,
+        "g": 24,
+        "b": 32
       },
       "background": {
-        "r": 39,
-        "g": 52,
-        "b": 71
+        "r": 199,
+        "g": 146,
+        "b": 234
       },
       "attributes": {
         "bold": true,
@@ -418,10 +514,10 @@
         "overline": false,
         "underline": null
       },
-      "text": " Text / database locks "
+      "text": " ✦ Jev database locks "
     },
     {
-      "x": 69,
+      "x": 68,
       "y": 1,
       "foreground": {
         "r": 195,
@@ -442,7 +538,7 @@
         "overline": false,
         "underline": null
       },
-      "text": "                                                   "
+      "text": "                                                    "
     },
     {
       "x": 0,
@@ -514,10 +610,250 @@
         "overline": false,
         "underline": null
       },
-      "text": "No events match database locks                                                                                          "
+      "text": "  08:55:00.002  "
+    },
+    {
+      "x": 16,
+      "y": 3,
+      "foreground": {
+        "r": 244,
+        "g": 201,
+        "b": 93
+      },
+      "background": {
+        "r": 17,
+        "g": 24,
+        "b": 32
+      },
+      "attributes": {
+        "bold": false,
+        "italic": false,
+        "faint": false,
+        "invisible": false,
+        "strikethrough": false,
+        "overline": false,
+        "underline": null
+      },
+      "text": " W"
+    },
+    {
+      "x": 18,
+      "y": 3,
+      "foreground": {
+        "r": 135,
+        "g": 150,
+        "b": 181
+      },
+      "background": {
+        "r": 17,
+        "g": 24,
+        "b": 32
+      },
+      "attributes": {
+        "bold": false,
+        "italic": false,
+        "faint": false,
+        "invisible": false,
+        "strikethrough": false,
+        "overline": false,
+        "underline": null
+      },
+      "text": "  "
+    },
+    {
+      "x": 20,
+      "y": 3,
+      "foreground": {
+        "r": 69,
+        "g": 150,
+        "b": 255
+      },
+      "background": {
+        "r": 17,
+        "g": 24,
+        "b": 32
+      },
+      "attributes": {
+        "bold": false,
+        "italic": false,
+        "faint": false,
+        "invisible": false,
+        "strikethrough": false,
+        "overline": false,
+        "underline": null
+      },
+      "text": "  4321:4340"
+    },
+    {
+      "x": 31,
+      "y": 3,
+      "foreground": {
+        "r": 135,
+        "g": 150,
+        "b": 181
+      },
+      "background": {
+        "r": 17,
+        "g": 24,
+        "b": 32
+      },
+      "attributes": {
+        "bold": false,
+        "italic": false,
+        "faint": false,
+        "invisible": false,
+        "strikethrough": false,
+        "overline": false,
+        "underline": null
+      },
+      "text": " "
+    },
+    {
+      "x": 32,
+      "y": 3,
+      "foreground": {
+        "r": 244,
+        "g": 201,
+        "b": 93
+      },
+      "background": {
+        "r": 17,
+        "g": 24,
+        "b": 32
+      },
+      "attributes": {
+        "bold": false,
+        "italic": false,
+        "faint": false,
+        "invisible": false,
+        "strikethrough": false,
+        "overline": false,
+        "underline": null
+      },
+      "text": "Database        "
+    },
+    {
+      "x": 48,
+      "y": 3,
+      "foreground": {
+        "r": 135,
+        "g": 150,
+        "b": 181
+      },
+      "background": {
+        "r": 17,
+        "g": 24,
+        "b": 32
+      },
+      "attributes": {
+        "bold": false,
+        "italic": false,
+        "faint": false,
+        "invisible": false,
+        "strikethrough": false,
+        "overline": false,
+        "underline": null
+      },
+      "text": "  "
+    },
+    {
+      "x": 50,
+      "y": 3,
+      "foreground": {
+        "r": 195,
+        "g": 205,
+        "b": 232
+      },
+      "background": {
+        "r": 17,
+        "g": 24,
+        "b": 32
+      },
+      "attributes": {
+        "bold": false,
+        "italic": false,
+        "faint": false,
+        "invisible": false,
+        "strikethrough": false,
+        "overline": false,
+        "underline": null
+      },
+      "text": "Retry after lock timeout                               "
+    },
+    {
+      "x": 105,
+      "y": 3,
+      "foreground": {
+        "r": 82,
+        "g": 98,
+        "b": 127
+      },
+      "background": {
+        "r": 13,
+        "g": 17,
+        "b": 23
+      },
+      "attributes": {
+        "bold": false,
+        "italic": false,
+        "faint": false,
+        "invisible": false,
+        "strikethrough": false,
+        "overline": false,
+        "underline": null
+      },
+      "text": "│"
+    },
+    {
+      "x": 106,
+      "y": 3,
+      "foreground": {
+        "r": 199,
+        "g": 146,
+        "b": 234
+      },
+      "background": {
+        "r": 17,
+        "g": 24,
+        "b": 32
+      },
+      "attributes": {
+        "bold": false,
+        "italic": false,
+        "faint": false,
+        "invisible": false,
+        "strikethrough": false,
+        "overline": false,
+        "underline": null
+      },
+      "text": " ━━━━━ 0.93   "
     },
     {
       "x": 0,
+      "y": 4,
+      "foreground": {
+        "r": 82,
+        "g": 98,
+        "b": 127
+      },
+      "background": {
+        "r": 17,
+        "g": 24,
+        "b": 32
+      },
+      "attributes": {
+        "bold": false,
+        "italic": false,
+        "faint": false,
+        "invisible": false,
+        "strikethrough": false,
+        "overline": false,
+        "underline": null
+      },
+      "text": "  │                                                "
+    },
+    {
+      "x": 51,
       "y": 4,
       "foreground": {
         "r": 135,
@@ -538,15 +874,39 @@
         "overline": false,
         "underline": null
       },
-      "text": "x clear · u undo                                                                                                        "
+      "text": "    at com.example.logview.demo.db.Store.lock(Store.j…"
     },
     {
-      "x": 0,
-      "y": 5,
+      "x": 105,
+      "y": 4,
       "foreground": {
-        "r": 195,
-        "g": 205,
-        "b": 232
+        "r": 82,
+        "g": 98,
+        "b": 127
+      },
+      "background": {
+        "r": 13,
+        "g": 17,
+        "b": 23
+      },
+      "attributes": {
+        "bold": false,
+        "italic": false,
+        "faint": false,
+        "invisible": false,
+        "strikethrough": false,
+        "overline": false,
+        "underline": null
+      },
+      "text": "│"
+    },
+    {
+      "x": 106,
+      "y": 4,
+      "foreground": {
+        "r": 82,
+        "g": 98,
+        "b": 127
       },
       "background": {
         "r": 17,
@@ -562,10 +922,298 @@
         "overline": false,
         "underline": null
       },
-      "text": "                                                                                                                        "
+      "text": "              "
     },
     {
       "x": 0,
+      "y": 5,
+      "foreground": {
+        "r": 82,
+        "g": 98,
+        "b": 127
+      },
+      "background": {
+        "r": 17,
+        "g": 24,
+        "b": 32
+      },
+      "attributes": {
+        "bold": false,
+        "italic": false,
+        "faint": false,
+        "invisible": false,
+        "strikethrough": false,
+        "overline": false,
+        "underline": null
+      },
+      "text": "  │                                                "
+    },
+    {
+      "x": 51,
+      "y": 5,
+      "foreground": {
+        "r": 135,
+        "g": 150,
+        "b": 181
+      },
+      "background": {
+        "r": 17,
+        "g": 24,
+        "b": 32
+      },
+      "attributes": {
+        "bold": false,
+        "italic": false,
+        "faint": false,
+        "invisible": false,
+        "strikethrough": false,
+        "overline": false,
+        "underline": null
+      },
+      "text": "    at com.example.logview.demo.db.Store.write(Store.…"
+    },
+    {
+      "x": 105,
+      "y": 5,
+      "foreground": {
+        "r": 82,
+        "g": 98,
+        "b": 127
+      },
+      "background": {
+        "r": 13,
+        "g": 17,
+        "b": 23
+      },
+      "attributes": {
+        "bold": false,
+        "italic": false,
+        "faint": false,
+        "invisible": false,
+        "strikethrough": false,
+        "overline": false,
+        "underline": null
+      },
+      "text": "│"
+    },
+    {
+      "x": 106,
+      "y": 5,
+      "foreground": {
+        "r": 82,
+        "g": 98,
+        "b": 127
+      },
+      "background": {
+        "r": 17,
+        "g": 24,
+        "b": 32
+      },
+      "attributes": {
+        "bold": false,
+        "italic": false,
+        "faint": false,
+        "invisible": false,
+        "strikethrough": false,
+        "overline": false,
+        "underline": null
+      },
+      "text": "              "
+    },
+    {
+      "x": 0,
+      "y": 6,
+      "foreground": {
+        "r": 69,
+        "g": 150,
+        "b": 255
+      },
+      "background": {
+        "r": 28,
+        "g": 46,
+        "b": 74
+      },
+      "attributes": {
+        "bold": true,
+        "italic": false,
+        "faint": false,
+        "invisible": false,
+        "strikethrough": false,
+        "overline": false,
+        "underline": null
+      },
+      "text": "▸ "
+    },
+    {
+      "x": 2,
+      "y": 6,
+      "foreground": {
+        "r": 135,
+        "g": 150,
+        "b": 181
+      },
+      "background": {
+        "r": 28,
+        "g": 46,
+        "b": 74
+      },
+      "attributes": {
+        "bold": false,
+        "italic": false,
+        "faint": false,
+        "invisible": false,
+        "strikethrough": false,
+        "overline": false,
+        "underline": null
+      },
+      "text": "08:55:00.003  "
+    },
+    {
+      "x": 16,
+      "y": 6,
+      "foreground": {
+        "r": 126,
+        "g": 231,
+        "b": 135
+      },
+      "background": {
+        "r": 28,
+        "g": 46,
+        "b": 74
+      },
+      "attributes": {
+        "bold": false,
+        "italic": false,
+        "faint": false,
+        "invisible": false,
+        "strikethrough": false,
+        "overline": false,
+        "underline": null
+      },
+      "text": " I"
+    },
+    {
+      "x": 18,
+      "y": 6,
+      "foreground": {
+        "r": 135,
+        "g": 150,
+        "b": 181
+      },
+      "background": {
+        "r": 28,
+        "g": 46,
+        "b": 74
+      },
+      "attributes": {
+        "bold": false,
+        "italic": false,
+        "faint": false,
+        "invisible": false,
+        "strikethrough": false,
+        "overline": false,
+        "underline": null
+      },
+      "text": "  "
+    },
+    {
+      "x": 20,
+      "y": 6,
+      "foreground": {
+        "r": 69,
+        "g": 150,
+        "b": 255
+      },
+      "background": {
+        "r": 28,
+        "g": 46,
+        "b": 74
+      },
+      "attributes": {
+        "bold": false,
+        "italic": false,
+        "faint": false,
+        "invisible": false,
+        "strikethrough": false,
+        "overline": false,
+        "underline": null
+      },
+      "text": "  4321:4340"
+    },
+    {
+      "x": 31,
+      "y": 6,
+      "foreground": {
+        "r": 135,
+        "g": 150,
+        "b": 181
+      },
+      "background": {
+        "r": 28,
+        "g": 46,
+        "b": 74
+      },
+      "attributes": {
+        "bold": false,
+        "italic": false,
+        "faint": false,
+        "invisible": false,
+        "strikethrough": false,
+        "overline": false,
+        "underline": null
+      },
+      "text": " "
+    },
+    {
+      "x": 32,
+      "y": 6,
+      "foreground": {
+        "r": 126,
+        "g": 231,
+        "b": 135
+      },
+      "background": {
+        "r": 28,
+        "g": 46,
+        "b": 74
+      },
+      "attributes": {
+        "bold": false,
+        "italic": false,
+        "faint": false,
+        "invisible": false,
+        "strikethrough": false,
+        "overline": false,
+        "underline": null
+      },
+      "text": "Database        "
+    },
+    {
+      "x": 48,
+      "y": 6,
+      "foreground": {
+        "r": 135,
+        "g": 150,
+        "b": 181
+      },
+      "background": {
+        "r": 28,
+        "g": 46,
+        "b": 74
+      },
+      "attributes": {
+        "bold": false,
+        "italic": false,
+        "faint": false,
+        "invisible": false,
+        "strikethrough": false,
+        "overline": false,
+        "underline": null
+      },
+      "text": "  "
+    },
+    {
+      "x": 50,
       "y": 6,
       "foreground": {
         "r": 195,
@@ -573,9 +1221,9 @@
         "b": 232
       },
       "background": {
-        "r": 17,
-        "g": 24,
-        "b": 32
+        "r": 28,
+        "g": 46,
+        "b": 74
       },
       "attributes": {
         "bold": false,
@@ -586,7 +1234,55 @@
         "overline": false,
         "underline": null
       },
-      "text": "                                                                                                                        "
+      "text": "Transaction committed                                  "
+    },
+    {
+      "x": 105,
+      "y": 6,
+      "foreground": {
+        "r": 82,
+        "g": 98,
+        "b": 127
+      },
+      "background": {
+        "r": 13,
+        "g": 17,
+        "b": 23
+      },
+      "attributes": {
+        "bold": false,
+        "italic": false,
+        "faint": false,
+        "invisible": false,
+        "strikethrough": false,
+        "overline": false,
+        "underline": null
+      },
+      "text": "│"
+    },
+    {
+      "x": 106,
+      "y": 6,
+      "foreground": {
+        "r": 199,
+        "g": 146,
+        "b": 234
+      },
+      "background": {
+        "r": 28,
+        "g": 46,
+        "b": 74
+      },
+      "attributes": {
+        "bold": false,
+        "italic": false,
+        "faint": false,
+        "invisible": false,
+        "strikethrough": false,
+        "overline": false,
+        "underline": null
+      },
+      "text": " ━━━━━ 0.93   "
     },
     {
       "x": 0,
@@ -1162,10 +1858,10 @@
         "overline": false,
         "underline": null
       },
-      "text": " m "
+      "text": " [ ] "
     },
     {
-      "x": 39,
+      "x": 41,
       "y": 22,
       "foreground": {
         "r": 135,
@@ -1186,10 +1882,10 @@
         "overline": false,
         "underline": null
       },
-      "text": " Ask Jev"
+      "text": " Threshold"
     },
     {
-      "x": 47,
+      "x": 51,
       "y": 22,
       "foreground": {
         "r": 195,
@@ -1213,7 +1909,79 @@
       "text": "  "
     },
     {
-      "x": 49,
+      "x": 53,
+      "y": 22,
+      "foreground": {
+        "r": 195,
+        "g": 205,
+        "b": 232
+      },
+      "background": {
+        "r": 39,
+        "g": 52,
+        "b": 71
+      },
+      "attributes": {
+        "bold": true,
+        "italic": false,
+        "faint": false,
+        "invisible": false,
+        "strikethrough": false,
+        "overline": false,
+        "underline": null
+      },
+      "text": " h "
+    },
+    {
+      "x": 56,
+      "y": 22,
+      "foreground": {
+        "r": 135,
+        "g": 150,
+        "b": 181
+      },
+      "background": {
+        "r": 29,
+        "g": 38,
+        "b": 51
+      },
+      "attributes": {
+        "bold": false,
+        "italic": false,
+        "faint": false,
+        "invisible": false,
+        "strikethrough": false,
+        "overline": false,
+        "underline": null
+      },
+      "text": " Show all"
+    },
+    {
+      "x": 65,
+      "y": 22,
+      "foreground": {
+        "r": 195,
+        "g": 205,
+        "b": 232
+      },
+      "background": {
+        "r": 29,
+        "g": 38,
+        "b": 51
+      },
+      "attributes": {
+        "bold": false,
+        "italic": false,
+        "faint": false,
+        "invisible": false,
+        "strikethrough": false,
+        "overline": false,
+        "underline": null
+      },
+      "text": "  "
+    },
+    {
+      "x": 67,
       "y": 22,
       "foreground": {
         "r": 195,
@@ -1237,7 +2005,7 @@
       "text": " f "
     },
     {
-      "x": 52,
+      "x": 70,
       "y": 22,
       "foreground": {
         "r": 135,
@@ -1261,7 +2029,7 @@
       "text": " Filters"
     },
     {
-      "x": 60,
+      "x": 78,
       "y": 22,
       "foreground": {
         "r": 195,
@@ -1285,7 +2053,7 @@
       "text": "  "
     },
     {
-      "x": 62,
+      "x": 80,
       "y": 22,
       "foreground": {
         "r": 195,
@@ -1309,7 +2077,7 @@
       "text": " x "
     },
     {
-      "x": 65,
+      "x": 83,
       "y": 22,
       "foreground": {
         "r": 135,
@@ -1333,7 +2101,7 @@
       "text": " Clear"
     },
     {
-      "x": 71,
+      "x": 89,
       "y": 22,
       "foreground": {
         "r": 195,
@@ -1357,7 +2125,7 @@
       "text": "  "
     },
     {
-      "x": 73,
+      "x": 91,
       "y": 22,
       "foreground": {
         "r": 195,
@@ -1381,7 +2149,7 @@
       "text": " u "
     },
     {
-      "x": 76,
+      "x": 94,
       "y": 22,
       "foreground": {
         "r": 135,
@@ -1405,102 +2173,6 @@
       "text": " Undo"
     },
     {
-      "x": 81,
-      "y": 22,
-      "foreground": {
-        "r": 195,
-        "g": 205,
-        "b": 232
-      },
-      "background": {
-        "r": 29,
-        "g": 38,
-        "b": 51
-      },
-      "attributes": {
-        "bold": false,
-        "italic": false,
-        "faint": false,
-        "invisible": false,
-        "strikethrough": false,
-        "overline": false,
-        "underline": null
-      },
-      "text": "  "
-    },
-    {
-      "x": 83,
-      "y": 22,
-      "foreground": {
-        "r": 195,
-        "g": 205,
-        "b": 232
-      },
-      "background": {
-        "r": 39,
-        "g": 52,
-        "b": 71
-      },
-      "attributes": {
-        "bold": true,
-        "italic": false,
-        "faint": false,
-        "invisible": false,
-        "strikethrough": false,
-        "overline": false,
-        "underline": null
-      },
-      "text": " c "
-    },
-    {
-      "x": 86,
-      "y": 22,
-      "foreground": {
-        "r": 135,
-        "g": 150,
-        "b": 181
-      },
-      "background": {
-        "r": 29,
-        "g": 38,
-        "b": 51
-      },
-      "attributes": {
-        "bold": false,
-        "italic": false,
-        "faint": false,
-        "invisible": false,
-        "strikethrough": false,
-        "overline": false,
-        "underline": null
-      },
-      "text": " Copy query"
-    },
-    {
-      "x": 97,
-      "y": 22,
-      "foreground": {
-        "r": 195,
-        "g": 205,
-        "b": 232
-      },
-      "background": {
-        "r": 29,
-        "g": 38,
-        "b": 51
-      },
-      "attributes": {
-        "bold": false,
-        "italic": false,
-        "faint": false,
-        "invisible": false,
-        "strikethrough": false,
-        "overline": false,
-        "underline": null
-      },
-      "text": "  "
-    },
-    {
       "x": 99,
       "y": 22,
       "foreground": {
@@ -1509,54 +2181,6 @@
         "b": 232
       },
       "background": {
-        "r": 39,
-        "g": 52,
-        "b": 71
-      },
-      "attributes": {
-        "bold": true,
-        "italic": false,
-        "faint": false,
-        "invisible": false,
-        "strikethrough": false,
-        "overline": false,
-        "underline": null
-      },
-      "text": " G "
-    },
-    {
-      "x": 102,
-      "y": 22,
-      "foreground": {
-        "r": 135,
-        "g": 150,
-        "b": 181
-      },
-      "background": {
-        "r": 29,
-        "g": 38,
-        "b": 51
-      },
-      "attributes": {
-        "bold": false,
-        "italic": false,
-        "faint": false,
-        "invisible": false,
-        "strikethrough": false,
-        "overline": false,
-        "underline": null
-      },
-      "text": " Tail"
-    },
-    {
-      "x": 107,
-      "y": 22,
-      "foreground": {
-        "r": 195,
-        "g": 205,
-        "b": 232
-      },
-      "background": {
         "r": 29,
         "g": 38,
         "b": 51
@@ -1573,7 +2197,7 @@
       "text": "  "
     },
     {
-      "x": 109,
+      "x": 101,
       "y": 22,
       "foreground": {
         "r": 195,
@@ -1597,7 +2221,7 @@
       "text": " q "
     },
     {
-      "x": 112,
+      "x": 104,
       "y": 22,
       "foreground": {
         "r": 135,
@@ -1621,7 +2245,7 @@
       "text": " Quit"
     },
     {
-      "x": 117,
+      "x": 109,
       "y": 22,
       "foreground": {
         "r": 195,
@@ -1642,7 +2266,7 @@
         "overline": false,
         "underline": null
       },
-      "text": "   "
+      "text": "           "
     },
     {
       "x": 0,

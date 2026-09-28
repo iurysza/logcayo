@@ -202,10 +202,10 @@
         "overline": false,
         "underline": null
       },
-      "text": " asking · 15 left"
+      "text": " classifying 0/15…"
     },
     {
-      "x": 91,
+      "x": 92,
       "y": 0,
       "foreground": {
         "r": 195,
@@ -229,7 +229,7 @@
       "text": "  "
     },
     {
-      "x": 93,
+      "x": 94,
       "y": 0,
       "foreground": {
         "r": 135,
@@ -253,7 +253,7 @@
       "text": "1 filters"
     },
     {
-      "x": 102,
+      "x": 103,
       "y": 0,
       "foreground": {
         "r": 195,
@@ -274,7 +274,7 @@
         "overline": false,
         "underline": null
       },
-      "text": "                  "
+      "text": "                 "
     },
     {
       "x": 0,
@@ -586,7 +586,7 @@
         "overline": false,
         "underline": null
       },
-      "text": "? 08:55:00.000  "
+      "text": "  08:55:00.000  "
     },
     {
       "x": 16,
@@ -832,9 +832,9 @@
       "x": 106,
       "y": 3,
       "foreground": {
-        "r": 135,
-        "g": 150,
-        "b": 181
+        "r": 82,
+        "g": 98,
+        "b": 127
       },
       "background": {
         "r": 17,
@@ -850,7 +850,7 @@
         "overline": false,
         "underline": null
       },
-      "text": "             "
+      "text": "              "
     },
     {
       "x": 0,
@@ -874,7 +874,7 @@
         "overline": false,
         "underline": null
       },
-      "text": "? 08:55:00.000  "
+      "text": "  08:55:00.000  "
     },
     {
       "x": 16,
@@ -1120,9 +1120,9 @@
       "x": 106,
       "y": 4,
       "foreground": {
-        "r": 135,
-        "g": 150,
-        "b": 181
+        "r": 82,
+        "g": 98,
+        "b": 127
       },
       "background": {
         "r": 17,
@@ -1138,7 +1138,7 @@
         "overline": false,
         "underline": null
       },
-      "text": "             "
+      "text": "              "
     },
     {
       "x": 0,
@@ -1162,7 +1162,7 @@
         "overline": false,
         "underline": null
       },
-      "text": "? 08:55:00.001  "
+      "text": "  08:55:00.001  "
     },
     {
       "x": 16,
@@ -1360,9 +1360,9 @@
       "x": 106,
       "y": 5,
       "foreground": {
-        "r": 135,
-        "g": 150,
-        "b": 181
+        "r": 82,
+        "g": 98,
+        "b": 127
       },
       "background": {
         "r": 17,
@@ -1378,7 +1378,7 @@
         "overline": false,
         "underline": null
       },
-      "text": "             "
+      "text": "              "
     },
     {
       "x": 0,
@@ -1402,7 +1402,7 @@
         "overline": false,
         "underline": null
       },
-      "text": "? 08:55:00.002  "
+      "text": "  08:55:00.002  "
     },
     {
       "x": 16,
@@ -1600,9 +1600,9 @@
       "x": 106,
       "y": 6,
       "foreground": {
-        "r": 135,
-        "g": 150,
-        "b": 181
+        "r": 82,
+        "g": 98,
+        "b": 127
       },
       "background": {
         "r": 17,
@@ -1618,7 +1618,7 @@
         "overline": false,
         "underline": null
       },
-      "text": "             "
+      "text": "              "
     },
     {
       "x": 0,
@@ -1642,7 +1642,7 @@
         "overline": false,
         "underline": null
       },
-      "text": "? 08:55:00.002  "
+      "text": "  08:55:00.002  "
     },
     {
       "x": 16,
@@ -1888,9 +1888,9 @@
       "x": 106,
       "y": 7,
       "foreground": {
-        "r": 135,
-        "g": 150,
-        "b": 181
+        "r": 82,
+        "g": 98,
+        "b": 127
       },
       "background": {
         "r": 17,
@@ -1906,7 +1906,7 @@
         "overline": false,
         "underline": null
       },
-      "text": "             "
+      "text": "              "
     },
     {
       "x": 0,
@@ -1930,7 +1930,7 @@
         "overline": false,
         "underline": null
       },
-      "text": "? 08:55:00.002  "
+      "text": "  08:55:00.002  "
     },
     {
       "x": 16,
@@ -2128,9 +2128,9 @@
       "x": 106,
       "y": 8,
       "foreground": {
-        "r": 135,
-        "g": 150,
-        "b": 181
+        "r": 82,
+        "g": 98,
+        "b": 127
       },
       "background": {
         "r": 17,
@@ -2146,7 +2146,7 @@
         "overline": false,
         "underline": null
       },
-      "text": "             "
+      "text": "              "
     },
     {
       "x": 0,
@@ -2362,7 +2362,7 @@
         "overline": false,
         "underline": null
       },
-      "text": "? 08:55:00.003  "
+      "text": "  08:55:00.003  "
     },
     {
       "x": 16,
@@ -2560,9 +2560,9 @@
       "x": 106,
       "y": 11,
       "foreground": {
-        "r": 135,
-        "g": 150,
-        "b": 181
+        "r": 82,
+        "g": 98,
+        "b": 127
       },
       "background": {
         "r": 17,
@@ -2578,7 +2578,7 @@
         "overline": false,
         "underline": null
       },
-      "text": "             "
+      "text": "              "
     },
     {
       "x": 0,
@@ -2602,7 +2602,7 @@
         "overline": false,
         "underline": null
       },
-      "text": "? 08:55:00.003  "
+      "text": "  08:55:00.003  "
     },
     {
       "x": 16,
@@ -2848,9 +2848,9 @@
       "x": 106,
       "y": 12,
       "foreground": {
-        "r": 135,
-        "g": 150,
-        "b": 181
+        "r": 82,
+        "g": 98,
+        "b": 127
       },
       "background": {
         "r": 17,
@@ -2866,7 +2866,7 @@
         "overline": false,
         "underline": null
       },
-      "text": "             "
+      "text": "              "
     },
     {
       "x": 0,
@@ -2890,7 +2890,7 @@
         "overline": false,
         "underline": null
       },
-      "text": "? 08:55:00.003  "
+      "text": "  08:55:00.003  "
     },
     {
       "x": 16,
@@ -3160,9 +3160,9 @@
       "x": 106,
       "y": 13,
       "foreground": {
-        "r": 135,
-        "g": 150,
-        "b": 181
+        "r": 82,
+        "g": 98,
+        "b": 127
       },
       "background": {
         "r": 17,
@@ -3178,7 +3178,7 @@
         "overline": false,
         "underline": null
       },
-      "text": "             "
+      "text": "              "
     },
     {
       "x": 0,
@@ -3202,7 +3202,7 @@
         "overline": false,
         "underline": null
       },
-      "text": "? 08:55:00.003  "
+      "text": "  08:55:00.003  "
     },
     {
       "x": 16,
@@ -3400,9 +3400,9 @@
       "x": 106,
       "y": 14,
       "foreground": {
-        "r": 135,
-        "g": 150,
-        "b": 181
+        "r": 82,
+        "g": 98,
+        "b": 127
       },
       "background": {
         "r": 17,
@@ -3418,7 +3418,7 @@
         "overline": false,
         "underline": null
       },
-      "text": "             "
+      "text": "              "
     },
     {
       "x": 0,
@@ -3442,7 +3442,7 @@
         "overline": false,
         "underline": null
       },
-      "text": "? 08:55:00.003  "
+      "text": "  08:55:00.003  "
     },
     {
       "x": 16,
@@ -3832,9 +3832,9 @@
       "x": 106,
       "y": 15,
       "foreground": {
-        "r": 135,
-        "g": 150,
-        "b": 181
+        "r": 82,
+        "g": 98,
+        "b": 127
       },
       "background": {
         "r": 17,
@@ -3850,7 +3850,7 @@
         "overline": false,
         "underline": null
       },
-      "text": "             "
+      "text": "              "
     },
     {
       "x": 0,
@@ -3994,7 +3994,7 @@
         "overline": false,
         "underline": null
       },
-      "text": "? 08:55:00.003   V  "
+      "text": "  08:55:00.003   V  "
     },
     {
       "x": 20,
@@ -4096,9 +4096,9 @@
       "x": 106,
       "y": 17,
       "foreground": {
-        "r": 135,
-        "g": 150,
-        "b": 181
+        "r": 82,
+        "g": 98,
+        "b": 127
       },
       "background": {
         "r": 17,
@@ -4114,7 +4114,7 @@
         "overline": false,
         "underline": null
       },
-      "text": "             "
+      "text": "              "
     },
     {
       "x": 0,
@@ -4138,7 +4138,7 @@
         "overline": false,
         "underline": null
       },
-      "text": "? 08:54:59.999  "
+      "text": "  08:54:59.999  "
     },
     {
       "x": 16,
@@ -4336,9 +4336,9 @@
       "x": 106,
       "y": 18,
       "foreground": {
-        "r": 135,
-        "g": 150,
-        "b": 181
+        "r": 82,
+        "g": 98,
+        "b": 127
       },
       "background": {
         "r": 17,
@@ -4354,7 +4354,7 @@
         "overline": false,
         "underline": null
       },
-      "text": "             "
+      "text": "              "
     },
     {
       "x": 0,
@@ -4378,7 +4378,7 @@
         "overline": false,
         "underline": null
       },
-      "text": "? 08:55:00.004  "
+      "text": "  08:55:00.004  "
     },
     {
       "x": 16,
@@ -4672,9 +4672,9 @@
       "x": 106,
       "y": 19,
       "foreground": {
-        "r": 135,
-        "g": 150,
-        "b": 181
+        "r": 82,
+        "g": 98,
+        "b": 127
       },
       "background": {
         "r": 17,
@@ -4690,7 +4690,7 @@
         "overline": false,
         "underline": null
       },
-      "text": "             "
+      "text": "              "
     },
     {
       "x": 0,
@@ -4990,9 +4990,9 @@
       "x": 106,
       "y": 20,
       "foreground": {
-        "r": 135,
-        "g": 150,
-        "b": 181
+        "r": 82,
+        "g": 98,
+        "b": 127
       },
       "background": {
         "r": 28,
@@ -5008,7 +5008,7 @@
         "overline": false,
         "underline": null
       },
-      "text": "             "
+      "text": "              "
     },
     {
       "x": 0,
@@ -5248,10 +5248,10 @@
         "overline": false,
         "underline": null
       },
-      "text": " m "
+      "text": " [ ] "
     },
     {
-      "x": 39,
+      "x": 41,
       "y": 22,
       "foreground": {
         "r": 135,
@@ -5272,10 +5272,10 @@
         "overline": false,
         "underline": null
       },
-      "text": " Use text"
+      "text": " Threshold"
     },
     {
-      "x": 48,
+      "x": 51,
       "y": 22,
       "foreground": {
         "r": 195,
@@ -5299,7 +5299,7 @@
       "text": "  "
     },
     {
-      "x": 50,
+      "x": 53,
       "y": 22,
       "foreground": {
         "r": 195,
@@ -5320,10 +5320,10 @@
         "overline": false,
         "underline": null
       },
-      "text": " v "
+      "text": " h "
     },
     {
-      "x": 53,
+      "x": 56,
       "y": 22,
       "foreground": {
         "r": 135,
@@ -5344,10 +5344,10 @@
         "overline": false,
         "underline": null
       },
-      "text": " Hide weak"
+      "text": " Show all"
     },
     {
-      "x": 63,
+      "x": 65,
       "y": 22,
       "foreground": {
         "r": 195,
@@ -5371,7 +5371,7 @@
       "text": "  "
     },
     {
-      "x": 65,
+      "x": 67,
       "y": 22,
       "foreground": {
         "r": 195,
@@ -5395,7 +5395,7 @@
       "text": " f "
     },
     {
-      "x": 68,
+      "x": 70,
       "y": 22,
       "foreground": {
         "r": 135,
@@ -5419,7 +5419,7 @@
       "text": " Filters"
     },
     {
-      "x": 76,
+      "x": 78,
       "y": 22,
       "foreground": {
         "r": 195,
@@ -5443,7 +5443,7 @@
       "text": "  "
     },
     {
-      "x": 78,
+      "x": 80,
       "y": 22,
       "foreground": {
         "r": 195,
@@ -5467,7 +5467,7 @@
       "text": " x "
     },
     {
-      "x": 81,
+      "x": 83,
       "y": 22,
       "foreground": {
         "r": 135,
@@ -5491,7 +5491,7 @@
       "text": " Clear"
     },
     {
-      "x": 87,
+      "x": 89,
       "y": 22,
       "foreground": {
         "r": 195,
@@ -5515,7 +5515,7 @@
       "text": "  "
     },
     {
-      "x": 89,
+      "x": 91,
       "y": 22,
       "foreground": {
         "r": 195,
@@ -5539,7 +5539,7 @@
       "text": " u "
     },
     {
-      "x": 92,
+      "x": 94,
       "y": 22,
       "foreground": {
         "r": 135,
@@ -5563,7 +5563,7 @@
       "text": " Undo"
     },
     {
-      "x": 97,
+      "x": 99,
       "y": 22,
       "foreground": {
         "r": 195,
@@ -5587,7 +5587,7 @@
       "text": "  "
     },
     {
-      "x": 99,
+      "x": 101,
       "y": 22,
       "foreground": {
         "r": 195,
@@ -5611,7 +5611,7 @@
       "text": " q "
     },
     {
-      "x": 102,
+      "x": 104,
       "y": 22,
       "foreground": {
         "r": 135,
@@ -5635,7 +5635,7 @@
       "text": " Quit"
     },
     {
-      "x": 107,
+      "x": 109,
       "y": 22,
       "foreground": {
         "r": 195,
@@ -5656,7 +5656,7 @@
         "overline": false,
         "underline": null
       },
-      "text": "             "
+      "text": "           "
     },
     {
       "x": 0,

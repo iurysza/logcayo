@@ -1,5 +1,5 @@
 #!/usr/bin/env bun
-import { EMPTY_FILTER, err, ok, type FilterSpec, type Result, type SourceKind } from "@logcayo/core";
+import { EMPTY_FILTER, err, ok, type FilterSpec, type Result, type SearchMode, type SourceKind } from "@logcayo/core";
 import {
 	createAdbPackageResolver,
 	createAdbSource,
@@ -71,20 +71,19 @@ function usage(): string {
 	return `logcayo — a modern terminal UI for Android logs
 
 Usage:
-  logcayo live [--serial DEVICE] [--headless] [--semantic] [--config PATH]
+  logcayo live [--serial DEVICE] [--headless] [--config PATH]
   logcayo record --out PATH [--serial DEVICE] [--duration SEC]
-  logcayo replay PATH [--speed N|instant] [--headless] [--allow-partial] [--semantic] [--config PATH]
+  logcayo replay PATH [--speed N|instant] [--headless] [--allow-partial] [--config PATH]
   logcayo query PATH [QUERY] [--limit N] [--since TIME] [--format ndjson|text]
   logcayo query --live [QUERY] [--timeout DUR] [--limit N]
   logcayo query --check QUERY
   logcayo --version
 
-Jev visual filter:
-  Set TYPESAFE_API_KEY. Enable with --semantic or semantic.enabled in logcayo.json.
-  The / text field is then a natural-language query. Eligible logs are classified
-  in batches. The list shows each result and dims scores below the threshold.
-  Flags override the config file.
-  Do not put API keys in the file.
+Jev classification:
+  Set TYPESAFE_API_KEY to turn Jev on. Without it, Jev is off.
+  Start a query term with ~ to classify logs by meaning, for example ~battery drain.
+  Results appear when classification finishes. [ and ] change the threshold.
+  Do not put API keys in the config file.
 
 Capture profile:
   adb -s <serial> logcat -b main -b system -b crash -v threadtime -v epoch -v usec -v uid *:V
@@ -126,7 +125,6 @@ function parseArgs(argv: string[]): Result<ParsedCli, CliError> {
 	let path: string | null = null;
 	let configPath: string | null = null;
 	let filterText: string | null = null;
-	let semanticEnabled: boolean | null = null;
 	let semanticThreshold: number | null = null;
 
 	for (let i = 0; i < rest.length; i++) {
@@ -245,16 +243,6 @@ function parseArgs(argv: string[]): Result<ParsedCli, CliError> {
 			continue;
 		}
 
-		if (arg === "--semantic") {
-			semanticEnabled = true;
-			continue;
-		}
-
-		if (arg === "--no-semantic") {
-			semanticEnabled = false;
-			continue;
-		}
-
 		if (arg === "--semantic-threshold") {
 			const value = takeValue(rest, ++i, "--semantic-threshold");
 
@@ -282,7 +270,6 @@ function parseArgs(argv: string[]): Result<ParsedCli, CliError> {
 	const modelFromEnv = process.env.TYPESAFE_DEFAULT_MODEL?.trim() ?? "";
 
 	const overlay: CliOverlay = {
-		enabled: semanticEnabled,
 		threshold: semanticThreshold,
 		filterText,
 		modelFromEnv: modelFromEnv.length === 0 ? null : modelFromEnv,
@@ -341,6 +328,7 @@ function sessionFromFlags(flags: {
 	rows: number;
 	maxEvents: number | null;
 	filter: FilterSpec;
+	searchMode: SearchMode;
 	sessionId: string;
 	sourceKind: SourceKind;
 	label: string;
@@ -352,6 +340,7 @@ function sessionFromFlags(flags: {
 		columns: flags.columns,
 		rows: flags.rows,
 		initialFilter: flags.filter,
+		initialSearchMode: flags.searchMode,
 	});
 
 	if (flags.maxEvents === null) return options;
@@ -370,13 +359,9 @@ function recordingLabel(path: string): string {
 }
 
 function resolveClassifier(semantic: ResolvedSemantic): Result<LogClassifier | undefined, CliError> {
-	if (!semantic.enabled) return ok(undefined);
-
 	const apiKey = process.env.TYPESAFE_API_KEY?.trim() ?? "";
 
-	if (apiKey.length === 0) {
-		return err({ exit: 2, message: "semantic filter requires TYPESAFE_API_KEY" });
-	}
+	if (apiKey.length === 0) return ok(undefined);
 
 	const created = createJevClassifier({
 		apiKey,
@@ -480,11 +465,11 @@ export async function main(argv = process.argv, queryWriter?: QueryWriter): Prom
 			return classifier.error.exit;
 		}
 
-		if (classifier.value) {
-			process.stderr.write("Jev visual filter enabled. The text field is classified in batches.\n");
-		}
-
-		const filter = { ...EMPTY_FILTER, text: viewer.filterText };
+		// A startup filter that starts with ~ classifies with Jev, like the query line.
+		const startText = viewer.filterText.trim();
+		const startJev = startText.startsWith("~") && classifier.value !== undefined;
+		const filter = { ...EMPTY_FILTER, text: startText.startsWith("~") ? startText.slice(1).trim() : viewer.filterText };
+		const searchMode: SearchMode = startJev ? "jev" : "text";
 		const semantic = semanticSessionOptions(viewer.semantic);
 
 		if (request.command === "live") {
@@ -504,6 +489,7 @@ export async function main(argv = process.argv, queryWriter?: QueryWriter): Prom
 				sessionFromFlags({
 					...request,
 					filter,
+					searchMode,
 					sessionId: `live-${Date.now()}`,
 					sourceKind: "live",
 					label: request.serial ?? "adb",
@@ -541,6 +527,7 @@ export async function main(argv = process.argv, queryWriter?: QueryWriter): Prom
 			sessionFromFlags({
 				...request,
 				filter,
+				searchMode,
 				sessionId: `replay-${request.path}`,
 				sourceKind: "replay",
 				label: recordingLabel(request.path),
