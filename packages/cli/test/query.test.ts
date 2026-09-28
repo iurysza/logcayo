@@ -65,7 +65,7 @@ describe("agent query CLI", () => {
 		const result = await query(fixture, "level:W", "--limit", "2");
 		const lines = records(result);
 
-		expect(lines.map((line) => line.id).filter(Boolean)).toEqual([6, 8]);
+		expect(lines.map((line) => line.id).filter(Boolean)).toEqual([6, 13]);
 		expect(lines.at(-1)).toMatchObject({ stop: "limit", emitted: 2 });
 	});
 
@@ -93,7 +93,7 @@ describe("agent query CLI", () => {
 		expect(JSON.parse(invalid.err[0]!)).toMatchObject({ type: "error", field: "--since" });
 		const result = await query(fixture, "level:W", "--since", "1760000100.003");
 
-		expect(records(result).filter((line) => line.type === "event").map((line) => line.id)).toEqual([8, 9, 11]);
+		expect(records(result).filter((line) => line.type === "event").map((line) => line.id)).toEqual([13, 14, 16]);
 	});
 
 	test("live source uses fake adb and reports timeout bound", async () => {
@@ -101,7 +101,7 @@ describe("agent query CLI", () => {
 		const lines = records(result);
 
 		expect(result.code).toBe(0);
-		expect(lines.filter((line) => line.type === "event").map((line) => line.id)).toEqual([6, 8, 9, 11]);
+		expect(lines.filter((line) => line.type === "event").map((line) => line.id)).toEqual([6, 13, 14, 16]);
 		expect(lines.at(-1)).toMatchObject({ stop: "eof", timeout_ms: 3000 });
 	});
 
@@ -157,10 +157,10 @@ describe("agent query CLI with Jev", () => {
 		const events = lines.filter((line) => line.type === "event");
 
 		expect(run.code).toBe(0);
-		expect(events.map((line) => line.id)).toEqual([4, 5, 6, 7]);
+		expect(events.map((line) => line.id)).toEqual([4, 5, 6, 12]);
 		expect(events.every((line) => line.verdict === "relevant" && (line.score ?? 0) >= 0.5)).toBe(true);
 		expect(lines.at(-1)?.query).toBe("~database locks");
-		expect(lines.at(-1)?.jev).toEqual({ relevant: 4, belowThreshold: 11, unscored: 0 });
+		expect(lines.at(-1)?.jev).toEqual({ relevant: 4, belowThreshold: 17, unscored: 0 });
 	});
 
 	test("--check reports the search mode without calling Jev", async () => {

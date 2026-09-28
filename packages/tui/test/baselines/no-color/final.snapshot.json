@@ -34,7 +34,7 @@
         "overline": false,
         "underline": null
       },
-      "text": "logcayo  REPLAY • END  15 events                                        "
+      "text": "logcayo  REPLAY • END  21 events                                        "
     },
     {
       "x": 0,
@@ -226,7 +226,7 @@
         "overline": false,
         "underline": null
       },
-      "text": "  │                                      not a header line              "
+      "text": "  not a header line                                                     "
     },
     {
       "x": 0,

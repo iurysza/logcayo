@@ -2,16 +2,16 @@
 
 File: `sanitized-aosp-pattern.lvr.jsonl`  
 Provenance: `sanitized-real`  
-Redaction version: `2026-09-18.public-aosp-pattern.v1`  
-Profile: `threadtime-epoch-usec-v1`
+Redaction version: `2026-09-28.device-uid-pattern.v2`  
+Profile: `threadtime-epoch-usec-uid-v2`
 
 ## Origin
 
-This environment has no authorized Android device. The fixture is a reviewed, redacted stand-in built from public AOSP log shapes (Zygote, ActivityManager, chatty, libc abort, Database) and the canonical `threadtime` + `epoch` + `usec` capture profile.
+The fixture follows the layout of a Samsung Android 17 phone captured with logcayo's flags: leading spaces, a UID column, and named UIDs such as `root`, `radio`, `wifi`, `lmkd`, `shell` and `logd`. Logcat prints a name instead of the number when the account name has at most 5 characters.
 
-It is **not** an untouched dump from a private phone. Treat it as a sanitized real-pattern capture for parser, replay, live-stub, and TUI smoke — not as evidence of a specific device session.
+The app story (`com.example.logview.demo`, the `Database` stack trace, the libc abort) is invented. The `radio`, `wifi`, `lmkd` and `shell` lines come from a real capture, with PIDs and timestamps changed. The stack trace repeats its header on every line, as real logcat does, so it groups into one event. `not a header line` stays as one unparsed event.
 
-A later reviewed recording from a physical device should replace this file, keep the same schema, and bump `redactionVersion`.
+It is **not** an untouched dump from a private phone.
 
 ## Review
 
@@ -21,7 +21,7 @@ A later reviewed recording from a physical device should replace this file, keep
 | Tokens, cookies, passwords, payment data | `token=REDACTED` only |
 | Device serials / IMEI / advertising IDs | None in log text. Replay header stores no serial. |
 | Package identity | Invented `com.example.logview.demo` |
-| PIDs / UIDs | Invented |
+| PIDs / UIDs | Invented, or changed from the real capture |
 | Control bytes | One escaped ESC sequence in a warning line, to prove display sanitization |
 
 ## Packets

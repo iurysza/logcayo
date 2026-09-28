@@ -154,7 +154,7 @@
         "overline": false,
         "underline": null
       },
-      "text": "  6 of 15  "
+      "text": "  7 of 21  "
     },
     {
       "x": 66,
@@ -1450,7 +1450,7 @@
         "overline": false,
         "underline": null
       },
-      "text": "  08:55:00.003  "
+      "text": "  08:55:00.002  "
     },
     {
       "x": 16,
@@ -1522,7 +1522,7 @@
         "overline": false,
         "underline": null
       },
-      "text": "  4321:4340"
+      "text": "  2614:2614"
     },
     {
       "x": 32,
@@ -1570,7 +1570,7 @@
         "overline": false,
         "underline": null
       },
-      "text": "Database        "
+      "text": "adbd            "
     },
     {
       "x": 49,
@@ -1599,6 +1599,390 @@
     {
       "x": 51,
       "y": 9,
+      "foreground": {
+        "r": 195,
+        "g": 205,
+        "b": 232
+      },
+      "background": {
+        "r": 17,
+        "g": 24,
+        "b": 32
+      },
+      "attributes": {
+        "bold": false,
+        "italic": false,
+        "faint": false,
+        "invisible": false,
+        "strikethrough": false,
+        "overline": false,
+        "underline": null
+      },
+      "text": "adbd_auth: loading keys from /da"
+    },
+    {
+      "x": 83,
+      "y": 9,
+      "foreground": {
+        "r": 195,
+        "g": 205,
+        "b": 232
+      },
+      "background": {
+        "r": 84,
+        "g": 70,
+        "b": 36
+      },
+      "attributes": {
+        "bold": false,
+        "italic": false,
+        "faint": false,
+        "invisible": false,
+        "strikethrough": false,
+        "overline": false,
+        "underline": null
+      },
+      "text": "ta"
+    },
+    {
+      "x": 85,
+      "y": 9,
+      "foreground": {
+        "r": 244,
+        "g": 201,
+        "b": 93
+      },
+      "background": {
+        "r": 17,
+        "g": 24,
+        "b": 32
+      },
+      "attributes": {
+        "bold": false,
+        "italic": false,
+        "faint": false,
+        "invisible": false,
+        "strikethrough": false,
+        "overline": false,
+        "underline": null
+      },
+      "text": "/"
+    },
+    {
+      "x": 86,
+      "y": 9,
+      "foreground": {
+        "r": 126,
+        "g": 231,
+        "b": 135
+      },
+      "background": {
+        "r": 17,
+        "g": 24,
+        "b": 32
+      },
+      "attributes": {
+        "bold": false,
+        "italic": false,
+        "faint": false,
+        "invisible": false,
+        "strikethrough": false,
+        "overline": false,
+        "underline": null
+      },
+      "text": "misc"
+    },
+    {
+      "x": 90,
+      "y": 9,
+      "foreground": {
+        "r": 244,
+        "g": 201,
+        "b": 93
+      },
+      "background": {
+        "r": 17,
+        "g": 24,
+        "b": 32
+      },
+      "attributes": {
+        "bold": false,
+        "italic": false,
+        "faint": false,
+        "invisible": false,
+        "strikethrough": false,
+        "overline": false,
+        "underline": null
+      },
+      "text": "/"
+    },
+    {
+      "x": 91,
+      "y": 9,
+      "foreground": {
+        "r": 126,
+        "g": 231,
+        "b": 135
+      },
+      "background": {
+        "r": 17,
+        "g": 24,
+        "b": 32
+      },
+      "attributes": {
+        "bold": false,
+        "italic": false,
+        "faint": false,
+        "invisible": false,
+        "strikethrough": false,
+        "overline": false,
+        "underline": null
+      },
+      "text": "adb"
+    },
+    {
+      "x": 94,
+      "y": 9,
+      "foreground": {
+        "r": 244,
+        "g": 201,
+        "b": 93
+      },
+      "background": {
+        "r": 17,
+        "g": 24,
+        "b": 32
+      },
+      "attributes": {
+        "bold": false,
+        "italic": false,
+        "faint": false,
+        "invisible": false,
+        "strikethrough": false,
+        "overline": false,
+        "underline": null
+      },
+      "text": "/"
+    },
+    {
+      "x": 95,
+      "y": 9,
+      "foreground": {
+        "r": 126,
+        "g": 231,
+        "b": 135
+      },
+      "background": {
+        "r": 17,
+        "g": 24,
+        "b": 32
+      },
+      "attributes": {
+        "bold": false,
+        "italic": false,
+        "faint": false,
+        "invisible": false,
+        "strikethrough": false,
+        "overline": false,
+        "underline": null
+      },
+      "text": "adb_keys"
+    },
+    {
+      "x": 103,
+      "y": 9,
+      "foreground": {
+        "r": 195,
+        "g": 205,
+        "b": 232
+      },
+      "background": {
+        "r": 17,
+        "g": 24,
+        "b": 32
+      },
+      "attributes": {
+        "bold": false,
+        "italic": false,
+        "faint": false,
+        "invisible": false,
+        "strikethrough": false,
+        "overline": false,
+        "underline": null
+      },
+      "text": "                 "
+    },
+    {
+      "x": 0,
+      "y": 10,
+      "foreground": {
+        "r": 135,
+        "g": 150,
+        "b": 181
+      },
+      "background": {
+        "r": 17,
+        "g": 24,
+        "b": 32
+      },
+      "attributes": {
+        "bold": false,
+        "italic": false,
+        "faint": false,
+        "invisible": false,
+        "strikethrough": false,
+        "overline": false,
+        "underline": null
+      },
+      "text": "  08:55:00.003  "
+    },
+    {
+      "x": 16,
+      "y": 10,
+      "foreground": {
+        "r": 126,
+        "g": 231,
+        "b": 135
+      },
+      "background": {
+        "r": 17,
+        "g": 24,
+        "b": 32
+      },
+      "attributes": {
+        "bold": false,
+        "italic": false,
+        "faint": false,
+        "invisible": false,
+        "strikethrough": false,
+        "overline": false,
+        "underline": null
+      },
+      "text": " I "
+    },
+    {
+      "x": 19,
+      "y": 10,
+      "foreground": {
+        "r": 135,
+        "g": 150,
+        "b": 181
+      },
+      "background": {
+        "r": 17,
+        "g": 24,
+        "b": 32
+      },
+      "attributes": {
+        "bold": false,
+        "italic": false,
+        "faint": false,
+        "invisible": false,
+        "strikethrough": false,
+        "overline": false,
+        "underline": null
+      },
+      "text": "  "
+    },
+    {
+      "x": 21,
+      "y": 10,
+      "foreground": {
+        "r": 69,
+        "g": 150,
+        "b": 255
+      },
+      "background": {
+        "r": 17,
+        "g": 24,
+        "b": 32
+      },
+      "attributes": {
+        "bold": false,
+        "italic": false,
+        "faint": false,
+        "invisible": false,
+        "strikethrough": false,
+        "overline": false,
+        "underline": null
+      },
+      "text": "  4321:4340"
+    },
+    {
+      "x": 32,
+      "y": 10,
+      "foreground": {
+        "r": 135,
+        "g": 150,
+        "b": 181
+      },
+      "background": {
+        "r": 17,
+        "g": 24,
+        "b": 32
+      },
+      "attributes": {
+        "bold": false,
+        "italic": false,
+        "faint": false,
+        "invisible": false,
+        "strikethrough": false,
+        "overline": false,
+        "underline": null
+      },
+      "text": " "
+    },
+    {
+      "x": 33,
+      "y": 10,
+      "foreground": {
+        "r": 126,
+        "g": 231,
+        "b": 135
+      },
+      "background": {
+        "r": 17,
+        "g": 24,
+        "b": 32
+      },
+      "attributes": {
+        "bold": false,
+        "italic": false,
+        "faint": false,
+        "invisible": false,
+        "strikethrough": false,
+        "overline": false,
+        "underline": null
+      },
+      "text": "Database        "
+    },
+    {
+      "x": 49,
+      "y": 10,
+      "foreground": {
+        "r": 135,
+        "g": 150,
+        "b": 181
+      },
+      "background": {
+        "r": 17,
+        "g": 24,
+        "b": 32
+      },
+      "attributes": {
+        "bold": false,
+        "italic": false,
+        "faint": false,
+        "invisible": false,
+        "strikethrough": false,
+        "overline": false,
+        "underline": null
+      },
+      "text": "  "
+    },
+    {
+      "x": 51,
+      "y": 10,
       "foreground": {
         "r": 195,
         "g": 205,
@@ -1622,7 +2006,7 @@
     },
     {
       "x": 0,
-      "y": 10,
+      "y": 11,
       "foreground": {
         "r": 69,
         "g": 150,
@@ -1646,7 +2030,7 @@
     },
     {
       "x": 2,
-      "y": 10,
+      "y": 11,
       "foreground": {
         "r": 135,
         "g": 150,
@@ -1670,7 +2054,7 @@
     },
     {
       "x": 16,
-      "y": 10,
+      "y": 11,
       "foreground": {
         "r": 255,
         "g": 103,
@@ -1694,7 +2078,7 @@
     },
     {
       "x": 19,
-      "y": 10,
+      "y": 11,
       "foreground": {
         "r": 135,
         "g": 150,
@@ -1718,7 +2102,7 @@
     },
     {
       "x": 21,
-      "y": 10,
+      "y": 11,
       "foreground": {
         "r": 69,
         "g": 150,
@@ -1742,7 +2126,7 @@
     },
     {
       "x": 32,
-      "y": 10,
+      "y": 11,
       "foreground": {
         "r": 135,
         "g": 150,
@@ -1766,7 +2150,7 @@
     },
     {
       "x": 33,
-      "y": 10,
+      "y": 11,
       "foreground": {
         "r": 255,
         "g": 103,
@@ -1790,7 +2174,7 @@
     },
     {
       "x": 49,
-      "y": 10,
+      "y": 11,
       "foreground": {
         "r": 135,
         "g": 150,
@@ -1814,7 +2198,7 @@
     },
     {
       "x": 51,
-      "y": 10,
+      "y": 11,
       "foreground": {
         "r": 195,
         "g": 205,
@@ -1838,7 +2222,7 @@
     },
     {
       "x": 53,
-      "y": 10,
+      "y": 11,
       "foreground": {
         "r": 195,
         "g": 205,
@@ -1862,7 +2246,7 @@
     },
     {
       "x": 55,
-      "y": 10,
+      "y": 11,
       "foreground": {
         "r": 195,
         "g": 205,
@@ -1886,7 +2270,7 @@
     },
     {
       "x": 64,
-      "y": 10,
+      "y": 11,
       "foreground": {
         "r": 53,
         "g": 212,
@@ -1910,7 +2294,7 @@
     },
     {
       "x": 66,
-      "y": 10,
+      "y": 11,
       "foreground": {
         "r": 195,
         "g": 205,
@@ -1934,7 +2318,7 @@
     },
     {
       "x": 83,
-      "y": 10,
+      "y": 11,
       "foreground": {
         "r": 53,
         "g": 212,
@@ -1958,7 +2342,7 @@
     },
     {
       "x": 84,
-      "y": 10,
+      "y": 11,
       "foreground": {
         "r": 195,
         "g": 205,
@@ -1982,7 +2366,7 @@
     },
     {
       "x": 97,
-      "y": 10,
+      "y": 11,
       "foreground": {
         "r": 69,
         "g": 150,
@@ -2006,7 +2390,7 @@
     },
     {
       "x": 98,
-      "y": 10,
+      "y": 11,
       "foreground": {
         "r": 255,
         "g": 103,
@@ -2030,7 +2414,7 @@
     },
     {
       "x": 99,
-      "y": 10,
+      "y": 11,
       "foreground": {
         "r": 69,
         "g": 150,
@@ -2054,7 +2438,7 @@
     },
     {
       "x": 100,
-      "y": 10,
+      "y": 11,
       "foreground": {
         "r": 195,
         "g": 205,
@@ -2078,7 +2462,7 @@
     },
     {
       "x": 108,
-      "y": 10,
+      "y": 11,
       "foreground": {
         "r": 53,
         "g": 212,
@@ -2102,7 +2486,7 @@
     },
     {
       "x": 112,
-      "y": 10,
+      "y": 11,
       "foreground": {
         "r": 195,
         "g": 205,
@@ -2123,78 +2507,6 @@
         "underline": null
       },
       "text": " (logvi…"
-    },
-    {
-      "x": 0,
-      "y": 11,
-      "foreground": {
-        "r": 82,
-        "g": 98,
-        "b": 127
-      },
-      "background": {
-        "r": 17,
-        "g": 24,
-        "b": 32
-      },
-      "attributes": {
-        "bold": false,
-        "italic": false,
-        "faint": false,
-        "invisible": false,
-        "strikethrough": false,
-        "overline": false,
-        "underline": null
-      },
-      "text": "  │                                                "
-    },
-    {
-      "x": 51,
-      "y": 11,
-      "foreground": {
-        "r": 135,
-        "g": 150,
-        "b": 181
-      },
-      "background": {
-        "r": 17,
-        "g": 24,
-        "b": 32
-      },
-      "attributes": {
-        "bold": false,
-        "italic": false,
-        "faint": false,
-        "invisible": false,
-        "strikethrough": false,
-        "overline": false,
-        "underline": null
-      },
-      "text": "not a header line"
-    },
-    {
-      "x": 68,
-      "y": 11,
-      "foreground": {
-        "r": 195,
-        "g": 205,
-        "b": 232
-      },
-      "background": {
-        "r": 17,
-        "g": 24,
-        "b": 32
-      },
-      "attributes": {
-        "bold": false,
-        "italic": false,
-        "faint": false,
-        "invisible": false,
-        "strikethrough": false,
-        "overline": false,
-        "underline": null
-      },
-      "text": "                                                    "
     },
     {
       "x": 0,

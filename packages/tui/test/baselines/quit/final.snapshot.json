@@ -106,7 +106,7 @@
         "overline": false,
         "underline": null
       },
-      "text": "  15 events                                        "
+      "text": "  21 events                                        "
     },
     {
       "x": 0,
@@ -1528,30 +1528,6 @@
       "x": 0,
       "y": 8,
       "foreground": {
-        "r": 82,
-        "g": 98,
-        "b": 127
-      },
-      "background": {
-        "r": 17,
-        "g": 24,
-        "b": 32
-      },
-      "attributes": {
-        "bold": false,
-        "italic": false,
-        "faint": false,
-        "invisible": false,
-        "strikethrough": false,
-        "overline": false,
-        "underline": null
-      },
-      "text": "  │                                      "
-    },
-    {
-      "x": 41,
-      "y": 8,
-      "foreground": {
         "r": 135,
         "g": 150,
         "b": 181
@@ -1570,10 +1546,10 @@
         "overline": false,
         "underline": null
       },
-      "text": "not a header line"
+      "text": "  "
     },
     {
-      "x": 58,
+      "x": 2,
       "y": 8,
       "foreground": {
         "r": 195,
@@ -1594,7 +1570,7 @@
         "overline": false,
         "underline": null
       },
-      "text": "              "
+      "text": "not a header line                                                     "
     },
     {
       "x": 0,
