@@ -1,0 +1,61 @@
+name: Binaries
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: binaries-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.4.2
+      - run: bun install --frozen-lockfile
+      - run: sh scripts/build-binaries.sh
+      - uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: dist/
+          retention-days: 1
+
+  install:
+    needs: build
+    strategy:
+      fail-fast: false
+      matrix:
+        runner: [ubuntu-latest, ubuntu-24.04-arm, macos-latest, macos-15-intel]
+    runs-on: ${{ matrix.runner }}
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: dist
+      - name: Install with the release installer
+        run: LOGCAYO_DOWNLOAD_BASE="file://$PWD/dist" LOGCAYO_INSTALL_DIR="$RUNNER_TEMP/bin" sh dist/install.sh
+      - name: Version matches package.json
+        run: |
+          expected="logcayo $(jq -r .version packages/cli/package.json)"
+          actual="$("$RUNNER_TEMP/bin/logcayo" --version)"
+          echo "$actual"
+          test "$actual" = "$expected"
+      - name: Query a recording
+        run: |
+          "$RUNNER_TEMP/bin/logcayo" query tests/fixtures/real/sanitized-aosp-pattern.lvr.jsonl 'level:E' --limit 1 >out.ndjson
+          tail -1 out.ndjson
+          tail -1 out.ndjson | jq -e '.type == "summary" and .emitted == 1'
+      - name: Replay headless
+        run: |
+          "$RUNNER_TEMP/bin/logcayo" replay tests/fixtures/real/sanitized-aosp-pattern.lvr.jsonl --speed instant --headless | tail -1 | jq -e .

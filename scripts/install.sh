@@ -6,6 +6,7 @@
 # Environment:
 #   LOGCAYO_VERSION      release tag to install, for example v0.2.0 (default: latest)
 #   LOGCAYO_INSTALL_DIR  target directory (default: ~/.local/bin)
+#   LOGCAYO_DOWNLOAD_BASE  URL to download assets from instead of GitHub (for testing)
 set -eu
 
 REPO="iurysza/logcayo"
@@ -37,7 +38,9 @@ if [ "$os" = darwin ] && [ "$arch" = x64 ] && [ "$(sysctl -n sysctl.proc_transla
 fi
 
 asset="logcayo-$os-$arch"
-if [ "$VERSION" = latest ]; then
+if [ -n "${LOGCAYO_DOWNLOAD_BASE:-}" ]; then
+	base="$LOGCAYO_DOWNLOAD_BASE"
+elif [ "$VERSION" = latest ]; then
 	base="https://github.com/$REPO/releases/latest/download"
 else
 	base="https://github.com/$REPO/releases/download/$VERSION"
