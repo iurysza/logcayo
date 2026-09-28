@@ -68,7 +68,7 @@ type ParsedCli =
 	| { command: "version" };
 
 function usage(): string {
-	return `logcayo — keyboard-driven Android log viewer
+	return `logcayo — a modern terminal UI for Android logs
 
 Usage:
   logcayo live [--serial DEVICE] [--headless] [--semantic] [--config PATH]
