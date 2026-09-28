@@ -154,7 +154,7 @@
         "overline": false,
         "underline": null
       },
-      "text": "  4 of 15  "
+      "text": "  4 of 21  "
     },
     {
       "x": 66,
@@ -394,10 +394,10 @@
         "overline": false,
         "underline": null
       },
-      "text": " I"
+      "text": " I "
     },
     {
-      "x": 18,
+      "x": 19,
       "y": 3,
       "foreground": {
         "r": 135,
@@ -421,7 +421,7 @@
       "text": "  "
     },
     {
-      "x": 20,
+      "x": 21,
       "y": 3,
       "foreground": {
         "r": 69,
@@ -445,7 +445,7 @@
       "text": "  4321:4340"
     },
     {
-      "x": 31,
+      "x": 32,
       "y": 3,
       "foreground": {
         "r": 135,
@@ -469,7 +469,7 @@
       "text": " "
     },
     {
-      "x": 32,
+      "x": 33,
       "y": 3,
       "foreground": {
         "r": 126,
@@ -493,7 +493,7 @@
       "text": "Database        "
     },
     {
-      "x": 48,
+      "x": 49,
       "y": 3,
       "foreground": {
         "r": 135,
@@ -517,7 +517,7 @@
       "text": "  "
     },
     {
-      "x": 50,
+      "x": 51,
       "y": 3,
       "foreground": {
         "r": 195,
@@ -538,7 +538,7 @@
         "overline": false,
         "underline": null
       },
-      "text": "Opening connection                                                    "
+      "text": "Opening connection                                                   "
     },
     {
       "x": 0,
@@ -586,10 +586,10 @@
         "overline": false,
         "underline": null
       },
-      "text": " D"
+      "text": " D "
     },
     {
-      "x": 18,
+      "x": 19,
       "y": 4,
       "foreground": {
         "r": 135,
@@ -613,7 +613,7 @@
       "text": "  "
     },
     {
-      "x": 20,
+      "x": 21,
       "y": 4,
       "foreground": {
         "r": 69,
@@ -637,7 +637,7 @@
       "text": "  4321:4340"
     },
     {
-      "x": 31,
+      "x": 32,
       "y": 4,
       "foreground": {
         "r": 135,
@@ -661,7 +661,7 @@
       "text": " "
     },
     {
-      "x": 32,
+      "x": 33,
       "y": 4,
       "foreground": {
         "r": 126,
@@ -685,7 +685,7 @@
       "text": "Database        "
     },
     {
-      "x": 48,
+      "x": 49,
       "y": 4,
       "foreground": {
         "r": 135,
@@ -709,7 +709,7 @@
       "text": "  "
     },
     {
-      "x": 50,
+      "x": 51,
       "y": 4,
       "foreground": {
         "r": 195,
@@ -733,7 +733,7 @@
       "text": "SELECT completed in "
     },
     {
-      "x": 70,
+      "x": 71,
       "y": 4,
       "foreground": {
         "r": 53,
@@ -757,7 +757,7 @@
       "text": "12"
     },
     {
-      "x": 72,
+      "x": 73,
       "y": 4,
       "foreground": {
         "r": 195,
@@ -778,7 +778,7 @@
         "overline": false,
         "underline": null
       },
-      "text": " ms                                             "
+      "text": " ms                                            "
     },
     {
       "x": 0,
@@ -826,10 +826,10 @@
         "overline": false,
         "underline": null
       },
-      "text": " W"
+      "text": " W "
     },
     {
-      "x": 18,
+      "x": 19,
       "y": 5,
       "foreground": {
         "r": 135,
@@ -853,7 +853,7 @@
       "text": "  "
     },
     {
-      "x": 20,
+      "x": 21,
       "y": 5,
       "foreground": {
         "r": 69,
@@ -877,7 +877,7 @@
       "text": "  4321:4340"
     },
     {
-      "x": 31,
+      "x": 32,
       "y": 5,
       "foreground": {
         "r": 135,
@@ -901,7 +901,7 @@
       "text": " "
     },
     {
-      "x": 32,
+      "x": 33,
       "y": 5,
       "foreground": {
         "r": 244,
@@ -925,7 +925,7 @@
       "text": "Database        "
     },
     {
-      "x": 48,
+      "x": 49,
       "y": 5,
       "foreground": {
         "r": 135,
@@ -949,7 +949,7 @@
       "text": "  "
     },
     {
-      "x": 50,
+      "x": 51,
       "y": 5,
       "foreground": {
         "r": 195,
@@ -970,7 +970,7 @@
         "overline": false,
         "underline": null
       },
-      "text": "Retry after lock timeout                                              "
+      "text": "Retry after lock timeout                                             "
     },
     {
       "x": 0,
@@ -1186,10 +1186,10 @@
         "overline": false,
         "underline": null
       },
-      "text": " I"
+      "text": " I "
     },
     {
-      "x": 18,
+      "x": 19,
       "y": 8,
       "foreground": {
         "r": 135,
@@ -1213,7 +1213,7 @@
       "text": "  "
     },
     {
-      "x": 20,
+      "x": 21,
       "y": 8,
       "foreground": {
         "r": 69,
@@ -1237,7 +1237,7 @@
       "text": "  4321:4340"
     },
     {
-      "x": 31,
+      "x": 32,
       "y": 8,
       "foreground": {
         "r": 135,
@@ -1261,7 +1261,7 @@
       "text": " "
     },
     {
-      "x": 32,
+      "x": 33,
       "y": 8,
       "foreground": {
         "r": 126,
@@ -1285,7 +1285,7 @@
       "text": "Database        "
     },
     {
-      "x": 48,
+      "x": 49,
       "y": 8,
       "foreground": {
         "r": 135,
@@ -1309,7 +1309,7 @@
       "text": "  "
     },
     {
-      "x": 50,
+      "x": 51,
       "y": 8,
       "foreground": {
         "r": 195,
@@ -1330,7 +1330,7 @@
         "overline": false,
         "underline": null
       },
-      "text": "Transaction committed                                                 "
+      "text": "Transaction committed                                                "
     },
     {
       "x": 0,

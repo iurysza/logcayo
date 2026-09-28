@@ -34,7 +34,7 @@
         "overline": false,
         "underline": null
       },
-      "text": "logcayo  REPLAY • END  15 events                                        "
+      "text": "logcayo  REPLAY • END  21 events                                        "
     },
     {
       "x": 0,
@@ -106,7 +106,7 @@
         "overline": false,
         "underline": null
       },
-      "text": "  08:55:00.003   I   4321 Database      Transaction committed           "
+      "text": "  08:55:00.003   I    4321 Database      Transaction committed          "
     },
     {
       "x": 0,
@@ -130,7 +130,7 @@
         "overline": false,
         "underline": null
       },
-      "text": "  08:55:00.003   E   4321 logview-demo  failed to parse token=REDACTED  "
+      "text": "  08:55:00.003   E    4321 logview-demo  failed to parse token=REDACTED "
     },
     {
       "x": 0,
@@ -154,7 +154,7 @@
         "overline": false,
         "underline": null
       },
-      "text": "  08:55:00.003   W   4321 logview-demo  stray sequence ^[[31m in paylo… "
+      "text": "  08:55:00.003   W    4321 logview-demo  stray sequence ^[[31m in paylo…"
     },
     {
       "x": 0,
@@ -178,7 +178,7 @@
         "overline": false,
         "underline": null
       },
-      "text": "  08:55:00.003   I   4321 logview-demo  café already open               "
+      "text": "  08:55:00.003   I    4321 logview-demo  café already open              "
     },
     {
       "x": 0,
@@ -202,7 +202,7 @@
         "overline": false,
         "underline": null
       },
-      "text": "  08:55:00.003   F      1 libc          Fatal signal 11 (SIGSEGV), cod… "
+      "text": "  08:55:00.003   F       1 libc          Fatal signal 11 (SIGSEGV), cod…"
     },
     {
       "x": 0,
@@ -226,7 +226,7 @@
         "overline": false,
         "underline": null
       },
-      "text": "  │                                      not a header line              "
+      "text": "  not a header line                                                     "
     },
     {
       "x": 0,
@@ -250,7 +250,7 @@
         "overline": false,
         "underline": null
       },
-      "text": "  08:55:00.003   V   4321 logview-demo  verbose heartbeat               "
+      "text": "  08:55:00.003   V    4321 logview-demo  verbose heartbeat              "
     },
     {
       "x": 0,
@@ -274,7 +274,7 @@
         "overline": false,
         "underline": null
       },
-      "text": "  08:54:59.999   I   4321 logview-demo  clock went backward             "
+      "text": "  08:54:59.999   I    4321 logview-demo  clock went backward            "
     },
     {
       "x": 0,
@@ -298,7 +298,7 @@
         "overline": false,
         "underline": null
       },
-      "text": "  08:55:00.004   I   1001 chatty        uid=10042(u0_a42) expire 4 lin… "
+      "text": "  08:55:00.004   I    1001 chatty        uid=10042(u0_a42) expire 4 lin…"
     },
     {
       "x": 0,
@@ -322,7 +322,7 @@
         "overline": false,
         "underline": null
       },
-      "text": "▸ 08:55:00.004   I   4321 logview-demo  日本語 ok                       ",
+      "text": "▸ 08:55:00.004   I    4321 logview-demo  日本語 ok                      ",
       "widths": [
         1,
         1,
@@ -364,10 +364,10 @@
         1,
         1,
         1,
-        2,
-        2,
-        2,
         1,
+        2,
+        2,
+        2,
         1,
         1,
         1,

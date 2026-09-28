@@ -17,7 +17,7 @@ A modern terminal UI for Android logs.
 
 <sub>Every screen is the real TUI running on a Samsung device capture.</sub>
 
-logcayo streams `adb logcat` into a fast terminal viewer. Filter by level, tag, PID, package, or text as you type, then open any event to see its full message. Record a session to a file and replay it later, on your machine or in CI.
+logcayo streams `adb logcat` into a fast terminal viewer. Filter by level, tag, PID, package, or text as you type, then open any event to see its full message. Lines from one log call, such as a stack trace, stay together as one event. Record a session to a file and replay it later, on your machine or in CI.
 
 - Filter live with one query line, for example `level:W tag:Database lock`, with Tab completion from the session.
 - Inspect, copy, and pivot: jump from an event to its tag or PID in one key.
@@ -60,11 +60,11 @@ cd packages/cli && bun link
 
 `bun link` puts `logcayo` in `~/.bun/bin`. You can also run it from the checkout with `bun run logcayo`.
 
-logcayo is at version 0.2. Expect changes to commands and file formats.
+logcayo is at version 0.4. Expect changes to commands and file formats.
 
 ## Try it without a device
 
-Download the sample recording and replay it:
+Download the sample recording and replay it. It uses the same layout as a real device capture, including named UIDs such as `radio` and a stack trace that repeats its header on each line:
 
 ```sh
 curl -fsSLO https://raw.githubusercontent.com/iurysza/logcayo/main/tests/fixtures/real/sanitized-aosp-pattern.lvr.jsonl
@@ -146,11 +146,10 @@ Jev is off by default. It is a paid service and needs an API key. When it is on,
 
 To use it:
 
-1. Get an API key from [TypeSafe](https://typesafe.ai) and set `TYPESAFE_API_KEY`.
-2. Start logcayo with `--semantic`.
-3. In the query line, put `~` before a question: `level:W ~database locks`.
+1. Get an API key from [TypeSafe](https://typesafe.ai) and set `TYPESAFE_API_KEY`. Without it, Jev stays off.
+2. In the query line, put `~` before a question: `level:W ~database locks`.
 
-Keyed terms such as `level:` still filter on your machine first. Jev scores only the events that pass them. In the viewer, a question runs when you press Enter, not while you type. `m` switches between text and Jev, and `v` hides or dims low-scoring rows.
+Keyed terms such as `level:` still filter on your machine first. Jev scores only the events that pass them. In the viewer, a question runs when you press Enter, not while you type. Remove the `~` to go back to text search. `[` and `]` change the score threshold, and `h` hides or shows low-scoring rows.
 
 ![Asking Jev about database locks](./assets/demo/jev.gif)
 

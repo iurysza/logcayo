@@ -154,7 +154,7 @@
         "overline": false,
         "underline": null
       },
-      "text": "  15 of 15  "
+      "text": "  21 of 21  "
     },
     {
       "x": 67,
@@ -226,7 +226,7 @@
         "overline": false,
         "underline": null
       },
-      "text": " ≥ 0.50 · 11 hidden"
+      "text": " ≥ 0.50 · 17 hidden"
     },
     {
       "x": 104,
@@ -634,10 +634,10 @@
         "overline": false,
         "underline": null
       },
-      "text": " I"
+      "text": " I "
     },
     {
-      "x": 18,
+      "x": 19,
       "y": 3,
       "foreground": {
         "r": 135,
@@ -661,7 +661,7 @@
       "text": "  "
     },
     {
-      "x": 20,
+      "x": 21,
       "y": 3,
       "foreground": {
         "r": 69,
@@ -685,7 +685,7 @@
       "text": "  4321:4340"
     },
     {
-      "x": 31,
+      "x": 32,
       "y": 3,
       "foreground": {
         "r": 135,
@@ -709,7 +709,7 @@
       "text": " "
     },
     {
-      "x": 32,
+      "x": 33,
       "y": 3,
       "foreground": {
         "r": 126,
@@ -733,7 +733,7 @@
       "text": "Database        "
     },
     {
-      "x": 48,
+      "x": 49,
       "y": 3,
       "foreground": {
         "r": 135,
@@ -757,7 +757,7 @@
       "text": "  "
     },
     {
-      "x": 50,
+      "x": 51,
       "y": 3,
       "foreground": {
         "r": 195,
@@ -778,7 +778,7 @@
         "overline": false,
         "underline": null
       },
-      "text": "Opening connection                                     "
+      "text": "Opening connection                                    "
     },
     {
       "x": 105,
@@ -922,10 +922,10 @@
         "overline": false,
         "underline": null
       },
-      "text": " D"
+      "text": " D "
     },
     {
-      "x": 18,
+      "x": 19,
       "y": 4,
       "foreground": {
         "r": 135,
@@ -949,7 +949,7 @@
       "text": "  "
     },
     {
-      "x": 20,
+      "x": 21,
       "y": 4,
       "foreground": {
         "r": 69,
@@ -973,7 +973,7 @@
       "text": "  4321:4340"
     },
     {
-      "x": 31,
+      "x": 32,
       "y": 4,
       "foreground": {
         "r": 135,
@@ -997,7 +997,7 @@
       "text": " "
     },
     {
-      "x": 32,
+      "x": 33,
       "y": 4,
       "foreground": {
         "r": 126,
@@ -1021,7 +1021,7 @@
       "text": "Database        "
     },
     {
-      "x": 48,
+      "x": 49,
       "y": 4,
       "foreground": {
         "r": 135,
@@ -1045,7 +1045,7 @@
       "text": "  "
     },
     {
-      "x": 50,
+      "x": 51,
       "y": 4,
       "foreground": {
         "r": 195,
@@ -1069,7 +1069,7 @@
       "text": "SELECT completed in "
     },
     {
-      "x": 70,
+      "x": 71,
       "y": 4,
       "foreground": {
         "r": 53,
@@ -1093,7 +1093,7 @@
       "text": "12"
     },
     {
-      "x": 72,
+      "x": 73,
       "y": 4,
       "foreground": {
         "r": 195,
@@ -1114,7 +1114,7 @@
         "overline": false,
         "underline": null
       },
-      "text": " ms                              "
+      "text": " ms                             "
     },
     {
       "x": 105,
@@ -1258,10 +1258,10 @@
         "overline": false,
         "underline": null
       },
-      "text": " W"
+      "text": " W "
     },
     {
-      "x": 18,
+      "x": 19,
       "y": 5,
       "foreground": {
         "r": 135,
@@ -1285,7 +1285,7 @@
       "text": "  "
     },
     {
-      "x": 20,
+      "x": 21,
       "y": 5,
       "foreground": {
         "r": 69,
@@ -1309,7 +1309,7 @@
       "text": "  4321:4340"
     },
     {
-      "x": 31,
+      "x": 32,
       "y": 5,
       "foreground": {
         "r": 135,
@@ -1333,7 +1333,7 @@
       "text": " "
     },
     {
-      "x": 32,
+      "x": 33,
       "y": 5,
       "foreground": {
         "r": 244,
@@ -1357,7 +1357,7 @@
       "text": "Database        "
     },
     {
-      "x": 48,
+      "x": 49,
       "y": 5,
       "foreground": {
         "r": 135,
@@ -1381,7 +1381,7 @@
       "text": "  "
     },
     {
-      "x": 50,
+      "x": 51,
       "y": 5,
       "foreground": {
         "r": 195,
@@ -1402,7 +1402,7 @@
         "overline": false,
         "underline": null
       },
-      "text": "Retry after lock timeout                               "
+      "text": "Retry after lock timeout                              "
     },
     {
       "x": 105,
@@ -1714,10 +1714,10 @@
         "overline": false,
         "underline": null
       },
-      "text": " I"
+      "text": " I "
     },
     {
-      "x": 18,
+      "x": 19,
       "y": 8,
       "foreground": {
         "r": 135,
@@ -1741,7 +1741,7 @@
       "text": "  "
     },
     {
-      "x": 20,
+      "x": 21,
       "y": 8,
       "foreground": {
         "r": 69,
@@ -1765,7 +1765,7 @@
       "text": "  4321:4340"
     },
     {
-      "x": 31,
+      "x": 32,
       "y": 8,
       "foreground": {
         "r": 135,
@@ -1789,7 +1789,7 @@
       "text": " "
     },
     {
-      "x": 32,
+      "x": 33,
       "y": 8,
       "foreground": {
         "r": 126,
@@ -1813,7 +1813,7 @@
       "text": "Database        "
     },
     {
-      "x": 48,
+      "x": 49,
       "y": 8,
       "foreground": {
         "r": 135,
@@ -1837,7 +1837,7 @@
       "text": "  "
     },
     {
-      "x": 50,
+      "x": 51,
       "y": 8,
       "foreground": {
         "r": 195,
@@ -1858,7 +1858,7 @@
         "overline": false,
         "underline": null
       },
-      "text": "Transaction committed                                  "
+      "text": "Transaction committed                                 "
     },
     {
       "x": 105,

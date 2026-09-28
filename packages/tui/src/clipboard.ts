@@ -1,11 +1,12 @@
-import { messageText, sanitizeDisplay, tagText, type LogEvent } from "@logcayo/core";
+import { continuationText, messageText, sanitizeDisplay, tagText, type LogEvent } from "@logcayo/core";
 
 function formatDateTime(epochMicros: number): string {
 	return new Date(Math.floor(epochMicros / 1000)).toISOString().replace("T", " ").replace("Z", "");
 }
 
 function formatContinuation(line: string): string {
-	const content = line.startsWith("\t") ? line.slice(1) : line;
+	const text = continuationText(line);
+	const content = text.startsWith("\t") ? text.slice(1) : text;
 
 	return `    ${sanitizeDisplay(content)}`;
 }

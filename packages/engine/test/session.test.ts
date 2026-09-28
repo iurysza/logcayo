@@ -155,7 +155,7 @@ describe("headless session", () => {
 		for (let id = 1; id <= 12; id += 1) {
 			scenario.source.pushLine(threadtimeLine(id, { message: `event-${id}` }), id);
 
-			if (id % 3 === 0) scenario.source.pushLine(`\tat com.example.App.row${id}(App.java:${id})`, id);
+			if (id % 3 === 0) scenario.source.pushLine(threadtimeLine(id, { message: `\tat com.example.App.row${id}(App.java:${id})` }), id);
 		}
 
 		await tick(scenario.scheduler);
@@ -184,6 +184,29 @@ describe("headless session", () => {
 
 		expect(scenario.session.snapshot().view.selectedId).toBe(1);
 		await scenario.finish();
+		await scenario.session.stop();
+	});
+
+	test("wrap-mode paging keeps the selected header visible", async () => {
+		const scenario = await openScenario({ maxEvents: 20, rows: 12, columns: 72 });
+		await scenario.deliver(Array.from({ length: 12 }, (_, index) => index + 1), (id) => ({
+			message: `event-${id} retrying database connection after a network failure`,
+		}));
+		await scenario.finish();
+		expect(scenario.session.dispatch({ kind: "toggle-line-display" }).ok).toBe(true);
+
+		const commands = [
+			{ kind: "oldest" } as const,
+			...Array.from({ length: 12 }, () => ({ kind: "page", delta: 1 } as const)),
+			...Array.from({ length: 12 }, () => ({ kind: "page", delta: -1 } as const)),
+		];
+
+		for (const command of commands) {
+			expect(scenario.session.dispatch(command).ok).toBe(true);
+			const snapshot = scenario.session.snapshot();
+			expect(snapshot.rows.some((row) => row.id === snapshot.view.selectedId && row.kind === "header" && row.selected)).toBe(true);
+		}
+
 		await scenario.session.stop();
 	});
 
@@ -227,7 +250,7 @@ describe("headless session", () => {
 		await scenario.session.stop();
 	});
 
-	test("attaches unmatched lines to the previous event", async () => {
+	test("keeps unmatched lines as their own unparsed events", async () => {
 		const scenario = await openScenario({ maxEvents: 20, rows: 16, columns: 100 });
 		await scenario.deliver([1], () => ({ level: "E", message: "failed" }));
 		scenario.source.pushLine("\tat com.example.App.crash(App.java:32)", 2);
@@ -235,13 +258,61 @@ describe("headless session", () => {
 		await tick(scenario.scheduler);
 
 		const snap = scenario.session.snapshot();
-		expect(snap.stats.admittedEvents).toBe(1);
+		expect(snap.stats.admittedEvents).toBe(3);
 		expect(snap.stats.unparsedEvents).toBe(2);
-		expect(snap.selectedEvent?.continuations).toEqual([
-			"\tat com.example.App.crash(App.java:32)",
-			"not a header line",
+		const events = scenario.session.readMatches(null, 10);
+		expect(events.map((event) => [event.metadata === null, event.continuations.length])).toEqual([
+			[false, 0],
+			[true, 0],
+			[true, 0],
 		]);
-		expect(snap.rows.some((row) => row.kind === "continuation")).toBe(true);
+		expect(snap.rows.some((row) => row.kind === "continuation")).toBe(false);
+
+		await scenario.finish();
+		await scenario.session.stop();
+	});
+
+	test("keeps a named-UID line from another process as its own event", async () => {
+		const scenario = await openScenario({ maxEvents: 20, rows: 16, columns: 120 });
+		scenario.source.pushLine("         1790602081.734290 10079  7119  7119 I KeyguardTransition: STARTED", 1);
+		scenario.source.pushLine("         1790602081.734294 radio  6284  6284 D NtnCapabilityResolver: isNtn=false", 1);
+		await tick(scenario.scheduler);
+		scenario.source.pushLine("         1790602081.734297 radio  6284  6284 D NtnCapabilityResolver: isDtcSupported=false", 2);
+		await tick(scenario.scheduler);
+
+		const snap = scenario.session.snapshot();
+		expect(snap.stats.admittedEvents).toBe(3);
+		expect(snap.stats.unparsedEvents).toBe(0);
+		const events = scenario.session.readMatches(null, 10);
+		expect(events.map((event) => [event.metadata?.pid, event.metadata?.uid, event.continuations.length])).toEqual([
+			[7119, 10079, 0],
+			[6284, 1001, 0],
+			[6284, 1001, 0],
+		]);
+
+		await scenario.finish();
+		await scenario.session.stop();
+	});
+
+	test("groups lines that repeat one log call's header into one event", async () => {
+		const scenario = await openScenario({ maxEvents: 20, rows: 16, columns: 100 });
+		const line = (message: string) => threadtimeLine(1, { level: "W", tag: "IgMetaConfig", message });
+		scenario.source.pushLine(line("java.lang.RuntimeException: boom"), 1);
+		scenario.source.pushLine(line("\tat X.01ow.A05(:18)"), 1);
+		await tick(scenario.scheduler);
+		scenario.source.pushLine(line("\tat X.01ow.A04(:7)"), 2);
+		scenario.source.pushLine(threadtimeLine(2, { level: "W", tag: "IgMetaConfig", message: "next call" }), 3);
+		await tick(scenario.scheduler);
+
+		const snap = scenario.session.snapshot();
+		expect(snap.stats.admittedEvents).toBe(2);
+		expect(snap.stats.unparsedEvents).toBe(0);
+		const trace = scenario.session.dispatch({ kind: "oldest" });
+		expect(trace.ok).toBe(true);
+		const first = scenario.session.snapshot();
+		expect(first.selectedEvent?.continuations).toEqual([line("\tat X.01ow.A05(:18)"), line("\tat X.01ow.A04(:7)")]);
+		const frames = first.rows.filter((row) => row.kind === "continuation").map((row) => row.spans.filter((span) => span.role === "message").map((span) => span.text).join(""));
+		expect(frames.map((frame) => frame.trim())).toEqual(["at X.01ow.A05(:18)", "at X.01ow.A04(:7)"]);
 
 		await scenario.finish();
 		await scenario.session.stop();

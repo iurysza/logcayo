@@ -108,7 +108,7 @@ export type {
 	QueryContext,
 } from "./interaction.ts";
 
-export { parseLogcatLine, messageText, tagText } from "./logcat.ts";
+export { parseLogcatLine, messageText, tagText, continuationText, isSameLogCall } from "./logcat.ts";
 
 export type { ParsedLine } from "./logcat.ts";
 

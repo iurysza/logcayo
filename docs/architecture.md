@@ -61,7 +61,7 @@ For each stdout packet, the session:
 
 1. Adds the packet to a bounded `IngestQueue`.
 2. Frames complete lines before decoding them.
-3. Parses the Logcat profile or attaches an unmatched line to the preceding event as a continuation.
+3. Parses the Logcat profile. A line that repeats the previous event's header (same timestamp, PID, TID, level, UID and tag) joins that event as a continuation. An unmatched line becomes its own unparsed event.
 4. Assigns a monotonically increasing session-local event ID.
 5. Appends the event to bounded history and removes evicted IDs from visible and semantic state.
 6. Adds matching IDs to the active index and reconciles navigation by event ID.

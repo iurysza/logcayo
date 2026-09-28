@@ -13,16 +13,16 @@ export type FilterContractCase = Readonly<{
 }>;
 
 export const FILTER_CONTRACT_CASES: readonly FilterContractCase[] = [
-	{ query: "", canonical: "", expectedIds: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15] },
-	{ query: "level:w", canonical: "level:W", expectedIds: [6, 8, 9, 11] },
-	{ query: "tag:Database", canonical: "tag:Database", expectedIds: [4, 5, 6, 7] },
+	{ query: "", canonical: "", expectedIds: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21] },
+	{ query: "level:w", canonical: "level:W", expectedIds: [6, 13, 14, 16] },
+	{ query: "tag:Database", canonical: "tag:Database", expectedIds: [4, 5, 6, 12] },
 	{ query: "tag:Database lock", canonical: "tag:Database lock", expectedIds: [6] },
-	{ query: "pid:1", canonical: "pid:1", expectedIds: [11] },
-	{ query: "tag:logview-demo level:E", canonical: "level:E tag:logview-demo", expectedIds: [8] },
+	{ query: "pid:1", canonical: "pid:1", expectedIds: [16] },
+	{ query: "tag:logview-demo level:E", canonical: "level:E tag:logview-demo", expectedIds: [13] },
 	{ query: "store.java", canonical: "store.java", expectedIds: [6] },
-	{ query: "LOCK", canonical: "LOCK", expectedIds: [6, 13] },
+	{ query: "LOCK", canonical: "LOCK", expectedIds: [6, 19] },
 	{ query: '"lock timeout"', canonical: "lock timeout", expectedIds: [6] },
-	{ query: "日本語", canonical: "日本語", expectedIds: [15] },
+	{ query: "日本語", canonical: "日本語", expectedIds: [21] },
 	{ query: "tag:Nope", canonical: "tag:Nope", expectedIds: [] },
 ];
 

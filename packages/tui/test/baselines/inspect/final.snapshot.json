@@ -106,7 +106,7 @@
         "overline": false,
         "underline": null
       },
-      "text": "  15 events                                        "
+      "text": "  21 events                                        "
     },
     {
       "x": 0,
@@ -394,7 +394,7 @@
         "overline": false,
         "underline": null
       },
-      "text": "                                                        #15"
+      "text": "                                                        #21"
     },
     {
       "x": 0,
@@ -562,10 +562,10 @@
         "overline": false,
         "underline": null
       },
-      "text": "PID 4321 · TID 4321"
+      "text": "UID 10042 · PID 4321 · TID 4321"
     },
     {
-      "x": 31,
+      "x": 43,
       "y": 5,
       "foreground": {
         "r": 195,
@@ -586,7 +586,7 @@
         "overline": false,
         "underline": null
       },
-      "text": "                                         "
+      "text": "                             "
     },
     {
       "x": 0,
@@ -610,10 +610,10 @@
         "overline": false,
         "underline": null
       },
-      "text": "Package     Not recorded"
+      "text": "Package     Unavailable"
     },
     {
-      "x": 24,
+      "x": 23,
       "y": 6,
       "foreground": {
         "r": 195,
@@ -634,7 +634,7 @@
         "overline": false,
         "underline": null
       },
-      "text": "                                                "
+      "text": "                                                 "
     },
     {
       "x": 0,

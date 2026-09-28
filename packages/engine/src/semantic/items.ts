@@ -1,4 +1,4 @@
-import { messageText, tagText, type LogEvent } from "@logcayo/core";
+import { continuationText, messageText, tagText, type LogEvent } from "@logcayo/core";
 import type { ClassifierItem } from "./contracts.ts";
 
 export function classifierItemFromEvent(event: LogEvent): ClassifierItem {
@@ -10,7 +10,7 @@ export function classifierItemFromEvent(event: LogEvent): ClassifierItem {
 		parts.push(event.rawText);
 	}
 
-	for (const line of event.continuations) parts.push(line);
+	for (const line of event.continuations) parts.push(continuationText(line));
 
 	const messageParts: string[] = [];
 

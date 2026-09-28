@@ -37,6 +37,30 @@ describe("parseLogcatLine", () => {
 		expect(parsed.metadata?.tid).toBe(1250);
 	});
 
+	test("parses named UIDs that logcat prints for short account names", () => {
+		const cases: ReadonlyArray<readonly [string, number | null]> = [
+			["root", 0],
+			["radio", 1001],
+			["shell", 2000],
+			["u0_a5", 10005],
+			["u0_i3", 90003],
+			["u10_a", null],
+			["vendr", null],
+		];
+
+		for (const [name, uid] of cases) {
+			const parsed = parseLogcatLine(line(`         1790602081.734294 ${name.padStart(5)}  6284  6285 D NtnCapabilityResolver: isNtn=false`));
+
+			if (parsed.kind !== "event") throw new Error("expected event");
+			expect(parsed.metadata).not.toBeNull();
+			expect(parsed.metadata?.uid).toBe(uid);
+			expect(parsed.metadata?.pid).toBe(6284);
+			expect(parsed.metadata?.tid).toBe(6285);
+			expect(parsed.rawText.slice(parsed.metadata!.tag.start, parsed.metadata!.tag.end)).toBe("NtnCapabilityResolver");
+			expect(parsed.rawText.slice(parsed.metadata!.message.start, parsed.metadata!.message.end)).toBe("isNtn=false");
+		}
+	});
+
 	test("parses the leading whitespace used by physical device Logcat output", () => {
 		const parsed = parseLogcatLine(line("         1760000000.123456  1234  1250 I Database: BEGIN TRANSACTION"));
 		expect(parsed.kind).toBe("event");

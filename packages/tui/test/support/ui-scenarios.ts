@@ -152,6 +152,8 @@ const SCENARIOS: readonly UiScenario[] = [
 			await sendBytes(context.session, new TextEncoder().encode("A"));
 			await waitForText(context.session, REPLAY_BROWSE);
 			await context.capture("browse", { cols: 120, rows: 24 });
+			// The fixture is taller than one screen, so two pages reach the oldest event.
+			await sendBytes(context.session, new TextEncoder().encode("\u0015"));
 			await sendBytes(context.session, new TextEncoder().encode("\u0015"));
 			await waitForScreen(
 				context.session,
@@ -160,6 +162,7 @@ const SCENARIOS: readonly UiScenario[] = [
 			);
 			const pageUp = await context.capture("ctrl-u", { cols: 120, rows: 24 });
 			expectCell(pageUp, 0, 3, "▸", "Ctrl+U page up");
+			await sendBytes(context.session, new TextEncoder().encode("\u0004"));
 			await sendBytes(context.session, new TextEncoder().encode("\u0004"));
 			await waitForScreen(
 				context.session,
@@ -186,7 +189,10 @@ const SCENARIOS: readonly UiScenario[] = [
 			const clipped = await context.capture("clipped", { cols: 120, rows: 24 });
 			expectText(clipped, "…", "clipped log row");
 			await send(context.session, ["text:w"]);
-			await waitForText(context.session, "│");
+			await waitForScreen(context.session, "wrapped log rows", (screen) => {
+				// Tags stay clipped to their column; only messages wrap.
+				return !screen.text.includes("(logvi…") && screen.text.split("\n").some((line) => line.trimEnd().endsWith("(logview-demo)"));
+			});
 			await context.capture("wrapped", { cols: 120, rows: 24 });
 		},
 	},
@@ -296,7 +302,7 @@ const SCENARIOS: readonly UiScenario[] = [
 			const narrow = await context.capture("columns-48", { cols: 48, rows: 12 });
 			const header = firstLine(narrow);
 
-			if (!header.includes("logcayo") || !header.includes("15 events")) {
+			if (!header.includes("logcayo") || !header.includes("21 events")) {
 				throw new Error(`48-column ANSI header is not fitted: ${JSON.stringify(header)}`);
 			}
 
@@ -314,7 +320,7 @@ const SCENARIOS: readonly UiScenario[] = [
 			await waitForText(context.session, "QUERY");
 			await send(context.session, ["text:level:W tag:Database lock"]);
 			await send(context.session, ["enter"]);
-			await waitForText(context.session, "1 of 15");
+			await waitForText(context.session, "1 of 21");
 			await context.capture("final", { cols: 120, rows: 24 });
 		},
 	},
@@ -388,7 +394,7 @@ const SCENARIOS: readonly UiScenario[] = [
 			await waitForText(context.session, "≥ 0.75");
 			const raised = await context.capture("threshold", { cols: 120, rows: 24 });
 
-			expectText(raised, "2 relevant ≥ 0.75 · 13 hidden", "threshold");
+			expectText(raised, "2 relevant ≥ 0.75 · 19 hidden", "threshold");
 		},
 	},
 	{
@@ -419,7 +425,7 @@ const SCENARIOS: readonly UiScenario[] = [
 			await context.capture("values", { cols: 120, rows: 24 });
 
 			await send(context.session, ["text:Da", "tab"]);
-			await waitForText(context.session, "4 of 15");
+			await waitForText(context.session, "4 of 21");
 			const accepted = await context.capture("accepted", { cols: 120, rows: 24 });
 
 			expectText(accepted, "tag:Database", "accepted");
