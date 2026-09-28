@@ -562,10 +562,10 @@
         "overline": false,
         "underline": null
       },
-      "text": " I"
+      "text": " I "
     },
     {
-      "x": 18,
+      "x": 19,
       "y": 3,
       "foreground": {
         "r": 135,
@@ -589,7 +589,7 @@
       "text": "  "
     },
     {
-      "x": 20,
+      "x": 21,
       "y": 3,
       "foreground": {
         "r": 69,
@@ -613,7 +613,7 @@
       "text": "  1186:1186"
     },
     {
-      "x": 31,
+      "x": 32,
       "y": 3,
       "foreground": {
         "r": 135,
@@ -637,7 +637,7 @@
       "text": " "
     },
     {
-      "x": 32,
+      "x": 33,
       "y": 3,
       "foreground": {
         "r": 126,
@@ -661,7 +661,7 @@
       "text": "Zygote          "
     },
     {
-      "x": 48,
+      "x": 49,
       "y": 3,
       "foreground": {
         "r": 135,
@@ -685,7 +685,7 @@
       "text": "  "
     },
     {
-      "x": 50,
+      "x": 51,
       "y": 3,
       "foreground": {
         "r": 195,
@@ -709,7 +709,7 @@
       "text": "Process "
     },
     {
-      "x": 58,
+      "x": 59,
       "y": 3,
       "foreground": {
         "r": 53,
@@ -733,7 +733,7 @@
       "text": "4321"
     },
     {
-      "x": 62,
+      "x": 63,
       "y": 3,
       "foreground": {
         "r": 195,
@@ -754,7 +754,7 @@
         "overline": false,
         "underline": null
       },
-      "text": " created for com.example.logview.demo                     "
+      "text": " created for com.example.logview.demo                    "
     },
     {
       "x": 0,
@@ -802,10 +802,10 @@
         "overline": false,
         "underline": null
       },
-      "text": " I"
+      "text": " I "
     },
     {
-      "x": 18,
+      "x": 19,
       "y": 4,
       "foreground": {
         "r": 135,
@@ -829,7 +829,7 @@
       "text": "  "
     },
     {
-      "x": 20,
+      "x": 21,
       "y": 4,
       "foreground": {
         "r": 69,
@@ -853,7 +853,7 @@
       "text": "  1234:1250"
     },
     {
-      "x": 31,
+      "x": 32,
       "y": 4,
       "foreground": {
         "r": 135,
@@ -877,7 +877,7 @@
       "text": " "
     },
     {
-      "x": 32,
+      "x": 33,
       "y": 4,
       "foreground": {
         "r": 126,
@@ -901,7 +901,7 @@
       "text": "ActivityManager "
     },
     {
-      "x": 48,
+      "x": 49,
       "y": 4,
       "foreground": {
         "r": 135,
@@ -925,7 +925,7 @@
       "text": "  "
     },
     {
-      "x": 50,
+      "x": 51,
       "y": 4,
       "foreground": {
         "r": 195,
@@ -949,7 +949,7 @@
       "text": "Start proc "
     },
     {
-      "x": 61,
+      "x": 62,
       "y": 4,
       "foreground": {
         "r": 53,
@@ -973,7 +973,7 @@
       "text": "4321"
     },
     {
-      "x": 65,
+      "x": 66,
       "y": 4,
       "foreground": {
         "r": 195,
@@ -994,7 +994,7 @@
         "overline": false,
         "underline": null
       },
-      "text": ":com.example.logview.demo/u0a42 for activity {com.exa… "
+      "text": ":com.example.logview.demo/u0a42 for activity {com.exa…"
     },
     {
       "x": 0,
@@ -1042,10 +1042,10 @@
         "overline": false,
         "underline": null
       },
-      "text": " D"
+      "text": " D "
     },
     {
-      "x": 18,
+      "x": 19,
       "y": 5,
       "foreground": {
         "r": 135,
@@ -1069,7 +1069,7 @@
       "text": "  "
     },
     {
-      "x": 20,
+      "x": 21,
       "y": 5,
       "foreground": {
         "r": 69,
@@ -1093,7 +1093,7 @@
       "text": "  4321:4321"
     },
     {
-      "x": 31,
+      "x": 32,
       "y": 5,
       "foreground": {
         "r": 135,
@@ -1117,7 +1117,7 @@
       "text": " "
     },
     {
-      "x": 32,
+      "x": 33,
       "y": 5,
       "foreground": {
         "r": 126,
@@ -1141,7 +1141,7 @@
       "text": "logview-demo    "
     },
     {
-      "x": 48,
+      "x": 49,
       "y": 5,
       "foreground": {
         "r": 135,
@@ -1165,7 +1165,7 @@
       "text": "  "
     },
     {
-      "x": 50,
+      "x": 51,
       "y": 5,
       "foreground": {
         "r": 195,
@@ -1186,7 +1186,7 @@
         "overline": false,
         "underline": null
       },
-      "text": "session opened                                                        "
+      "text": "session opened                                                       "
     },
     {
       "x": 0,
@@ -1234,10 +1234,10 @@
         "overline": false,
         "underline": null
       },
-      "text": " I"
+      "text": " I "
     },
     {
-      "x": 18,
+      "x": 19,
       "y": 6,
       "foreground": {
         "r": 135,
@@ -1261,7 +1261,7 @@
       "text": "  "
     },
     {
-      "x": 20,
+      "x": 21,
       "y": 6,
       "foreground": {
         "r": 69,
@@ -1285,7 +1285,7 @@
       "text": "  4321:4340"
     },
     {
-      "x": 31,
+      "x": 32,
       "y": 6,
       "foreground": {
         "r": 135,
@@ -1309,7 +1309,7 @@
       "text": " "
     },
     {
-      "x": 32,
+      "x": 33,
       "y": 6,
       "foreground": {
         "r": 126,
@@ -1333,7 +1333,7 @@
       "text": "Database        "
     },
     {
-      "x": 48,
+      "x": 49,
       "y": 6,
       "foreground": {
         "r": 135,
@@ -1357,7 +1357,7 @@
       "text": "  "
     },
     {
-      "x": 50,
+      "x": 51,
       "y": 6,
       "foreground": {
         "r": 195,
@@ -1378,7 +1378,7 @@
         "overline": false,
         "underline": null
       },
-      "text": "Opening connection                                                    "
+      "text": "Opening connection                                                   "
     },
     {
       "x": 0,
@@ -1426,10 +1426,10 @@
         "overline": false,
         "underline": null
       },
-      "text": " D"
+      "text": " D "
     },
     {
-      "x": 18,
+      "x": 19,
       "y": 7,
       "foreground": {
         "r": 135,
@@ -1453,7 +1453,7 @@
       "text": "  "
     },
     {
-      "x": 20,
+      "x": 21,
       "y": 7,
       "foreground": {
         "r": 69,
@@ -1477,7 +1477,7 @@
       "text": "  4321:4340"
     },
     {
-      "x": 31,
+      "x": 32,
       "y": 7,
       "foreground": {
         "r": 135,
@@ -1501,7 +1501,7 @@
       "text": " "
     },
     {
-      "x": 32,
+      "x": 33,
       "y": 7,
       "foreground": {
         "r": 126,
@@ -1525,7 +1525,7 @@
       "text": "Database        "
     },
     {
-      "x": 48,
+      "x": 49,
       "y": 7,
       "foreground": {
         "r": 135,
@@ -1549,7 +1549,7 @@
       "text": "  "
     },
     {
-      "x": 50,
+      "x": 51,
       "y": 7,
       "foreground": {
         "r": 195,
@@ -1573,7 +1573,7 @@
       "text": "SELECT completed in "
     },
     {
-      "x": 70,
+      "x": 71,
       "y": 7,
       "foreground": {
         "r": 53,
@@ -1597,7 +1597,7 @@
       "text": "12"
     },
     {
-      "x": 72,
+      "x": 73,
       "y": 7,
       "foreground": {
         "r": 195,
@@ -1618,7 +1618,7 @@
         "overline": false,
         "underline": null
       },
-      "text": " ms                                             "
+      "text": " ms                                            "
     },
     {
       "x": 0,
@@ -1666,10 +1666,10 @@
         "overline": false,
         "underline": null
       },
-      "text": " W"
+      "text": " W "
     },
     {
-      "x": 18,
+      "x": 19,
       "y": 8,
       "foreground": {
         "r": 135,
@@ -1693,7 +1693,7 @@
       "text": "  "
     },
     {
-      "x": 20,
+      "x": 21,
       "y": 8,
       "foreground": {
         "r": 69,
@@ -1717,7 +1717,7 @@
       "text": "  4321:4340"
     },
     {
-      "x": 31,
+      "x": 32,
       "y": 8,
       "foreground": {
         "r": 135,
@@ -1741,7 +1741,7 @@
       "text": " "
     },
     {
-      "x": 32,
+      "x": 33,
       "y": 8,
       "foreground": {
         "r": 244,
@@ -1765,7 +1765,7 @@
       "text": "Database        "
     },
     {
-      "x": 48,
+      "x": 49,
       "y": 8,
       "foreground": {
         "r": 135,
@@ -1789,7 +1789,7 @@
       "text": "  "
     },
     {
-      "x": 50,
+      "x": 51,
       "y": 8,
       "foreground": {
         "r": 195,
@@ -1810,7 +1810,7 @@
         "overline": false,
         "underline": null
       },
-      "text": "Retry after lock timeout                                              "
+      "text": "Retry after lock timeout                                             "
     },
     {
       "x": 0,
@@ -2002,10 +2002,10 @@
         "overline": false,
         "underline": null
       },
-      "text": " I"
+      "text": " I "
     },
     {
-      "x": 18,
+      "x": 19,
       "y": 11,
       "foreground": {
         "r": 135,
@@ -2029,7 +2029,7 @@
       "text": "  "
     },
     {
-      "x": 20,
+      "x": 21,
       "y": 11,
       "foreground": {
         "r": 69,
@@ -2053,7 +2053,7 @@
       "text": "  4321:4340"
     },
     {
-      "x": 31,
+      "x": 32,
       "y": 11,
       "foreground": {
         "r": 135,
@@ -2077,7 +2077,7 @@
       "text": " "
     },
     {
-      "x": 32,
+      "x": 33,
       "y": 11,
       "foreground": {
         "r": 126,
@@ -2101,7 +2101,7 @@
       "text": "Database        "
     },
     {
-      "x": 48,
+      "x": 49,
       "y": 11,
       "foreground": {
         "r": 135,
@@ -2125,7 +2125,7 @@
       "text": "  "
     },
     {
-      "x": 50,
+      "x": 51,
       "y": 11,
       "foreground": {
         "r": 195,
@@ -2146,7 +2146,7 @@
         "overline": false,
         "underline": null
       },
-      "text": "Transaction committed                                                 "
+      "text": "Transaction committed                                                "
     },
     {
       "x": 0,
@@ -2194,10 +2194,10 @@
         "overline": false,
         "underline": null
       },
-      "text": " E"
+      "text": " E "
     },
     {
-      "x": 18,
+      "x": 19,
       "y": 12,
       "foreground": {
         "r": 135,
@@ -2221,7 +2221,7 @@
       "text": "  "
     },
     {
-      "x": 20,
+      "x": 21,
       "y": 12,
       "foreground": {
         "r": 69,
@@ -2245,7 +2245,7 @@
       "text": "  4321:4321"
     },
     {
-      "x": 31,
+      "x": 32,
       "y": 12,
       "foreground": {
         "r": 135,
@@ -2269,7 +2269,7 @@
       "text": " "
     },
     {
-      "x": 32,
+      "x": 33,
       "y": 12,
       "foreground": {
         "r": 255,
@@ -2293,7 +2293,7 @@
       "text": "logview-demo    "
     },
     {
-      "x": 48,
+      "x": 49,
       "y": 12,
       "foreground": {
         "r": 135,
@@ -2317,7 +2317,7 @@
       "text": "  "
     },
     {
-      "x": 50,
+      "x": 51,
       "y": 12,
       "foreground": {
         "r": 195,
@@ -2341,7 +2341,7 @@
       "text": "failed to parse "
     },
     {
-      "x": 66,
+      "x": 67,
       "y": 12,
       "foreground": {
         "r": 135,
@@ -2365,7 +2365,7 @@
       "text": "token"
     },
     {
-      "x": 71,
+      "x": 72,
       "y": 12,
       "foreground": {
         "r": 195,
@@ -2386,7 +2386,7 @@
         "overline": false,
         "underline": null
       },
-      "text": "=REDACTED                                        "
+      "text": "=REDACTED                                       "
     },
     {
       "x": 0,
@@ -2434,10 +2434,10 @@
         "overline": false,
         "underline": null
       },
-      "text": " W"
+      "text": " W "
     },
     {
-      "x": 18,
+      "x": 19,
       "y": 13,
       "foreground": {
         "r": 135,
@@ -2461,7 +2461,7 @@
       "text": "  "
     },
     {
-      "x": 20,
+      "x": 21,
       "y": 13,
       "foreground": {
         "r": 69,
@@ -2485,7 +2485,7 @@
       "text": "  4321:4321"
     },
     {
-      "x": 31,
+      "x": 32,
       "y": 13,
       "foreground": {
         "r": 135,
@@ -2509,7 +2509,7 @@
       "text": " "
     },
     {
-      "x": 32,
+      "x": 33,
       "y": 13,
       "foreground": {
         "r": 244,
@@ -2533,7 +2533,7 @@
       "text": "logview-demo    "
     },
     {
-      "x": 48,
+      "x": 49,
       "y": 13,
       "foreground": {
         "r": 135,
@@ -2557,7 +2557,7 @@
       "text": "  "
     },
     {
-      "x": 50,
+      "x": 51,
       "y": 13,
       "foreground": {
         "r": 195,
@@ -2581,7 +2581,7 @@
       "text": "stray sequence ^[["
     },
     {
-      "x": 68,
+      "x": 69,
       "y": 13,
       "foreground": {
         "r": 69,
@@ -2605,7 +2605,7 @@
       "text": "31"
     },
     {
-      "x": 70,
+      "x": 71,
       "y": 13,
       "foreground": {
         "r": 199,
@@ -2629,7 +2629,7 @@
       "text": "m"
     },
     {
-      "x": 71,
+      "x": 72,
       "y": 13,
       "foreground": {
         "r": 195,
@@ -2650,7 +2650,7 @@
         "overline": false,
         "underline": null
       },
-      "text": " in payload                                      "
+      "text": " in payload                                     "
     },
     {
       "x": 0,
@@ -2698,10 +2698,10 @@
         "overline": false,
         "underline": null
       },
-      "text": " I"
+      "text": " I "
     },
     {
-      "x": 18,
+      "x": 19,
       "y": 14,
       "foreground": {
         "r": 135,
@@ -2725,7 +2725,7 @@
       "text": "  "
     },
     {
-      "x": 20,
+      "x": 21,
       "y": 14,
       "foreground": {
         "r": 69,
@@ -2749,7 +2749,7 @@
       "text": "  4321:4321"
     },
     {
-      "x": 31,
+      "x": 32,
       "y": 14,
       "foreground": {
         "r": 135,
@@ -2773,7 +2773,7 @@
       "text": " "
     },
     {
-      "x": 32,
+      "x": 33,
       "y": 14,
       "foreground": {
         "r": 126,
@@ -2797,7 +2797,7 @@
       "text": "logview-demo    "
     },
     {
-      "x": 48,
+      "x": 49,
       "y": 14,
       "foreground": {
         "r": 135,
@@ -2821,7 +2821,7 @@
       "text": "  "
     },
     {
-      "x": 50,
+      "x": 51,
       "y": 14,
       "foreground": {
         "r": 195,
@@ -2842,7 +2842,7 @@
         "overline": false,
         "underline": null
       },
-      "text": "café already open                                                     "
+      "text": "café already open                                                    "
     },
     {
       "x": 0,
@@ -2890,10 +2890,10 @@
         "overline": false,
         "underline": null
       },
-      "text": " F"
+      "text": " F "
     },
     {
-      "x": 18,
+      "x": 19,
       "y": 15,
       "foreground": {
         "r": 135,
@@ -2917,7 +2917,7 @@
       "text": "  "
     },
     {
-      "x": 20,
+      "x": 21,
       "y": 15,
       "foreground": {
         "r": 69,
@@ -2941,7 +2941,7 @@
       "text": "        1:1"
     },
     {
-      "x": 31,
+      "x": 32,
       "y": 15,
       "foreground": {
         "r": 135,
@@ -2965,7 +2965,7 @@
       "text": " "
     },
     {
-      "x": 32,
+      "x": 33,
       "y": 15,
       "foreground": {
         "r": 255,
@@ -2989,7 +2989,7 @@
       "text": "libc            "
     },
     {
-      "x": 48,
+      "x": 49,
       "y": 15,
       "foreground": {
         "r": 135,
@@ -3013,7 +3013,7 @@
       "text": "  "
     },
     {
-      "x": 50,
+      "x": 51,
       "y": 15,
       "foreground": {
         "r": 195,
@@ -3037,7 +3037,7 @@
       "text": "Fatal signal "
     },
     {
-      "x": 63,
+      "x": 64,
       "y": 15,
       "foreground": {
         "r": 53,
@@ -3061,7 +3061,7 @@
       "text": "11"
     },
     {
-      "x": 65,
+      "x": 66,
       "y": 15,
       "foreground": {
         "r": 195,
@@ -3085,7 +3085,7 @@
       "text": " (SIGSEGV), code "
     },
     {
-      "x": 82,
+      "x": 83,
       "y": 15,
       "foreground": {
         "r": 53,
@@ -3109,7 +3109,7 @@
       "text": "1"
     },
     {
-      "x": 83,
+      "x": 84,
       "y": 15,
       "foreground": {
         "r": 195,
@@ -3133,7 +3133,7 @@
       "text": ", fault addr "
     },
     {
-      "x": 96,
+      "x": 97,
       "y": 15,
       "foreground": {
         "r": 69,
@@ -3157,7 +3157,7 @@
       "text": "0"
     },
     {
-      "x": 97,
+      "x": 98,
       "y": 15,
       "foreground": {
         "r": 255,
@@ -3181,7 +3181,7 @@
       "text": "x"
     },
     {
-      "x": 98,
+      "x": 99,
       "y": 15,
       "foreground": {
         "r": 69,
@@ -3205,7 +3205,7 @@
       "text": "0"
     },
     {
-      "x": 99,
+      "x": 100,
       "y": 15,
       "foreground": {
         "r": 195,
@@ -3229,7 +3229,7 @@
       "text": " in tid "
     },
     {
-      "x": 107,
+      "x": 108,
       "y": 15,
       "foreground": {
         "r": 53,
@@ -3253,7 +3253,7 @@
       "text": "4340"
     },
     {
-      "x": 111,
+      "x": 112,
       "y": 15,
       "foreground": {
         "r": 195,
@@ -3274,7 +3274,7 @@
         "overline": false,
         "underline": null
       },
-      "text": " (logvi… "
+      "text": " (logvi…"
     },
     {
       "x": 0,
@@ -3370,10 +3370,10 @@
         "overline": false,
         "underline": null
       },
-      "text": "  08:55:00.003   V  "
+      "text": "  08:55:00.003   V   "
     },
     {
-      "x": 20,
+      "x": 21,
       "y": 17,
       "foreground": {
         "r": 69,
@@ -3397,7 +3397,7 @@
       "text": "  4321:4321"
     },
     {
-      "x": 31,
+      "x": 32,
       "y": 17,
       "foreground": {
         "r": 135,
@@ -3421,7 +3421,7 @@
       "text": " logview-demo      "
     },
     {
-      "x": 50,
+      "x": 51,
       "y": 17,
       "foreground": {
         "r": 195,
@@ -3442,7 +3442,7 @@
         "overline": false,
         "underline": null
       },
-      "text": "verbose heartbeat                                                     "
+      "text": "verbose heartbeat                                                    "
     },
     {
       "x": 0,
@@ -3490,10 +3490,10 @@
         "overline": false,
         "underline": null
       },
-      "text": " I"
+      "text": " I "
     },
     {
-      "x": 18,
+      "x": 19,
       "y": 18,
       "foreground": {
         "r": 135,
@@ -3517,7 +3517,7 @@
       "text": "  "
     },
     {
-      "x": 20,
+      "x": 21,
       "y": 18,
       "foreground": {
         "r": 69,
@@ -3541,7 +3541,7 @@
       "text": "  4321:4321"
     },
     {
-      "x": 31,
+      "x": 32,
       "y": 18,
       "foreground": {
         "r": 135,
@@ -3565,7 +3565,7 @@
       "text": " "
     },
     {
-      "x": 32,
+      "x": 33,
       "y": 18,
       "foreground": {
         "r": 126,
@@ -3589,7 +3589,7 @@
       "text": "logview-demo    "
     },
     {
-      "x": 48,
+      "x": 49,
       "y": 18,
       "foreground": {
         "r": 135,
@@ -3613,7 +3613,7 @@
       "text": "  "
     },
     {
-      "x": 50,
+      "x": 51,
       "y": 18,
       "foreground": {
         "r": 195,
@@ -3634,7 +3634,7 @@
         "overline": false,
         "underline": null
       },
-      "text": "clock went backward                                                   "
+      "text": "clock went backward                                                  "
     },
     {
       "x": 0,
@@ -3682,10 +3682,10 @@
         "overline": false,
         "underline": null
       },
-      "text": " I"
+      "text": " I "
     },
     {
-      "x": 18,
+      "x": 19,
       "y": 19,
       "foreground": {
         "r": 135,
@@ -3709,7 +3709,7 @@
       "text": "  "
     },
     {
-      "x": 20,
+      "x": 21,
       "y": 19,
       "foreground": {
         "r": 69,
@@ -3733,7 +3733,7 @@
       "text": "  1001:1001"
     },
     {
-      "x": 31,
+      "x": 32,
       "y": 19,
       "foreground": {
         "r": 135,
@@ -3757,7 +3757,7 @@
       "text": " "
     },
     {
-      "x": 32,
+      "x": 33,
       "y": 19,
       "foreground": {
         "r": 126,
@@ -3781,7 +3781,7 @@
       "text": "chatty          "
     },
     {
-      "x": 48,
+      "x": 49,
       "y": 19,
       "foreground": {
         "r": 135,
@@ -3805,7 +3805,7 @@
       "text": "  uid"
     },
     {
-      "x": 53,
+      "x": 54,
       "y": 19,
       "foreground": {
         "r": 195,
@@ -3829,7 +3829,7 @@
       "text": "="
     },
     {
-      "x": 54,
+      "x": 55,
       "y": 19,
       "foreground": {
         "r": 53,
@@ -3853,7 +3853,7 @@
       "text": "10042"
     },
     {
-      "x": 59,
+      "x": 60,
       "y": 19,
       "foreground": {
         "r": 195,
@@ -3877,7 +3877,7 @@
       "text": "(u0_a42) expire "
     },
     {
-      "x": 75,
+      "x": 76,
       "y": 19,
       "foreground": {
         "r": 53,
@@ -3901,7 +3901,7 @@
       "text": "4"
     },
     {
-      "x": 76,
+      "x": 77,
       "y": 19,
       "foreground": {
         "r": 195,
@@ -3922,7 +3922,7 @@
         "overline": false,
         "underline": null
       },
-      "text": " lines                                      "
+      "text": " lines                                     "
     },
     {
       "x": 0,
@@ -3970,10 +3970,10 @@
         "overline": false,
         "underline": null
       },
-      "text": " I"
+      "text": " I "
     },
     {
-      "x": 18,
+      "x": 19,
       "y": 20,
       "foreground": {
         "r": 135,
@@ -3997,7 +3997,7 @@
       "text": "  "
     },
     {
-      "x": 20,
+      "x": 21,
       "y": 20,
       "foreground": {
         "r": 69,
@@ -4021,7 +4021,7 @@
       "text": "  4321:4321"
     },
     {
-      "x": 31,
+      "x": 32,
       "y": 20,
       "foreground": {
         "r": 135,
@@ -4045,7 +4045,7 @@
       "text": " "
     },
     {
-      "x": 32,
+      "x": 33,
       "y": 20,
       "foreground": {
         "r": 126,
@@ -4069,7 +4069,7 @@
       "text": "logview-demo    "
     },
     {
-      "x": 48,
+      "x": 49,
       "y": 20,
       "foreground": {
         "r": 135,
@@ -4093,7 +4093,7 @@
       "text": "  "
     },
     {
-      "x": 50,
+      "x": 51,
       "y": 20,
       "foreground": {
         "r": 195,
@@ -4114,12 +4114,11 @@
         "overline": false,
         "underline": null
       },
-      "text": "日本語 ok                                                             ",
+      "text": "日本語 ok                                                            ",
       "widths": [
         2,
         2,
         2,
-        1,
         1,
         1,
         1,

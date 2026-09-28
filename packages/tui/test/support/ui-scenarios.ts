@@ -186,7 +186,9 @@ const SCENARIOS: readonly UiScenario[] = [
 			const clipped = await context.capture("clipped", { cols: 120, rows: 24 });
 			expectText(clipped, "…", "clipped log row");
 			await send(context.session, ["text:w"]);
-			await waitForText(context.session, "│");
+			await waitForScreen(context.session, "wrapped log rows", (screen) => {
+				return screen.text.includes("│") && !screen.text.includes("…");
+			});
 			await context.capture("wrapped", { cols: 120, rows: 24 });
 		},
 	},

@@ -514,491 +514,11 @@
         "overline": false,
         "underline": null
       },
-      "text": "  08:55:00.000  "
-    },
-    {
-      "x": 16,
-      "y": 3,
-      "foreground": {
-        "r": 126,
-        "g": 231,
-        "b": 135
-      },
-      "background": {
-        "r": 17,
-        "g": 24,
-        "b": 32
-      },
-      "attributes": {
-        "bold": false,
-        "italic": false,
-        "faint": false,
-        "invisible": false,
-        "strikethrough": false,
-        "overline": false,
-        "underline": null
-      },
-      "text": " I"
-    },
-    {
-      "x": 18,
-      "y": 3,
-      "foreground": {
-        "r": 135,
-        "g": 150,
-        "b": 181
-      },
-      "background": {
-        "r": 17,
-        "g": 24,
-        "b": 32
-      },
-      "attributes": {
-        "bold": false,
-        "italic": false,
-        "faint": false,
-        "invisible": false,
-        "strikethrough": false,
-        "overline": false,
-        "underline": null
-      },
-      "text": "  "
-    },
-    {
-      "x": 20,
-      "y": 3,
-      "foreground": {
-        "r": 69,
-        "g": 150,
-        "b": 255
-      },
-      "background": {
-        "r": 17,
-        "g": 24,
-        "b": 32
-      },
-      "attributes": {
-        "bold": false,
-        "italic": false,
-        "faint": false,
-        "invisible": false,
-        "strikethrough": false,
-        "overline": false,
-        "underline": null
-      },
-      "text": "  1186:1186"
-    },
-    {
-      "x": 31,
-      "y": 3,
-      "foreground": {
-        "r": 135,
-        "g": 150,
-        "b": 181
-      },
-      "background": {
-        "r": 17,
-        "g": 24,
-        "b": 32
-      },
-      "attributes": {
-        "bold": false,
-        "italic": false,
-        "faint": false,
-        "invisible": false,
-        "strikethrough": false,
-        "overline": false,
-        "underline": null
-      },
-      "text": " "
-    },
-    {
-      "x": 32,
-      "y": 3,
-      "foreground": {
-        "r": 126,
-        "g": 231,
-        "b": 135
-      },
-      "background": {
-        "r": 17,
-        "g": 24,
-        "b": 32
-      },
-      "attributes": {
-        "bold": false,
-        "italic": false,
-        "faint": false,
-        "invisible": false,
-        "strikethrough": false,
-        "overline": false,
-        "underline": null
-      },
-      "text": "Zygote          "
-    },
-    {
-      "x": 48,
-      "y": 3,
-      "foreground": {
-        "r": 135,
-        "g": 150,
-        "b": 181
-      },
-      "background": {
-        "r": 17,
-        "g": 24,
-        "b": 32
-      },
-      "attributes": {
-        "bold": false,
-        "italic": false,
-        "faint": false,
-        "invisible": false,
-        "strikethrough": false,
-        "overline": false,
-        "underline": null
-      },
-      "text": "  "
-    },
-    {
-      "x": 50,
-      "y": 3,
-      "foreground": {
-        "r": 195,
-        "g": 205,
-        "b": 232
-      },
-      "background": {
-        "r": 17,
-        "g": 24,
-        "b": 32
-      },
-      "attributes": {
-        "bold": false,
-        "italic": false,
-        "faint": false,
-        "invisible": false,
-        "strikethrough": false,
-        "overline": false,
-        "underline": null
-      },
-      "text": "Process "
-    },
-    {
-      "x": 58,
-      "y": 3,
-      "foreground": {
-        "r": 53,
-        "g": 212,
-        "b": 234
-      },
-      "background": {
-        "r": 17,
-        "g": 24,
-        "b": 32
-      },
-      "attributes": {
-        "bold": false,
-        "italic": false,
-        "faint": false,
-        "invisible": false,
-        "strikethrough": false,
-        "overline": false,
-        "underline": null
-      },
-      "text": "4321"
-    },
-    {
-      "x": 62,
-      "y": 3,
-      "foreground": {
-        "r": 195,
-        "g": 205,
-        "b": 232
-      },
-      "background": {
-        "r": 17,
-        "g": 24,
-        "b": 32
-      },
-      "attributes": {
-        "bold": false,
-        "italic": false,
-        "faint": false,
-        "invisible": false,
-        "strikethrough": false,
-        "overline": false,
-        "underline": null
-      },
-      "text": " created for com.example.logview.demo                     "
-    },
-    {
-      "x": 0,
-      "y": 4,
-      "foreground": {
-        "r": 135,
-        "g": 150,
-        "b": 181
-      },
-      "background": {
-        "r": 17,
-        "g": 24,
-        "b": 32
-      },
-      "attributes": {
-        "bold": false,
-        "italic": false,
-        "faint": false,
-        "invisible": false,
-        "strikethrough": false,
-        "overline": false,
-        "underline": null
-      },
-      "text": "  08:55:00.000  "
-    },
-    {
-      "x": 16,
-      "y": 4,
-      "foreground": {
-        "r": 126,
-        "g": 231,
-        "b": 135
-      },
-      "background": {
-        "r": 17,
-        "g": 24,
-        "b": 32
-      },
-      "attributes": {
-        "bold": false,
-        "italic": false,
-        "faint": false,
-        "invisible": false,
-        "strikethrough": false,
-        "overline": false,
-        "underline": null
-      },
-      "text": " I"
-    },
-    {
-      "x": 18,
-      "y": 4,
-      "foreground": {
-        "r": 135,
-        "g": 150,
-        "b": 181
-      },
-      "background": {
-        "r": 17,
-        "g": 24,
-        "b": 32
-      },
-      "attributes": {
-        "bold": false,
-        "italic": false,
-        "faint": false,
-        "invisible": false,
-        "strikethrough": false,
-        "overline": false,
-        "underline": null
-      },
-      "text": "  "
-    },
-    {
-      "x": 20,
-      "y": 4,
-      "foreground": {
-        "r": 69,
-        "g": 150,
-        "b": 255
-      },
-      "background": {
-        "r": 17,
-        "g": 24,
-        "b": 32
-      },
-      "attributes": {
-        "bold": false,
-        "italic": false,
-        "faint": false,
-        "invisible": false,
-        "strikethrough": false,
-        "overline": false,
-        "underline": null
-      },
-      "text": "  1234:1250"
-    },
-    {
-      "x": 31,
-      "y": 4,
-      "foreground": {
-        "r": 135,
-        "g": 150,
-        "b": 181
-      },
-      "background": {
-        "r": 17,
-        "g": 24,
-        "b": 32
-      },
-      "attributes": {
-        "bold": false,
-        "italic": false,
-        "faint": false,
-        "invisible": false,
-        "strikethrough": false,
-        "overline": false,
-        "underline": null
-      },
-      "text": " "
-    },
-    {
-      "x": 32,
-      "y": 4,
-      "foreground": {
-        "r": 126,
-        "g": 231,
-        "b": 135
-      },
-      "background": {
-        "r": 17,
-        "g": 24,
-        "b": 32
-      },
-      "attributes": {
-        "bold": false,
-        "italic": false,
-        "faint": false,
-        "invisible": false,
-        "strikethrough": false,
-        "overline": false,
-        "underline": null
-      },
-      "text": "ActivityManager "
-    },
-    {
-      "x": 48,
-      "y": 4,
-      "foreground": {
-        "r": 135,
-        "g": 150,
-        "b": 181
-      },
-      "background": {
-        "r": 17,
-        "g": 24,
-        "b": 32
-      },
-      "attributes": {
-        "bold": false,
-        "italic": false,
-        "faint": false,
-        "invisible": false,
-        "strikethrough": false,
-        "overline": false,
-        "underline": null
-      },
-      "text": "  "
-    },
-    {
-      "x": 50,
-      "y": 4,
-      "foreground": {
-        "r": 195,
-        "g": 205,
-        "b": 232
-      },
-      "background": {
-        "r": 17,
-        "g": 24,
-        "b": 32
-      },
-      "attributes": {
-        "bold": false,
-        "italic": false,
-        "faint": false,
-        "invisible": false,
-        "strikethrough": false,
-        "overline": false,
-        "underline": null
-      },
-      "text": "Start proc "
-    },
-    {
-      "x": 61,
-      "y": 4,
-      "foreground": {
-        "r": 53,
-        "g": 212,
-        "b": 234
-      },
-      "background": {
-        "r": 17,
-        "g": 24,
-        "b": 32
-      },
-      "attributes": {
-        "bold": false,
-        "italic": false,
-        "faint": false,
-        "invisible": false,
-        "strikethrough": false,
-        "overline": false,
-        "underline": null
-      },
-      "text": "4321"
-    },
-    {
-      "x": 65,
-      "y": 4,
-      "foreground": {
-        "r": 195,
-        "g": 205,
-        "b": 232
-      },
-      "background": {
-        "r": 17,
-        "g": 24,
-        "b": 32
-      },
-      "attributes": {
-        "bold": false,
-        "italic": false,
-        "faint": false,
-        "invisible": false,
-        "strikethrough": false,
-        "overline": false,
-        "underline": null
-      },
-      "text": ":com.example.logview.demo/u0a42 for activity {com.exa… "
-    },
-    {
-      "x": 0,
-      "y": 5,
-      "foreground": {
-        "r": 135,
-        "g": 150,
-        "b": 181
-      },
-      "background": {
-        "r": 17,
-        "g": 24,
-        "b": 32
-      },
-      "attributes": {
-        "bold": false,
-        "italic": false,
-        "faint": false,
-        "invisible": false,
-        "strikethrough": false,
-        "overline": false,
-        "underline": null
-      },
       "text": "  08:55:00.001  "
     },
     {
       "x": 16,
-      "y": 5,
+      "y": 3,
       "foreground": {
         "r": 126,
         "g": 231,
@@ -1018,11 +538,11 @@
         "overline": false,
         "underline": null
       },
-      "text": " D"
+      "text": " D "
     },
     {
-      "x": 18,
-      "y": 5,
+      "x": 19,
+      "y": 3,
       "foreground": {
         "r": 135,
         "g": 150,
@@ -1045,8 +565,8 @@
       "text": "  "
     },
     {
-      "x": 20,
-      "y": 5,
+      "x": 21,
+      "y": 3,
       "foreground": {
         "r": 69,
         "g": 150,
@@ -1069,8 +589,8 @@
       "text": "  4321:4321"
     },
     {
-      "x": 31,
-      "y": 5,
+      "x": 32,
+      "y": 3,
       "foreground": {
         "r": 135,
         "g": 150,
@@ -1093,8 +613,8 @@
       "text": " "
     },
     {
-      "x": 32,
-      "y": 5,
+      "x": 33,
+      "y": 3,
       "foreground": {
         "r": 126,
         "g": 231,
@@ -1117,8 +637,8 @@
       "text": "logview-demo    "
     },
     {
-      "x": 48,
-      "y": 5,
+      "x": 49,
+      "y": 3,
       "foreground": {
         "r": 135,
         "g": 150,
@@ -1141,8 +661,8 @@
       "text": "  "
     },
     {
-      "x": 50,
-      "y": 5,
+      "x": 51,
+      "y": 3,
       "foreground": {
         "r": 195,
         "g": 205,
@@ -1162,11 +682,11 @@
         "overline": false,
         "underline": null
       },
-      "text": "session opened                                                        "
+      "text": "session opened                                                       "
     },
     {
       "x": 0,
-      "y": 6,
+      "y": 4,
       "foreground": {
         "r": 135,
         "g": 150,
@@ -1190,7 +710,7 @@
     },
     {
       "x": 16,
-      "y": 6,
+      "y": 4,
       "foreground": {
         "r": 126,
         "g": 231,
@@ -1210,11 +730,11 @@
         "overline": false,
         "underline": null
       },
-      "text": " I"
+      "text": " I "
     },
     {
-      "x": 18,
-      "y": 6,
+      "x": 19,
+      "y": 4,
       "foreground": {
         "r": 135,
         "g": 150,
@@ -1237,8 +757,8 @@
       "text": "  "
     },
     {
-      "x": 20,
-      "y": 6,
+      "x": 21,
+      "y": 4,
       "foreground": {
         "r": 69,
         "g": 150,
@@ -1261,8 +781,8 @@
       "text": "  4321:4340"
     },
     {
-      "x": 31,
-      "y": 6,
+      "x": 32,
+      "y": 4,
       "foreground": {
         "r": 135,
         "g": 150,
@@ -1285,8 +805,8 @@
       "text": " "
     },
     {
-      "x": 32,
-      "y": 6,
+      "x": 33,
+      "y": 4,
       "foreground": {
         "r": 126,
         "g": 231,
@@ -1309,8 +829,8 @@
       "text": "Database        "
     },
     {
-      "x": 48,
-      "y": 6,
+      "x": 49,
+      "y": 4,
       "foreground": {
         "r": 135,
         "g": 150,
@@ -1333,8 +853,8 @@
       "text": "  "
     },
     {
-      "x": 50,
-      "y": 6,
+      "x": 51,
+      "y": 4,
       "foreground": {
         "r": 195,
         "g": 205,
@@ -1354,11 +874,11 @@
         "overline": false,
         "underline": null
       },
-      "text": "Opening connection                                                    "
+      "text": "Opening connection                                                   "
     },
     {
       "x": 0,
-      "y": 7,
+      "y": 5,
       "foreground": {
         "r": 135,
         "g": 150,
@@ -1382,7 +902,7 @@
     },
     {
       "x": 16,
-      "y": 7,
+      "y": 5,
       "foreground": {
         "r": 126,
         "g": 231,
@@ -1402,11 +922,11 @@
         "overline": false,
         "underline": null
       },
-      "text": " D"
+      "text": " D "
     },
     {
-      "x": 18,
-      "y": 7,
+      "x": 19,
+      "y": 5,
       "foreground": {
         "r": 135,
         "g": 150,
@@ -1429,8 +949,8 @@
       "text": "  "
     },
     {
-      "x": 20,
-      "y": 7,
+      "x": 21,
+      "y": 5,
       "foreground": {
         "r": 69,
         "g": 150,
@@ -1453,8 +973,8 @@
       "text": "  4321:4340"
     },
     {
-      "x": 31,
-      "y": 7,
+      "x": 32,
+      "y": 5,
       "foreground": {
         "r": 135,
         "g": 150,
@@ -1477,8 +997,8 @@
       "text": " "
     },
     {
-      "x": 32,
-      "y": 7,
+      "x": 33,
+      "y": 5,
       "foreground": {
         "r": 126,
         "g": 231,
@@ -1501,8 +1021,8 @@
       "text": "Database        "
     },
     {
-      "x": 48,
-      "y": 7,
+      "x": 49,
+      "y": 5,
       "foreground": {
         "r": 135,
         "g": 150,
@@ -1525,8 +1045,8 @@
       "text": "  "
     },
     {
-      "x": 50,
-      "y": 7,
+      "x": 51,
+      "y": 5,
       "foreground": {
         "r": 195,
         "g": 205,
@@ -1549,8 +1069,8 @@
       "text": "SELECT completed in "
     },
     {
-      "x": 70,
-      "y": 7,
+      "x": 71,
+      "y": 5,
       "foreground": {
         "r": 53,
         "g": 212,
@@ -1573,8 +1093,8 @@
       "text": "12"
     },
     {
-      "x": 72,
-      "y": 7,
+      "x": 73,
+      "y": 5,
       "foreground": {
         "r": 195,
         "g": 205,
@@ -1594,11 +1114,11 @@
         "overline": false,
         "underline": null
       },
-      "text": " ms                                             "
+      "text": " ms                                            "
     },
     {
       "x": 0,
-      "y": 8,
+      "y": 6,
       "foreground": {
         "r": 135,
         "g": 150,
@@ -1622,7 +1142,7 @@
     },
     {
       "x": 16,
-      "y": 8,
+      "y": 6,
       "foreground": {
         "r": 244,
         "g": 201,
@@ -1642,11 +1162,11 @@
         "overline": false,
         "underline": null
       },
-      "text": " W"
+      "text": " W "
     },
     {
-      "x": 18,
-      "y": 8,
+      "x": 19,
+      "y": 6,
       "foreground": {
         "r": 135,
         "g": 150,
@@ -1669,8 +1189,8 @@
       "text": "  "
     },
     {
-      "x": 20,
-      "y": 8,
+      "x": 21,
+      "y": 6,
       "foreground": {
         "r": 69,
         "g": 150,
@@ -1693,8 +1213,8 @@
       "text": "  4321:4340"
     },
     {
-      "x": 31,
-      "y": 8,
+      "x": 32,
+      "y": 6,
       "foreground": {
         "r": 135,
         "g": 150,
@@ -1717,8 +1237,8 @@
       "text": " "
     },
     {
-      "x": 32,
-      "y": 8,
+      "x": 33,
+      "y": 6,
       "foreground": {
         "r": 244,
         "g": 201,
@@ -1741,8 +1261,8 @@
       "text": "Database        "
     },
     {
-      "x": 48,
-      "y": 8,
+      "x": 49,
+      "y": 6,
       "foreground": {
         "r": 135,
         "g": 150,
@@ -1765,8 +1285,8 @@
       "text": "  "
     },
     {
-      "x": 50,
-      "y": 8,
+      "x": 51,
+      "y": 6,
       "foreground": {
         "r": 195,
         "g": 205,
@@ -1786,11 +1306,11 @@
         "overline": false,
         "underline": null
       },
-      "text": "Retry after lock timeout                                              "
+      "text": "Retry after lock timeout                                             "
     },
     {
       "x": 0,
-      "y": 9,
+      "y": 7,
       "foreground": {
         "r": 82,
         "g": 98,
@@ -1814,7 +1334,7 @@
     },
     {
       "x": 51,
-      "y": 9,
+      "y": 7,
       "foreground": {
         "r": 135,
         "g": 150,
@@ -1838,7 +1358,7 @@
     },
     {
       "x": 111,
-      "y": 9,
+      "y": 7,
       "foreground": {
         "r": 195,
         "g": 205,
@@ -1862,7 +1382,7 @@
     },
     {
       "x": 0,
-      "y": 10,
+      "y": 8,
       "foreground": {
         "r": 82,
         "g": 98,
@@ -1886,7 +1406,7 @@
     },
     {
       "x": 51,
-      "y": 10,
+      "y": 8,
       "foreground": {
         "r": 135,
         "g": 150,
@@ -1910,7 +1430,7 @@
     },
     {
       "x": 112,
-      "y": 10,
+      "y": 8,
       "foreground": {
         "r": 195,
         "g": 205,
@@ -1934,7 +1454,7 @@
     },
     {
       "x": 0,
-      "y": 11,
+      "y": 9,
       "foreground": {
         "r": 135,
         "g": 150,
@@ -1958,7 +1478,7 @@
     },
     {
       "x": 16,
-      "y": 11,
+      "y": 9,
       "foreground": {
         "r": 126,
         "g": 231,
@@ -1978,11 +1498,11 @@
         "overline": false,
         "underline": null
       },
-      "text": " I"
+      "text": " I "
     },
     {
-      "x": 18,
-      "y": 11,
+      "x": 19,
+      "y": 9,
       "foreground": {
         "r": 135,
         "g": 150,
@@ -2005,8 +1525,8 @@
       "text": "  "
     },
     {
-      "x": 20,
-      "y": 11,
+      "x": 21,
+      "y": 9,
       "foreground": {
         "r": 69,
         "g": 150,
@@ -2029,8 +1549,8 @@
       "text": "  4321:4340"
     },
     {
-      "x": 31,
-      "y": 11,
+      "x": 32,
+      "y": 9,
       "foreground": {
         "r": 135,
         "g": 150,
@@ -2053,8 +1573,8 @@
       "text": " "
     },
     {
-      "x": 32,
-      "y": 11,
+      "x": 33,
+      "y": 9,
       "foreground": {
         "r": 126,
         "g": 231,
@@ -2077,8 +1597,8 @@
       "text": "Database        "
     },
     {
-      "x": 48,
-      "y": 11,
+      "x": 49,
+      "y": 9,
       "foreground": {
         "r": 135,
         "g": 150,
@@ -2101,8 +1621,8 @@
       "text": "  "
     },
     {
-      "x": 50,
-      "y": 11,
+      "x": 51,
+      "y": 9,
       "foreground": {
         "r": 195,
         "g": 205,
@@ -2122,11 +1642,11 @@
         "overline": false,
         "underline": null
       },
-      "text": "Transaction committed                                                 "
+      "text": "Transaction committed                                                "
     },
     {
       "x": 0,
-      "y": 12,
+      "y": 10,
       "foreground": {
         "r": 135,
         "g": 150,
@@ -2150,7 +1670,7 @@
     },
     {
       "x": 16,
-      "y": 12,
+      "y": 10,
       "foreground": {
         "r": 255,
         "g": 103,
@@ -2170,11 +1690,11 @@
         "overline": false,
         "underline": null
       },
-      "text": " E"
+      "text": " E "
     },
     {
-      "x": 18,
-      "y": 12,
+      "x": 19,
+      "y": 10,
       "foreground": {
         "r": 135,
         "g": 150,
@@ -2197,8 +1717,8 @@
       "text": "  "
     },
     {
-      "x": 20,
-      "y": 12,
+      "x": 21,
+      "y": 10,
       "foreground": {
         "r": 69,
         "g": 150,
@@ -2221,8 +1741,8 @@
       "text": "  4321:4321"
     },
     {
-      "x": 31,
-      "y": 12,
+      "x": 32,
+      "y": 10,
       "foreground": {
         "r": 135,
         "g": 150,
@@ -2245,8 +1765,8 @@
       "text": " "
     },
     {
-      "x": 32,
-      "y": 12,
+      "x": 33,
+      "y": 10,
       "foreground": {
         "r": 255,
         "g": 103,
@@ -2269,8 +1789,8 @@
       "text": "logview-demo    "
     },
     {
-      "x": 48,
-      "y": 12,
+      "x": 49,
+      "y": 10,
       "foreground": {
         "r": 135,
         "g": 150,
@@ -2293,8 +1813,8 @@
       "text": "  "
     },
     {
-      "x": 50,
-      "y": 12,
+      "x": 51,
+      "y": 10,
       "foreground": {
         "r": 195,
         "g": 205,
@@ -2317,8 +1837,8 @@
       "text": "failed to parse "
     },
     {
-      "x": 66,
-      "y": 12,
+      "x": 67,
+      "y": 10,
       "foreground": {
         "r": 135,
         "g": 150,
@@ -2341,8 +1861,8 @@
       "text": "token"
     },
     {
-      "x": 71,
-      "y": 12,
+      "x": 72,
+      "y": 10,
       "foreground": {
         "r": 195,
         "g": 205,
@@ -2362,11 +1882,11 @@
         "overline": false,
         "underline": null
       },
-      "text": "=REDACTED                                        "
+      "text": "=REDACTED                                       "
     },
     {
       "x": 0,
-      "y": 13,
+      "y": 11,
       "foreground": {
         "r": 135,
         "g": 150,
@@ -2390,7 +1910,7 @@
     },
     {
       "x": 16,
-      "y": 13,
+      "y": 11,
       "foreground": {
         "r": 244,
         "g": 201,
@@ -2410,11 +1930,11 @@
         "overline": false,
         "underline": null
       },
-      "text": " W"
+      "text": " W "
     },
     {
-      "x": 18,
-      "y": 13,
+      "x": 19,
+      "y": 11,
       "foreground": {
         "r": 135,
         "g": 150,
@@ -2437,8 +1957,8 @@
       "text": "  "
     },
     {
-      "x": 20,
-      "y": 13,
+      "x": 21,
+      "y": 11,
       "foreground": {
         "r": 69,
         "g": 150,
@@ -2461,8 +1981,8 @@
       "text": "  4321:4321"
     },
     {
-      "x": 31,
-      "y": 13,
+      "x": 32,
+      "y": 11,
       "foreground": {
         "r": 135,
         "g": 150,
@@ -2485,8 +2005,8 @@
       "text": " "
     },
     {
-      "x": 32,
-      "y": 13,
+      "x": 33,
+      "y": 11,
       "foreground": {
         "r": 244,
         "g": 201,
@@ -2509,8 +2029,8 @@
       "text": "logview-demo    "
     },
     {
-      "x": 48,
-      "y": 13,
+      "x": 49,
+      "y": 11,
       "foreground": {
         "r": 135,
         "g": 150,
@@ -2533,8 +2053,8 @@
       "text": "  "
     },
     {
-      "x": 50,
-      "y": 13,
+      "x": 51,
+      "y": 11,
       "foreground": {
         "r": 195,
         "g": 205,
@@ -2557,8 +2077,8 @@
       "text": "stray sequence ^[["
     },
     {
-      "x": 68,
-      "y": 13,
+      "x": 69,
+      "y": 11,
       "foreground": {
         "r": 69,
         "g": 150,
@@ -2581,8 +2101,8 @@
       "text": "31"
     },
     {
-      "x": 70,
-      "y": 13,
+      "x": 71,
+      "y": 11,
       "foreground": {
         "r": 199,
         "g": 146,
@@ -2605,8 +2125,8 @@
       "text": "m"
     },
     {
-      "x": 71,
-      "y": 13,
+      "x": 72,
+      "y": 11,
       "foreground": {
         "r": 195,
         "g": 205,
@@ -2626,11 +2146,11 @@
         "overline": false,
         "underline": null
       },
-      "text": " in payload                                      "
+      "text": " in payload                                     "
     },
     {
       "x": 0,
-      "y": 14,
+      "y": 12,
       "foreground": {
         "r": 135,
         "g": 150,
@@ -2654,7 +2174,7 @@
     },
     {
       "x": 16,
-      "y": 14,
+      "y": 12,
       "foreground": {
         "r": 126,
         "g": 231,
@@ -2674,11 +2194,11 @@
         "overline": false,
         "underline": null
       },
-      "text": " I"
+      "text": " I "
     },
     {
-      "x": 18,
-      "y": 14,
+      "x": 19,
+      "y": 12,
       "foreground": {
         "r": 135,
         "g": 150,
@@ -2701,8 +2221,8 @@
       "text": "  "
     },
     {
-      "x": 20,
-      "y": 14,
+      "x": 21,
+      "y": 12,
       "foreground": {
         "r": 69,
         "g": 150,
@@ -2725,8 +2245,8 @@
       "text": "  4321:4321"
     },
     {
-      "x": 31,
-      "y": 14,
+      "x": 32,
+      "y": 12,
       "foreground": {
         "r": 135,
         "g": 150,
@@ -2749,8 +2269,8 @@
       "text": " "
     },
     {
-      "x": 32,
-      "y": 14,
+      "x": 33,
+      "y": 12,
       "foreground": {
         "r": 126,
         "g": 231,
@@ -2773,8 +2293,8 @@
       "text": "logview-demo    "
     },
     {
-      "x": 48,
-      "y": 14,
+      "x": 49,
+      "y": 12,
       "foreground": {
         "r": 135,
         "g": 150,
@@ -2797,8 +2317,8 @@
       "text": "  "
     },
     {
-      "x": 50,
-      "y": 14,
+      "x": 51,
+      "y": 12,
       "foreground": {
         "r": 195,
         "g": 205,
@@ -2818,11 +2338,11 @@
         "overline": false,
         "underline": null
       },
-      "text": "café already open                                                     "
+      "text": "café already open                                                    "
     },
     {
       "x": 0,
-      "y": 15,
+      "y": 13,
       "foreground": {
         "r": 135,
         "g": 150,
@@ -2846,7 +2366,7 @@
     },
     {
       "x": 16,
-      "y": 15,
+      "y": 13,
       "foreground": {
         "r": 255,
         "g": 103,
@@ -2866,11 +2386,11 @@
         "overline": false,
         "underline": null
       },
-      "text": " F"
+      "text": " F "
     },
     {
-      "x": 18,
-      "y": 15,
+      "x": 19,
+      "y": 13,
       "foreground": {
         "r": 135,
         "g": 150,
@@ -2893,8 +2413,8 @@
       "text": "  "
     },
     {
-      "x": 20,
-      "y": 15,
+      "x": 21,
+      "y": 13,
       "foreground": {
         "r": 69,
         "g": 150,
@@ -2917,8 +2437,8 @@
       "text": "        1:1"
     },
     {
-      "x": 31,
-      "y": 15,
+      "x": 32,
+      "y": 13,
       "foreground": {
         "r": 135,
         "g": 150,
@@ -2941,8 +2461,8 @@
       "text": " "
     },
     {
-      "x": 32,
-      "y": 15,
+      "x": 33,
+      "y": 13,
       "foreground": {
         "r": 255,
         "g": 103,
@@ -2965,8 +2485,8 @@
       "text": "libc            "
     },
     {
-      "x": 48,
-      "y": 15,
+      "x": 49,
+      "y": 13,
       "foreground": {
         "r": 135,
         "g": 150,
@@ -2989,8 +2509,8 @@
       "text": "  "
     },
     {
-      "x": 50,
-      "y": 15,
+      "x": 51,
+      "y": 13,
       "foreground": {
         "r": 195,
         "g": 205,
@@ -3013,8 +2533,8 @@
       "text": "Fatal signal "
     },
     {
-      "x": 63,
-      "y": 15,
+      "x": 64,
+      "y": 13,
       "foreground": {
         "r": 53,
         "g": 212,
@@ -3037,8 +2557,8 @@
       "text": "11"
     },
     {
-      "x": 65,
-      "y": 15,
+      "x": 66,
+      "y": 13,
       "foreground": {
         "r": 195,
         "g": 205,
@@ -3061,8 +2581,8 @@
       "text": " (SIGSEGV), code "
     },
     {
-      "x": 82,
-      "y": 15,
+      "x": 83,
+      "y": 13,
       "foreground": {
         "r": 53,
         "g": 212,
@@ -3085,8 +2605,8 @@
       "text": "1"
     },
     {
-      "x": 83,
-      "y": 15,
+      "x": 84,
+      "y": 13,
       "foreground": {
         "r": 195,
         "g": 205,
@@ -3109,8 +2629,8 @@
       "text": ", fault addr "
     },
     {
-      "x": 96,
-      "y": 15,
+      "x": 97,
+      "y": 13,
       "foreground": {
         "r": 69,
         "g": 150,
@@ -3133,8 +2653,8 @@
       "text": "0"
     },
     {
-      "x": 97,
-      "y": 15,
+      "x": 98,
+      "y": 13,
       "foreground": {
         "r": 255,
         "g": 103,
@@ -3157,8 +2677,8 @@
       "text": "x"
     },
     {
-      "x": 98,
-      "y": 15,
+      "x": 99,
+      "y": 13,
       "foreground": {
         "r": 69,
         "g": 150,
@@ -3181,8 +2701,8 @@
       "text": "0"
     },
     {
-      "x": 99,
-      "y": 15,
+      "x": 100,
+      "y": 13,
       "foreground": {
         "r": 195,
         "g": 205,
@@ -3205,8 +2725,8 @@
       "text": " in tid "
     },
     {
-      "x": 107,
-      "y": 15,
+      "x": 108,
+      "y": 13,
       "foreground": {
         "r": 53,
         "g": 212,
@@ -3229,8 +2749,8 @@
       "text": "4340"
     },
     {
-      "x": 111,
-      "y": 15,
+      "x": 112,
+      "y": 13,
       "foreground": {
         "r": 195,
         "g": 205,
@@ -3250,11 +2770,11 @@
         "overline": false,
         "underline": null
       },
-      "text": " (logvi… "
+      "text": "        "
     },
     {
       "x": 0,
-      "y": 16,
+      "y": 14,
       "foreground": {
         "r": 82,
         "g": 98,
@@ -3278,7 +2798,79 @@
     },
     {
       "x": 51,
-      "y": 16,
+      "y": 14,
+      "foreground": {
+        "r": 135,
+        "g": 150,
+        "b": 181
+      },
+      "background": {
+        "r": 17,
+        "g": 24,
+        "b": 32
+      },
+      "attributes": {
+        "bold": false,
+        "italic": false,
+        "faint": false,
+        "invisible": false,
+        "strikethrough": false,
+        "overline": false,
+        "underline": null
+      },
+      "text": "(logview-demo)"
+    },
+    {
+      "x": 65,
+      "y": 14,
+      "foreground": {
+        "r": 195,
+        "g": 205,
+        "b": 232
+      },
+      "background": {
+        "r": 17,
+        "g": 24,
+        "b": 32
+      },
+      "attributes": {
+        "bold": false,
+        "italic": false,
+        "faint": false,
+        "invisible": false,
+        "strikethrough": false,
+        "overline": false,
+        "underline": null
+      },
+      "text": "                                                       "
+    },
+    {
+      "x": 0,
+      "y": 15,
+      "foreground": {
+        "r": 82,
+        "g": 98,
+        "b": 127
+      },
+      "background": {
+        "r": 17,
+        "g": 24,
+        "b": 32
+      },
+      "attributes": {
+        "bold": false,
+        "italic": false,
+        "faint": false,
+        "invisible": false,
+        "strikethrough": false,
+        "overline": false,
+        "underline": null
+      },
+      "text": "  │                                                "
+    },
+    {
+      "x": 51,
+      "y": 15,
       "foreground": {
         "r": 135,
         "g": 150,
@@ -3302,7 +2894,7 @@
     },
     {
       "x": 68,
-      "y": 16,
+      "y": 15,
       "foreground": {
         "r": 195,
         "g": 205,
@@ -3326,7 +2918,7 @@
     },
     {
       "x": 0,
-      "y": 17,
+      "y": 16,
       "foreground": {
         "r": 135,
         "g": 150,
@@ -3346,11 +2938,11 @@
         "overline": false,
         "underline": null
       },
-      "text": "  08:55:00.003   V  "
+      "text": "  08:55:00.003   V   "
     },
     {
-      "x": 20,
-      "y": 17,
+      "x": 21,
+      "y": 16,
       "foreground": {
         "r": 69,
         "g": 150,
@@ -3373,8 +2965,8 @@
       "text": "  4321:4321"
     },
     {
-      "x": 31,
-      "y": 17,
+      "x": 32,
+      "y": 16,
       "foreground": {
         "r": 135,
         "g": 150,
@@ -3397,8 +2989,8 @@
       "text": " logview-demo      "
     },
     {
-      "x": 50,
-      "y": 17,
+      "x": 51,
+      "y": 16,
       "foreground": {
         "r": 195,
         "g": 205,
@@ -3418,11 +3010,11 @@
         "overline": false,
         "underline": null
       },
-      "text": "verbose heartbeat                                                     "
+      "text": "verbose heartbeat                                                    "
     },
     {
       "x": 0,
-      "y": 18,
+      "y": 17,
       "foreground": {
         "r": 135,
         "g": 150,
@@ -3446,7 +3038,7 @@
     },
     {
       "x": 16,
-      "y": 18,
+      "y": 17,
       "foreground": {
         "r": 126,
         "g": 231,
@@ -3466,11 +3058,11 @@
         "overline": false,
         "underline": null
       },
-      "text": " I"
+      "text": " I "
     },
     {
-      "x": 18,
-      "y": 18,
+      "x": 19,
+      "y": 17,
       "foreground": {
         "r": 135,
         "g": 150,
@@ -3493,8 +3085,8 @@
       "text": "  "
     },
     {
-      "x": 20,
-      "y": 18,
+      "x": 21,
+      "y": 17,
       "foreground": {
         "r": 69,
         "g": 150,
@@ -3517,8 +3109,8 @@
       "text": "  4321:4321"
     },
     {
-      "x": 31,
-      "y": 18,
+      "x": 32,
+      "y": 17,
       "foreground": {
         "r": 135,
         "g": 150,
@@ -3541,8 +3133,8 @@
       "text": " "
     },
     {
-      "x": 32,
-      "y": 18,
+      "x": 33,
+      "y": 17,
       "foreground": {
         "r": 126,
         "g": 231,
@@ -3565,8 +3157,8 @@
       "text": "logview-demo    "
     },
     {
-      "x": 48,
-      "y": 18,
+      "x": 49,
+      "y": 17,
       "foreground": {
         "r": 135,
         "g": 150,
@@ -3589,8 +3181,8 @@
       "text": "  "
     },
     {
-      "x": 50,
-      "y": 18,
+      "x": 51,
+      "y": 17,
       "foreground": {
         "r": 195,
         "g": 205,
@@ -3610,11 +3202,11 @@
         "overline": false,
         "underline": null
       },
-      "text": "clock went backward                                                   "
+      "text": "clock went backward                                                  "
     },
     {
       "x": 0,
-      "y": 19,
+      "y": 18,
       "foreground": {
         "r": 135,
         "g": 150,
@@ -3638,7 +3230,7 @@
     },
     {
       "x": 16,
-      "y": 19,
+      "y": 18,
       "foreground": {
         "r": 126,
         "g": 231,
@@ -3658,11 +3250,11 @@
         "overline": false,
         "underline": null
       },
-      "text": " I"
+      "text": " I "
     },
     {
-      "x": 18,
-      "y": 19,
+      "x": 19,
+      "y": 18,
       "foreground": {
         "r": 135,
         "g": 150,
@@ -3685,8 +3277,8 @@
       "text": "  "
     },
     {
-      "x": 20,
-      "y": 19,
+      "x": 21,
+      "y": 18,
       "foreground": {
         "r": 69,
         "g": 150,
@@ -3709,8 +3301,8 @@
       "text": "  1001:1001"
     },
     {
-      "x": 31,
-      "y": 19,
+      "x": 32,
+      "y": 18,
       "foreground": {
         "r": 135,
         "g": 150,
@@ -3733,8 +3325,8 @@
       "text": " "
     },
     {
-      "x": 32,
-      "y": 19,
+      "x": 33,
+      "y": 18,
       "foreground": {
         "r": 126,
         "g": 231,
@@ -3757,8 +3349,8 @@
       "text": "chatty          "
     },
     {
-      "x": 48,
-      "y": 19,
+      "x": 49,
+      "y": 18,
       "foreground": {
         "r": 135,
         "g": 150,
@@ -3781,8 +3373,8 @@
       "text": "  uid"
     },
     {
-      "x": 53,
-      "y": 19,
+      "x": 54,
+      "y": 18,
       "foreground": {
         "r": 195,
         "g": 205,
@@ -3805,8 +3397,8 @@
       "text": "="
     },
     {
-      "x": 54,
-      "y": 19,
+      "x": 55,
+      "y": 18,
       "foreground": {
         "r": 53,
         "g": 212,
@@ -3829,8 +3421,8 @@
       "text": "10042"
     },
     {
-      "x": 59,
-      "y": 19,
+      "x": 60,
+      "y": 18,
       "foreground": {
         "r": 195,
         "g": 205,
@@ -3853,8 +3445,8 @@
       "text": "(u0_a42) expire "
     },
     {
-      "x": 75,
-      "y": 19,
+      "x": 76,
+      "y": 18,
       "foreground": {
         "r": 53,
         "g": 212,
@@ -3877,8 +3469,8 @@
       "text": "4"
     },
     {
-      "x": 76,
-      "y": 19,
+      "x": 77,
+      "y": 18,
       "foreground": {
         "r": 195,
         "g": 205,
@@ -3898,11 +3490,11 @@
         "overline": false,
         "underline": null
       },
-      "text": " lines                                      "
+      "text": " lines                                     "
     },
     {
       "x": 0,
-      "y": 20,
+      "y": 19,
       "foreground": {
         "r": 69,
         "g": 150,
@@ -3926,7 +3518,7 @@
     },
     {
       "x": 2,
-      "y": 20,
+      "y": 19,
       "foreground": {
         "r": 135,
         "g": 150,
@@ -3950,7 +3542,7 @@
     },
     {
       "x": 16,
-      "y": 20,
+      "y": 19,
       "foreground": {
         "r": 126,
         "g": 231,
@@ -3970,11 +3562,11 @@
         "overline": false,
         "underline": null
       },
-      "text": " I"
+      "text": " I "
     },
     {
-      "x": 18,
-      "y": 20,
+      "x": 19,
+      "y": 19,
       "foreground": {
         "r": 135,
         "g": 150,
@@ -3997,8 +3589,8 @@
       "text": "  "
     },
     {
-      "x": 20,
-      "y": 20,
+      "x": 21,
+      "y": 19,
       "foreground": {
         "r": 69,
         "g": 150,
@@ -4021,8 +3613,8 @@
       "text": "  4321:4321"
     },
     {
-      "x": 31,
-      "y": 20,
+      "x": 32,
+      "y": 19,
       "foreground": {
         "r": 135,
         "g": 150,
@@ -4045,8 +3637,8 @@
       "text": " "
     },
     {
-      "x": 32,
-      "y": 20,
+      "x": 33,
+      "y": 19,
       "foreground": {
         "r": 126,
         "g": 231,
@@ -4069,8 +3661,8 @@
       "text": "logview-demo    "
     },
     {
-      "x": 48,
-      "y": 20,
+      "x": 49,
+      "y": 19,
       "foreground": {
         "r": 135,
         "g": 150,
@@ -4093,8 +3685,8 @@
       "text": "  "
     },
     {
-      "x": 50,
-      "y": 20,
+      "x": 51,
+      "y": 19,
       "foreground": {
         "r": 195,
         "g": 205,
@@ -4114,7 +3706,7 @@
         "overline": false,
         "underline": null
       },
-      "text": "日本語 ok                                                             ",
+      "text": "日本語 ok                                                            ",
       "widths": [
         2,
         2,
@@ -4181,9 +3773,32 @@
         1,
         1,
         1,
-        1,
         1
       ]
+    },
+    {
+      "x": 0,
+      "y": 20,
+      "foreground": {
+        "r": 195,
+        "g": 205,
+        "b": 232
+      },
+      "background": {
+        "r": 17,
+        "g": 24,
+        "b": 32
+      },
+      "attributes": {
+        "bold": false,
+        "italic": false,
+        "faint": false,
+        "invisible": false,
+        "strikethrough": false,
+        "overline": false,
+        "underline": null
+      },
+      "text": "                                                                                                                        "
     },
     {
       "x": 0,

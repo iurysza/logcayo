@@ -610,7 +610,7 @@
         "overline": false,
         "underline": null
       },
-      "text": "  08:55:00.000   I    1186:1186 Zygote            Process 4321 created for com.example.logview.demo      "
+      "text": "  08:55:00.000   I     1186:1186 Zygote            Process 4321 created for com.example.logview.demo     "
     },
     {
       "x": 105,
@@ -682,7 +682,7 @@
         "overline": false,
         "underline": null
       },
-      "text": "  08:55:00.000   I    1234:1250 ActivityManager   Start proc 4321:com.example.logview.demo/u0a42 for ac… "
+      "text": "  08:55:00.000   I     1234:1250 ActivityManager   Start proc 4321:com.example.logview.demo/u0a42 for ac…"
     },
     {
       "x": 105,
@@ -754,7 +754,7 @@
         "overline": false,
         "underline": null
       },
-      "text": "  08:55:00.001   D    4321:4321 logview-demo      session opened                                         "
+      "text": "  08:55:00.001   D     4321:4321 logview-demo      session opened                                        "
     },
     {
       "x": 105,
@@ -850,10 +850,10 @@
         "overline": false,
         "underline": null
       },
-      "text": " I"
+      "text": " I "
     },
     {
-      "x": 18,
+      "x": 19,
       "y": 6,
       "foreground": {
         "r": 135,
@@ -877,7 +877,7 @@
       "text": "  "
     },
     {
-      "x": 20,
+      "x": 21,
       "y": 6,
       "foreground": {
         "r": 69,
@@ -901,7 +901,7 @@
       "text": "  4321:4340"
     },
     {
-      "x": 31,
+      "x": 32,
       "y": 6,
       "foreground": {
         "r": 135,
@@ -925,7 +925,7 @@
       "text": " "
     },
     {
-      "x": 32,
+      "x": 33,
       "y": 6,
       "foreground": {
         "r": 126,
@@ -949,7 +949,7 @@
       "text": "Database        "
     },
     {
-      "x": 48,
+      "x": 49,
       "y": 6,
       "foreground": {
         "r": 135,
@@ -973,7 +973,7 @@
       "text": "  "
     },
     {
-      "x": 50,
+      "x": 51,
       "y": 6,
       "foreground": {
         "r": 195,
@@ -994,7 +994,7 @@
         "overline": false,
         "underline": null
       },
-      "text": "Opening connection                                     "
+      "text": "Opening connection                                    "
     },
     {
       "x": 105,
@@ -1138,10 +1138,10 @@
         "overline": false,
         "underline": null
       },
-      "text": " D"
+      "text": " D "
     },
     {
-      "x": 18,
+      "x": 19,
       "y": 7,
       "foreground": {
         "r": 135,
@@ -1165,7 +1165,7 @@
       "text": "  "
     },
     {
-      "x": 20,
+      "x": 21,
       "y": 7,
       "foreground": {
         "r": 69,
@@ -1189,7 +1189,7 @@
       "text": "  4321:4340"
     },
     {
-      "x": 31,
+      "x": 32,
       "y": 7,
       "foreground": {
         "r": 135,
@@ -1213,7 +1213,7 @@
       "text": " "
     },
     {
-      "x": 32,
+      "x": 33,
       "y": 7,
       "foreground": {
         "r": 126,
@@ -1237,7 +1237,7 @@
       "text": "Database        "
     },
     {
-      "x": 48,
+      "x": 49,
       "y": 7,
       "foreground": {
         "r": 135,
@@ -1261,7 +1261,7 @@
       "text": "  "
     },
     {
-      "x": 50,
+      "x": 51,
       "y": 7,
       "foreground": {
         "r": 195,
@@ -1285,7 +1285,7 @@
       "text": "SELECT completed in "
     },
     {
-      "x": 70,
+      "x": 71,
       "y": 7,
       "foreground": {
         "r": 53,
@@ -1309,7 +1309,7 @@
       "text": "12"
     },
     {
-      "x": 72,
+      "x": 73,
       "y": 7,
       "foreground": {
         "r": 195,
@@ -1330,7 +1330,7 @@
         "overline": false,
         "underline": null
       },
-      "text": " ms                              "
+      "text": " ms                             "
     },
     {
       "x": 105,
@@ -1474,10 +1474,10 @@
         "overline": false,
         "underline": null
       },
-      "text": " W"
+      "text": " W "
     },
     {
-      "x": 18,
+      "x": 19,
       "y": 8,
       "foreground": {
         "r": 135,
@@ -1501,7 +1501,7 @@
       "text": "  "
     },
     {
-      "x": 20,
+      "x": 21,
       "y": 8,
       "foreground": {
         "r": 69,
@@ -1525,7 +1525,7 @@
       "text": "  4321:4340"
     },
     {
-      "x": 31,
+      "x": 32,
       "y": 8,
       "foreground": {
         "r": 135,
@@ -1549,7 +1549,7 @@
       "text": " "
     },
     {
-      "x": 32,
+      "x": 33,
       "y": 8,
       "foreground": {
         "r": 244,
@@ -1573,7 +1573,7 @@
       "text": "Database        "
     },
     {
-      "x": 48,
+      "x": 49,
       "y": 8,
       "foreground": {
         "r": 135,
@@ -1597,7 +1597,7 @@
       "text": "  "
     },
     {
-      "x": 50,
+      "x": 51,
       "y": 8,
       "foreground": {
         "r": 195,
@@ -1618,7 +1618,7 @@
         "overline": false,
         "underline": null
       },
-      "text": "Retry after lock timeout                               "
+      "text": "Retry after lock timeout                              "
     },
     {
       "x": 105,
@@ -1906,10 +1906,10 @@
         "overline": false,
         "underline": null
       },
-      "text": " I"
+      "text": " I "
     },
     {
-      "x": 18,
+      "x": 19,
       "y": 11,
       "foreground": {
         "r": 135,
@@ -1933,7 +1933,7 @@
       "text": "  "
     },
     {
-      "x": 20,
+      "x": 21,
       "y": 11,
       "foreground": {
         "r": 69,
@@ -1957,7 +1957,7 @@
       "text": "  4321:4340"
     },
     {
-      "x": 31,
+      "x": 32,
       "y": 11,
       "foreground": {
         "r": 135,
@@ -1981,7 +1981,7 @@
       "text": " "
     },
     {
-      "x": 32,
+      "x": 33,
       "y": 11,
       "foreground": {
         "r": 126,
@@ -2005,7 +2005,7 @@
       "text": "Database        "
     },
     {
-      "x": 48,
+      "x": 49,
       "y": 11,
       "foreground": {
         "r": 135,
@@ -2029,7 +2029,7 @@
       "text": "  "
     },
     {
-      "x": 50,
+      "x": 51,
       "y": 11,
       "foreground": {
         "r": 195,
@@ -2050,7 +2050,7 @@
         "overline": false,
         "underline": null
       },
-      "text": "Transaction committed                                  "
+      "text": "Transaction committed                                 "
     },
     {
       "x": 105,
@@ -2122,7 +2122,7 @@
         "overline": false,
         "underline": null
       },
-      "text": "  08:55:00.003   E    4321:4321 logview-demo      failed to parse token=REDACTED                         "
+      "text": "  08:55:00.003   E     4321:4321 logview-demo      failed to parse token=REDACTED                        "
     },
     {
       "x": 105,
@@ -2194,7 +2194,7 @@
         "overline": false,
         "underline": null
       },
-      "text": "  08:55:00.003   W    4321:4321 logview-demo      stray sequence ^[[31m in payload                       "
+      "text": "  08:55:00.003   W     4321:4321 logview-demo      stray sequence ^[[31m in payload                      "
     },
     {
       "x": 105,
@@ -2266,7 +2266,7 @@
         "overline": false,
         "underline": null
       },
-      "text": "  08:55:00.003   I    4321:4321 logview-demo      café already open                                      "
+      "text": "  08:55:00.003   I     4321:4321 logview-demo      café already open                                     "
     },
     {
       "x": 105,
@@ -2338,7 +2338,7 @@
         "overline": false,
         "underline": null
       },
-      "text": "  08:55:00.003   F          1:1 libc              Fatal signal 11 (SIGSEGV), code 1, fault addr 0x0 in … "
+      "text": "  08:55:00.003   F           1:1 libc              Fatal signal 11 (SIGSEGV), code 1, fault addr 0x0 in …"
     },
     {
       "x": 105,
@@ -2530,7 +2530,7 @@
         "overline": false,
         "underline": null
       },
-      "text": "  08:55:00.003   V    4321:4321 logview-demo      verbose heartbeat                                      "
+      "text": "  08:55:00.003   V     4321:4321 logview-demo      verbose heartbeat                                     "
     },
     {
       "x": 105,
@@ -2602,7 +2602,7 @@
         "overline": false,
         "underline": null
       },
-      "text": "  08:54:59.999   I    4321:4321 logview-demo      clock went backward                                    "
+      "text": "  08:54:59.999   I     4321:4321 logview-demo      clock went backward                                   "
     },
     {
       "x": 105,
@@ -2674,7 +2674,7 @@
         "overline": false,
         "underline": null
       },
-      "text": "  08:55:00.004   I    1001:1001 chatty            uid=10042(u0_a42) expire 4 lines                       "
+      "text": "  08:55:00.004   I     1001:1001 chatty            uid=10042(u0_a42) expire 4 lines                      "
     },
     {
       "x": 105,
@@ -2746,7 +2746,7 @@
         "overline": false,
         "underline": null
       },
-      "text": "▸ 08:55:00.004   I    4321:4321 logview-demo      日本語 ok                                              ",
+      "text": "▸ 08:55:00.004   I     4321:4321 logview-demo      日本語 ok                                             ",
       "widths": [
         1,
         1,
@@ -2798,10 +2798,10 @@
         1,
         1,
         1,
-        2,
-        2,
-        2,
         1,
+        2,
+        2,
+        2,
         1,
         1,
         1,

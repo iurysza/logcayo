@@ -187,6 +187,29 @@ describe("headless session", () => {
 		await scenario.session.stop();
 	});
 
+	test("wrap-mode paging keeps the selected header visible", async () => {
+		const scenario = await openScenario({ maxEvents: 20, rows: 12, columns: 72 });
+		await scenario.deliver(Array.from({ length: 12 }, (_, index) => index + 1), (id) => ({
+			message: `event-${id} retrying database connection after a network failure`,
+		}));
+		await scenario.finish();
+		expect(scenario.session.dispatch({ kind: "toggle-line-display" }).ok).toBe(true);
+
+		const commands = [
+			{ kind: "oldest" } as const,
+			...Array.from({ length: 12 }, () => ({ kind: "page", delta: 1 } as const)),
+			...Array.from({ length: 12 }, () => ({ kind: "page", delta: -1 } as const)),
+		];
+
+		for (const command of commands) {
+			expect(scenario.session.dispatch(command).ok).toBe(true);
+			const snapshot = scenario.session.snapshot();
+			expect(snapshot.rows.some((row) => row.id === snapshot.view.selectedId && row.kind === "header" && row.selected)).toBe(true);
+		}
+
+		await scenario.session.stop();
+	});
+
 	test("resolves detail attribution lazily and filters by its UID set", async () => {
 		let loads = 0;
 

@@ -4,6 +4,7 @@ import {
 	containsControlBytes,
 	displayWidth,
 	eventChargeBytes,
+	eventScreenRows,
 	logViewportHeight,
 	projectColumnHeader,
 	projectRows,
@@ -83,29 +84,78 @@ describe("projection", () => {
 		const message = "retrying database connection after a transient network failure";
 		const raw = `1760000000.123456     1     1 W Database: ${message}`;
 
+		const logEvent = event(2, raw, {
+			epochMicros: 1760000000123456,
+			pid: 1,
+			tid: 1,
+			level: "W",
+			tag: { start: 34, end: 42 },
+			message: { start: raw.indexOf(message), end: raw.length },
+		});
+
+		const rows = projectRows([logEvent], 2, 48, undefined, "wrap");
+
+		expect(rows.length).toBeGreaterThan(1);
+		expect(eventScreenRows(logEvent, 48, "wrap")).toBe(rows.length);
+		expect(rows[0]!.kind).toBe("header");
+		expect(rows.slice(1).every((row) => row.kind === "continuation")).toBe(true);
+		const pieces = rows.map((row) => row.spans.filter((span) => span.role === "message").map((span) => span.text).join(""));
+		expect(pieces.join(" ")).toBe(message);
+		const headerColumn = rowDisplayText(rows[0]!).indexOf(pieces[0]!);
+
+		for (const [index, row] of rows.entries()) {
+			expect(displayWidth(rowDisplayText(row))).toBeLessThanOrEqual(48);
+			expect(rowDisplayText(row).indexOf(pieces[index]!)).toBe(headerColumn);
+		}
+	});
+
+	test("wrapping breaks after punctuation before it splits a token", () => {
+		const message = "StackLog: [a.b.Manager.send(Manager.java:4744)] [a.b.Manager.register(Manager.java:5469)]";
+		const raw = `1760000000.123456     1     1 D ConnMgr: ${message}`;
+
 		const rows = projectRows(
 			[
-				event(2, raw, {
+				event(5, raw, {
 					epochMicros: 1760000000123456,
 					pid: 1,
 					tid: 1,
-					level: "W",
-					tag: { start: 34, end: 42 },
+					level: "D",
+					tag: { start: raw.indexOf("ConnMgr"), end: raw.indexOf("ConnMgr") + 7 },
 					message: { start: raw.indexOf(message), end: raw.length },
 				}),
 			],
-			2,
-			48,
+			5,
+			70,
 			undefined,
 			"wrap",
 		);
 
-		expect(rows.length).toBeGreaterThan(1);
-		expect(rows[0]!.kind).toBe("header");
-		expect(rows.slice(1).every((row) => row.kind === "continuation")).toBe(true);
-		expect(rows.flatMap((row) => row.spans.filter((span) => span.role === "message")).map((span) => span.text).join("")).toBe(message);
+		const pieces = rows.map((row) => row.spans.filter((span) => span.role === "message").map((span) => span.text).join(""));
+		expect(pieces.length).toBeGreaterThan(1);
+		expect(pieces.join("").replaceAll(" ", "")).toBe(message.replaceAll(" ", ""));
+		expect(pieces.slice(0, -1).every((piece) => /[^A-Za-z0-9]$/.test(piece))).toBe(true);
+	});
 
-		for (const row of rows) expect(displayWidth(rowDisplayText(row))).toBeLessThanOrEqual(48);
+	test("extra leading spaces in a message do not indent the list row", () => {
+		const raw = "1760000000.123456     1     1 W Sched:   Executing 60:Init";
+
+		const rows = projectRows(
+			[
+				event(6, raw, {
+					epochMicros: 1760000000123456,
+					pid: 1,
+					tid: 1,
+					level: "W",
+					tag: { start: raw.indexOf("Sched"), end: raw.indexOf("Sched") + 5 },
+					message: { start: raw.indexOf("  Executing"), end: raw.length },
+				}),
+			],
+			null,
+			80,
+		);
+
+		const message = rows[0]!.spans.find((span) => span.role === "message")!;
+		expect(message.text).toBe("Executing 60:Init");
 	});
 
 	test("escapes control bytes instead of emitting terminal sequences", () => {

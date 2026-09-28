@@ -394,10 +394,10 @@
         "overline": false,
         "underline": null
       },
-      "text": " F"
+      "text": " F "
     },
     {
-      "x": 18,
+      "x": 19,
       "y": 3,
       "foreground": {
         "r": 135,
@@ -421,7 +421,7 @@
       "text": "  "
     },
     {
-      "x": 20,
+      "x": 21,
       "y": 3,
       "foreground": {
         "r": 255,
@@ -445,7 +445,7 @@
       "text": "libc   "
     },
     {
-      "x": 27,
+      "x": 28,
       "y": 3,
       "foreground": {
         "r": 135,
@@ -469,7 +469,7 @@
       "text": "  "
     },
     {
-      "x": 29,
+      "x": 30,
       "y": 3,
       "foreground": {
         "r": 195,
@@ -493,7 +493,7 @@
       "text": "Fatal signal "
     },
     {
-      "x": 42,
+      "x": 43,
       "y": 3,
       "foreground": {
         "r": 53,
@@ -517,7 +517,7 @@
       "text": "11"
     },
     {
-      "x": 44,
+      "x": 45,
       "y": 3,
       "foreground": {
         "r": 195,
@@ -538,7 +538,7 @@
         "overline": false,
         "underline": null
       },
-      "text": " (… "
+      "text": " (…"
     },
     {
       "x": 0,
@@ -634,10 +634,10 @@
         "overline": false,
         "underline": null
       },
-      "text": "  08:55:00.003   V  logvie…  "
+      "text": "  08:55:00.003   V   logvie…  "
     },
     {
-      "x": 29,
+      "x": 30,
       "y": 5,
       "foreground": {
         "r": 195,
@@ -658,7 +658,7 @@
         "overline": false,
         "underline": null
       },
-      "text": "verbose heartbeat  "
+      "text": "verbose heartbeat "
     },
     {
       "x": 0,
@@ -706,10 +706,10 @@
         "overline": false,
         "underline": null
       },
-      "text": " I"
+      "text": " I "
     },
     {
-      "x": 18,
+      "x": 19,
       "y": 6,
       "foreground": {
         "r": 135,
@@ -733,7 +733,7 @@
       "text": "  "
     },
     {
-      "x": 20,
+      "x": 21,
       "y": 6,
       "foreground": {
         "r": 126,
@@ -757,7 +757,7 @@
       "text": "logvie…"
     },
     {
-      "x": 27,
+      "x": 28,
       "y": 6,
       "foreground": {
         "r": 135,
@@ -781,7 +781,7 @@
       "text": "  "
     },
     {
-      "x": 29,
+      "x": 30,
       "y": 6,
       "foreground": {
         "r": 195,
@@ -802,7 +802,7 @@
         "overline": false,
         "underline": null
       },
-      "text": "clock went backwa… "
+      "text": "clock went backwa…"
     },
     {
       "x": 0,
@@ -850,10 +850,10 @@
         "overline": false,
         "underline": null
       },
-      "text": " I"
+      "text": " I "
     },
     {
-      "x": 18,
+      "x": 19,
       "y": 7,
       "foreground": {
         "r": 135,
@@ -877,7 +877,7 @@
       "text": "  "
     },
     {
-      "x": 20,
+      "x": 21,
       "y": 7,
       "foreground": {
         "r": 126,
@@ -901,7 +901,7 @@
       "text": "chatty "
     },
     {
-      "x": 27,
+      "x": 28,
       "y": 7,
       "foreground": {
         "r": 135,
@@ -925,7 +925,7 @@
       "text": "  uid"
     },
     {
-      "x": 32,
+      "x": 33,
       "y": 7,
       "foreground": {
         "r": 195,
@@ -949,7 +949,7 @@
       "text": "="
     },
     {
-      "x": 33,
+      "x": 34,
       "y": 7,
       "foreground": {
         "r": 53,
@@ -973,7 +973,7 @@
       "text": "10042"
     },
     {
-      "x": 38,
+      "x": 39,
       "y": 7,
       "foreground": {
         "r": 195,
@@ -994,7 +994,7 @@
         "overline": false,
         "underline": null
       },
-      "text": "(u0_a42)… "
+      "text": "(u0_a42)…"
     },
     {
       "x": 0,
@@ -1066,10 +1066,10 @@
         "overline": false,
         "underline": null
       },
-      "text": " I"
+      "text": " I "
     },
     {
-      "x": 18,
+      "x": 19,
       "y": 8,
       "foreground": {
         "r": 135,
@@ -1093,7 +1093,7 @@
       "text": "  "
     },
     {
-      "x": 20,
+      "x": 21,
       "y": 8,
       "foreground": {
         "r": 126,
@@ -1117,7 +1117,7 @@
       "text": "logvie…"
     },
     {
-      "x": 27,
+      "x": 28,
       "y": 8,
       "foreground": {
         "r": 135,
@@ -1141,7 +1141,7 @@
       "text": "  "
     },
     {
-      "x": 29,
+      "x": 30,
       "y": 8,
       "foreground": {
         "r": 195,
@@ -1162,12 +1162,11 @@
         "overline": false,
         "underline": null
       },
-      "text": "日本語 ok          ",
+      "text": "日本語 ok         ",
       "widths": [
         2,
         2,
         2,
-        1,
         1,
         1,
         1,

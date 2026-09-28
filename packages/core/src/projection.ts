@@ -1,5 +1,5 @@
 import { NONE_CLASSIFICATION, type ClassificationMark, type RowKind, type RowSpan, type ViewRow } from "./commands.ts";
-import { clipToWidth, displayWidth, escapeDisplayText, padToWidth } from "./display-text.ts";
+import { clipToWidth, displayWidth, type EscapedUnit, escapeDisplayText, padToWidth } from "./display-text.ts";
 import { messageText, tagText } from "./logcat.ts";
 import type { EventId, LogEvent, LogLevel } from "./types.ts";
 import { CHROME_ROWS, MIN_TERMINAL_COLUMNS, MIN_TERMINAL_ROWS } from "./types.ts";
@@ -146,6 +146,46 @@ function rowOf(
 
 type ProjectedText = Readonly<{ text: string; clipped: boolean }>;
 
+const BREAK_AFTER = new Set([",", ";", "=", ")", "/", ".", ":", "]", "|"]);
+
+type WrapCut = Readonly<{ keep: number; next: number }>;
+
+function fitCount(units: readonly EscapedUnit[], width: number): number {
+	let used = 0;
+	let count = 0;
+
+	for (const unit of units) {
+		if (used + unit.width > width) break;
+		used += unit.width;
+		count += 1;
+	}
+
+	return count;
+}
+
+function joinUnits(units: readonly EscapedUnit[]): string {
+	let text = "";
+
+	for (const unit of units) text += unit.display;
+
+	return text;
+}
+
+/** Break at the last space, then after punctuation, and only split a token when nothing else fits. */
+function wrapCut(units: readonly EscapedUnit[], fitted: number): WrapCut {
+	if (units[fitted]?.display === " ") return { keep: fitted, next: fitted + 1 };
+
+	for (let index = fitted - 1; index > 0; index -= 1) {
+		if (units[index]!.display === " ") return { keep: index, next: index + 1 };
+	}
+
+	for (let index = fitted - 1; index > 0; index -= 1) {
+		if (BREAK_AFTER.has(units[index]!.display)) return { keep: index + 1, next: index + 1 };
+	}
+
+	return { keep: fitted, next: fitted };
+}
+
 function projectText(text: string, width: number, lineDisplay: "clip" | "wrap"): readonly ProjectedText[] {
 	if (lineDisplay === "clip") {
 		const clipped = clipToWidth(text, width);
@@ -154,29 +194,28 @@ function projectText(text: string, width: number, lineDisplay: "clip" | "wrap"):
 	}
 
 	const lines: ProjectedText[] = [];
-	let line = "";
-	let used = 0;
+	let units = escapeDisplayText(text);
 
-	for (const unit of escapeDisplayText(text)) {
-		if (used > 0 && used + unit.width > width) {
-			lines.push({ text: line, clipped: false });
-			line = "";
-			used = 0;
+	while (units.length > 0) {
+		const fitted = fitCount(units, width);
+
+		if (fitted >= units.length) {
+			lines.push({ text: joinUnits(units), clipped: false });
+			break;
 		}
 
-		if (unit.width > width) {
-			if (line.length > 0) lines.push({ text: line, clipped: false });
-			lines.push({ text: clipToWidth(unit.display, width).text, clipped: false });
-			line = "";
-			used = 0;
+		if (fitted === 0) {
+			lines.push({ text: clipToWidth(units[0]!.display, width).text, clipped: false });
+			units = units.slice(1);
 			continue;
 		}
 
-		line += unit.display;
-		used += unit.width;
+		const cut = wrapCut(units, fitted);
+		lines.push({ text: joinUnits(units.slice(0, cut.keep)), clipped: false });
+		units = units.slice(cut.next);
 	}
 
-	if (line.length > 0 || lines.length === 0) lines.push({ text: line, clipped: false });
+	if (lines.length === 0) lines.push({ text: "", clipped: false });
 
 	return lines;
 }
@@ -194,7 +233,7 @@ function projectHeader(
 	if (event.metadata) {
 		pushSpan(spans, formatTimestamp(event.metadata.epochMicros), "timestamp");
 		pushSpan(spans, "  ", "gutter");
-		pushSpan(spans, event.metadata.level.padStart(2, " "), "level");
+		pushSpan(spans, event.metadata.level.padStart(2, " ").padEnd(LEVEL_WIDTH, " "), "level");
 		pushSpan(spans, "  ", "gutter");
 
 		if (layout.process.kind !== "none") {
@@ -259,7 +298,7 @@ function projectMore(event: LogEvent, selected: boolean, layout: ColumnLayout, h
 }
 
 function eventMessage(event: LogEvent): string {
-	return event.metadata ? messageText(event.rawText, event.metadata.message) : event.rawText;
+	return event.metadata ? messageText(event.rawText, event.metadata.message).replace(/^ +/, "") : event.rawText;
 }
 
 function messageWidth(event: LogEvent, columns: number, layout: ColumnLayout): number {
