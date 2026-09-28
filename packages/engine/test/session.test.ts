@@ -155,7 +155,7 @@ describe("headless session", () => {
 		for (let id = 1; id <= 12; id += 1) {
 			scenario.source.pushLine(threadtimeLine(id, { message: `event-${id}` }), id);
 
-			if (id % 3 === 0) scenario.source.pushLine(`\tat com.example.App.row${id}(App.java:${id})`, id);
+			if (id % 3 === 0) scenario.source.pushLine(threadtimeLine(id, { message: `\tat com.example.App.row${id}(App.java:${id})` }), id);
 		}
 
 		await tick(scenario.scheduler);
@@ -250,7 +250,7 @@ describe("headless session", () => {
 		await scenario.session.stop();
 	});
 
-	test("attaches unmatched lines to the previous event", async () => {
+	test("keeps unmatched lines as their own unparsed events", async () => {
 		const scenario = await openScenario({ maxEvents: 20, rows: 16, columns: 100 });
 		await scenario.deliver([1], () => ({ level: "E", message: "failed" }));
 		scenario.source.pushLine("\tat com.example.App.crash(App.java:32)", 2);
@@ -258,13 +258,15 @@ describe("headless session", () => {
 		await tick(scenario.scheduler);
 
 		const snap = scenario.session.snapshot();
-		expect(snap.stats.admittedEvents).toBe(1);
+		expect(snap.stats.admittedEvents).toBe(3);
 		expect(snap.stats.unparsedEvents).toBe(2);
-		expect(snap.selectedEvent?.continuations).toEqual([
-			"\tat com.example.App.crash(App.java:32)",
-			"not a header line",
+		const events = scenario.session.readMatches(null, 10);
+		expect(events.map((event) => [event.metadata === null, event.continuations.length])).toEqual([
+			[false, 0],
+			[true, 0],
+			[true, 0],
 		]);
-		expect(snap.rows.some((row) => row.kind === "continuation")).toBe(true);
+		expect(snap.rows.some((row) => row.kind === "continuation")).toBe(false);
 
 		await scenario.finish();
 		await scenario.session.stop();

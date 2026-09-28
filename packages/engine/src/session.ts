@@ -530,12 +530,9 @@ class SessionImpl implements Session {
 
 			if (parsed.kind === "control") continue;
 
-			if (parsed.metadata === null) {
-				const attached = this.attachContinuation(admitted, parsed.rawText, line.omittedBytes, parsed.invalidUtf8, true);
-
-				if (attached) continue;
-			} else if (this.continuesLastCall(admitted, parsed.rawText, parsed.metadata)) {
-				const attached = this.attachContinuation(admitted, parsed.rawText, line.omittedBytes, parsed.invalidUtf8, false);
+			// Logcat repeats the header on every line of a call, so an unparsed line is never a continuation.
+			if (parsed.metadata !== null && this.continuesLastCall(admitted, parsed.rawText, parsed.metadata)) {
+				const attached = this.attachContinuation(admitted, parsed.rawText, line.omittedBytes, parsed.invalidUtf8);
 
 				if (attached) continue;
 			}
@@ -581,7 +578,6 @@ class SessionImpl implements Session {
 		rawText: string,
 		omittedBytes: number,
 		invalidUtf8: boolean,
-		unparsed: boolean,
 	): boolean {
 		const pending = admitted[admitted.length - 1];
 
@@ -595,8 +591,6 @@ class SessionImpl implements Session {
 				chargeBytes: eventChargeBytes(pending.rawText, continuations),
 			};
 
-			if (unparsed) this.unparsedEvents += 1;
-
 			return true;
 		}
 
@@ -608,7 +602,6 @@ class SessionImpl implements Session {
 
 		if (!updated) return false;
 
-		if (unparsed) this.unparsedEvents += 1;
 		this.refreshMatch(updated);
 		this.bump();
 		this.schedulePublish();
