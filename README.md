@@ -15,13 +15,13 @@ A modern terminal UI for Android logs.
 
 [![Watch the logcayo launch video](./assets/demo/logcayo-launch-poster.jpg)](https://github.com/user-attachments/assets/46a917fd-c448-404b-8e32-b2814e1c1ddb)
 
-<sub>39-second launch video. Every screen is the real TUI running on a redacted Samsung capture.</sub>
+<sub>Every screen is the real TUI running on a Samsung device capture.</sub>
 
 logcayo streams `adb logcat` into a fast terminal viewer. Filter by level, tag, PID, package, or text as you type, then open any event to see its full message. Lines from one log call, such as a stack trace, stay together as one event. Record a session to a file and replay it later, on your machine or in CI.
 
 - Filter live with one query line, for example `level:W tag:Database lock`, with Tab completion from the session.
 - Inspect, copy, and pivot: jump from an event to its tag or PID in one key.
-- Ask Jev in plain English, for example `~battery stats not saved`, when you don't know the keyword. Press `h` to hide weak matches.
+- Classify logs with Jev in plain English, for example `~battery stats not saved`, when you don't know the keyword. Press `h` to hide weak matches.
 - Record once, replay at any speed, and get the same results every time.
 - Let an agent query logs as JSON with `logcayo query`, without opening the viewer.
 
