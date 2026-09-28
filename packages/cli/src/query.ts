@@ -46,7 +46,6 @@ type QueryOptions = Readonly<{
 	serial: string | null;
 	adbPath: string;
 	timeoutMs: number | null;
-	semantic: boolean;
 }>;
 
 type Verdict = "relevant" | "below-threshold" | "unscored";
@@ -67,12 +66,12 @@ Usage:
   logcayo query PATH [QUERY] [--limit N] [--since TIME] [--format ndjson|text] [--allow-partial]
   logcayo query --live [QUERY] [--serial S] [--adb PATH] [--timeout DUR] [--limit N] [--since TIME|DUR]
   logcayo query --check QUERY
-  logcayo query PATH '~QUESTION' | --semantic QUESTION   ask Jev instead of matching text
+  logcayo query PATH '~DESCRIPTION'   classify with Jev instead of matching text
 
 Query: terms separated by spaces. level:V|D|I|W|E|F|ALL, tag:NAME,
        pid:POSITIVE_INTEGER, pkg:NAME; other terms search text. Quote terms
        with spaces or terms that look like keys. Repeated keys are invalid.
-       ~ before the text asks Jev: 'level:W ~database locks'. Keys still
+       ~ before the text classifies with Jev: 'level:W ~database locks'. Keys still
        filter locally; Jev scores the remaining events. Needs TYPESAFE_API_KEY.
        Jev output keeps only relevant events and adds score and verdict.
        The summary counts relevant, below-threshold and unscored events.
@@ -141,7 +140,6 @@ function parse(args: readonly string[], now: number, writer: QueryWriter): Query
 	let serial: string | null = null;
 	let adbPath = process.env.ADB ?? "adb";
 	let timeoutMs: number | null = null;
-	let semantic = false;
 	const positional: string[] = [];
 
 	for (let i = 0; i < args.length; i++) {
@@ -153,7 +151,6 @@ function parse(args: readonly string[], now: number, writer: QueryWriter): Query
 
 		if (arg === "--allow-partial") { allowPartial = true; continue; }
 
-		if (arg === "--semantic") { semantic = true; continue; }
 
 		if (["--limit", "--since", "--format", "--serial", "--adb", "--timeout"].includes(arg)) {
 			const value = args[++i];
@@ -184,7 +181,7 @@ function parse(args: readonly string[], now: number, writer: QueryWriter): Query
 	}
 
 	if (check) {
-		if (live || semantic || positional.length !== 1 || limit !== null || sinceValue !== null || timeoutMs !== null || serial !== null || allowPartial || format !== "ndjson" || adbPath !== (process.env.ADB ?? "adb")) {
+		if (live || positional.length !== 1 || limit !== null || sinceValue !== null || timeoutMs !== null || serial !== null || allowPartial || format !== "ndjson" || adbPath !== (process.env.ADB ?? "adb")) {
 			return error(writer, "invalid-argument", "--check", "--check requires exactly one QUERY and no other options");
 		}
 
@@ -205,7 +202,7 @@ function parse(args: readonly string[], now: number, writer: QueryWriter): Query
 
 	if (sinceValue !== null && sinceMicros === null) return error(writer, "invalid-argument", "--since", "since must be an absolute ISO-8601 time or epoch seconds; relative durations require --live");
 
-	return { path, live, check, query, limit, sinceMicros, format, allowPartial, serial, adbPath, timeoutMs, semantic };
+	return { path, live, check, query, limit, sinceMicros, format, allowPartial, serial, adbPath, timeoutMs };
 }
 
 function verdictOf(mark: ClassificationMark, threshold: number): JevResult {
@@ -447,10 +444,10 @@ export async function runQuery(args: readonly string[], writer: QueryWriter = de
 
 	if (!parsed.ok) return error(writer, parsed.error.kind, parsed.error.field, parsed.error.message, parsed.error.offset);
 	const filter = parsed.value.filter;
-	const searchMode: SearchMode = options.semantic ? "jev" : parsed.value.searchMode;
+	const searchMode: SearchMode = parsed.value.searchMode;
 
 	if (searchMode === "jev" && filter.text.length === 0) {
-		return error(writer, "invalid-filter", "text", "--semantic needs text to ask Jev about", null);
+		return error(writer, "invalid-filter", "text", "~ needs text to classify", null);
 	}
 
 	const canonical = formatQuery(filter, searchMode);
@@ -491,7 +488,7 @@ export async function runQuery(args: readonly string[], writer: QueryWriter = de
 		: undefined;
 
 	const created = createSession(defaultSessionOptions({
-		sessionId: `query-${Date.now()}`, sourceKind, label: options.path ?? options.serial ?? "adb", initialFilter: filter,
+		sessionId: `query-${Date.now()}`, sourceKind, label: options.path ?? options.serial ?? "adb", initialFilter: filter, initialSearchMode: searchMode,
 	}), { source, scheduler, packageResolver, classifier });
 
 	if (!created.ok) return error(writer, "invalid-argument", created.error.field, created.error.message);

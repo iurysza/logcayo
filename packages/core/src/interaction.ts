@@ -58,7 +58,7 @@ export const TEXT_ONLY_CONTEXT: QueryContext = { semanticAvailable: false, candi
 /** A trailing `key:` is still being typed; Enter reports it, live edits do not. */
 const INCOMPLETE_KEY = /(^|\s)(level|tag|pid|pkg):$/;
 
-const JEV_UNAVAILABLE = "Jev is off. Start with --semantic and TYPESAFE_API_KEY";
+const JEV_UNAVAILABLE = "Jev is off. Set TYPESAFE_API_KEY to classify with ~";
 
 export type InteractionResult = Readonly<{
 	state: InteractionState;
@@ -488,9 +488,11 @@ function reduceList(
 
 	if (key === "w" || key === "W") return done(state, { kind: "toggle-line-display" });
 
-	if (key === "m" || key === "M") return done(state, { kind: "toggle-search-mode" });
+	if ((key === "h" || key === "H") && searchMode === "jev") return done(state, { kind: "toggle-below-threshold" });
 
-	if ((key === "v" || key === "V") && searchMode === "jev") return done(state, { kind: "toggle-below-threshold" });
+	if (key === "[" && searchMode === "jev") return done(state, { kind: "adjust-threshold", delta: -1 });
+
+	if (key === "]" && searchMode === "jev") return done(state, { kind: "adjust-threshold", delta: 1 });
 
 	if (!ctrl && (key === "x" || key === "X")) {
 		const committed = commitFilter(state.undo, activeFilter, EMPTY_FILTER);

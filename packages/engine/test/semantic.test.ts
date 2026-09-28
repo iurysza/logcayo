@@ -161,26 +161,21 @@ describe("semantic classification", () => {
 		}
 	});
 
-	test("search mode switches between literal text and Jev", async () => {
+	test("a session with a classifier starts in text mode; only a ~ query uses Jev", async () => {
 		const classifier = new ScriptedClassifier();
 		const scenario = await openScenario({ maxEvents: 20, classifier, semantic: { flushDelayMs: 0 } });
+		const filter = { minLevel: null, tag: null, pid: null, packageName: null, text: "database" };
 
 		try {
 			await scenario.deliver([1, 2], (id) => ({ message: id === 1 ? "database lock" : "network timeout" }));
-			expect(scenario.session.snapshot().searchMode).toBe("jev");
-
-			scenario.session.dispatch({ kind: "toggle-search-mode" });
 			expect(scenario.session.snapshot().searchMode).toBe("text");
-			scenario.session.dispatch({
-				kind: "set-filter",
-				filter: { minLevel: null, tag: null, pid: null, packageName: null, text: "database" },
-			});
 
+			scenario.session.dispatch({ kind: "set-filter", filter });
 			const textSnapshot = await scenario.waitUntil((current) => current.pendingFilter === null);
 			expect(textSnapshot.rows.map((row) => row.id)).toEqual([1]);
 			expect(classifier.pending).toHaveLength(0);
 
-			scenario.session.dispatch({ kind: "toggle-search-mode" });
+			scenario.session.dispatch({ kind: "set-filter", filter, searchMode: "jev" });
 			expect(scenario.session.snapshot().searchMode).toBe("jev");
 			await scenario.waitUntil(() => classifier.pending.length === 1);
 		} finally {
@@ -207,6 +202,7 @@ describe("semantic classification", () => {
 			scenario.session.dispatch({
 				kind: "set-filter",
 				filter: { minLevel: null, tag: null, pid: null, text: "database locks" },
+				searchMode: "jev",
 			});
 			await scenario.waitUntil(() => classifier.pending.length === 1);
 
@@ -236,14 +232,16 @@ describe("semantic classification", () => {
 			scenario.session.dispatch({
 				kind: "set-filter",
 				filter: { minLevel: null, tag: "Keep", pid: null, text: "database locks" },
+				searchMode: "jev",
 			});
 			await scenario.waitUntil(() => classifier.pending.length === 1);
 
 			expect(classifier.pending[0]?.request.items.map((item) => item.eventId)).toEqual([4, 6]);
 			const snapshot = scenario.session.snapshot();
-			expect(snapshot.rows.map((row) => row.id)).toEqual([2, 4, 6]);
-			expect(snapshot.rows[0]?.classification).toEqual({ kind: "unrequested" });
+			expect(snapshot.rows.map((row) => row.id)).toEqual([1, 2, 3, 4, 5, 6]);
+			expect(snapshot.rows[0]?.classification).toEqual({ kind: "none" });
 			expect(snapshot.semantic).toMatchObject({
+				classifying: { done: 0, total: 2 },
 				classifiedEvents: 0,
 				pendingEvents: 2,
 				skippedEvents: 0,
@@ -271,13 +269,15 @@ describe("semantic classification", () => {
 		scenario.session.dispatch({
 			kind: "set-filter",
 			filter: { minLevel: null, tag: null, pid: null, text: "database locks" },
+			searchMode: "jev",
 		});
 
 		const snap = await scenario.waitUntil(
 			(current) => current.pendingFilter === null && current.semantic !== null && current.semantic.pendingEvents === 0,
 		);
 
-		expect(snap.rows.map((row) => row.id)).toEqual(ids);
+		expect(snap.rows.map((row) => row.id)).toEqual([3, 8, 15]);
+		expect(snap.semantic?.classifying).toBeNull();
 		expect(snap.stats.matchedEvents).toBe(20);
 		expect(snap.stats.retainedEvents).toBe(20);
 		expect(snap.semantic?.classifiedEvents).toBe(20);
@@ -287,7 +287,7 @@ describe("semantic classification", () => {
 	});
 
 	test("Jev mode preserves level, tag, and PID filtering", async () => {
-		const classifier = scoringClassifier(() => 0.1);
+		const classifier = scoringClassifier(() => 0.9);
 
 		const scenario = await openScenario({
 			maxEvents: 20,
@@ -310,18 +310,19 @@ describe("semantic classification", () => {
 			scenario.session.dispatch({
 				kind: "set-filter",
 				filter: { minLevel: "W", tag: "Keep", pid: 11, text: "important warnings" },
+				searchMode: "jev",
 			});
 
 			const snapshot = await scenario.waitUntil((current) => current.semantic?.pendingEvents === 0);
 			expect(snapshot.rows.map((row) => row.id)).toEqual([1]);
-			expect(snapshot.rows[0]?.classification).toEqual({ kind: "scored", relevance: 0.1 });
+			expect(snapshot.rows[0]?.classification).toEqual({ kind: "scored", relevance: 0.9 });
 			expect(snapshot.stats.matchedEvents).toBe(1);
 		} finally {
 			await scenario.session.stop();
 		}
 	});
 
-	test("retained candidates stay visible while Jev classification is pending", async () => {
+	test("the list keeps the previous result until the first batch is scored", async () => {
 		const classifier = new ScriptedClassifier();
 
 		const scenario = await openScenario({
@@ -337,18 +338,24 @@ describe("semantic classification", () => {
 			scenario.session.dispatch({
 				kind: "set-filter",
 				filter: { minLevel: null, tag: null, pid: null, text: "database locks" },
+				searchMode: "jev",
 			});
 			await tick(scenario.scheduler);
 
 			let snapshot = scenario.session.snapshot();
 			expect(snapshot.rows.map((row) => row.id)).toEqual([1, 2]);
+			expect(snapshot.rows.map((row) => row.classification.kind)).toEqual(["none", "none"]);
 			expect(snapshot.stats.matchedEvents).toBe(2);
-			expect(snapshot.semantic?.pendingEvents).toBe(2);
+			expect(snapshot.semantic?.classifying).toEqual({ done: 0, total: 2 });
 
 			classifier.resolveShuffled((eventId) => (eventId === 1 ? 0.9 : 0.1));
 			snapshot = await scenario.waitUntil((current) => current.semantic?.pendingEvents === 0);
 
-			expect(snapshot.rows.map((row) => row.id)).toEqual([1, 2]);
+			expect(snapshot.semantic?.classifying).toBeNull();
+			expect(snapshot.rows.map((row) => row.id)).toEqual([1]);
+
+			scenario.session.dispatch({ kind: "toggle-below-threshold" });
+			snapshot = scenario.session.snapshot();
 			expect(snapshot.rows.map((row) => row.classification)).toEqual([
 				{ kind: "scored", relevance: 0.9 },
 				{ kind: "scored", relevance: 0.1 },
@@ -358,7 +365,7 @@ describe("semantic classification", () => {
 		}
 	});
 
-	test("low-scored live arrivals stay visible after Jev classification", async () => {
+	test("live arrivals appear only after they are scored", async () => {
 		const classifier = new ScriptedClassifier();
 
 		const scenario = await openScenario({
@@ -374,6 +381,7 @@ describe("semantic classification", () => {
 			scenario.session.dispatch({
 				kind: "set-filter",
 				filter: { minLevel: null, tag: null, pid: null, text: "database locks" },
+				searchMode: "jev",
 			});
 			await tick(scenario.scheduler);
 			classifier.resolveShuffled(() => 0.9);
@@ -383,12 +391,16 @@ describe("semantic classification", () => {
 			await tick(scenario.scheduler);
 
 			let snapshot = scenario.session.snapshot();
-			expect(snapshot.rows.map((row) => row.id)).toEqual([1, 2, 3, 4]);
+			expect(snapshot.rows.map((row) => row.id)).toEqual([1, 2]);
 			expect(snapshot.semantic?.pendingEvents).toBe(2);
 
 			classifier.resolveShuffled((eventId) => (eventId === 4 ? 0.9 : 0.1));
 			snapshot = await scenario.waitUntil((current) => current.semantic?.pendingEvents === 0);
 
+			expect(snapshot.rows.map((row) => row.id)).toEqual([1, 2, 4]);
+
+			scenario.session.dispatch({ kind: "toggle-below-threshold" });
+			snapshot = scenario.session.snapshot();
 			expect(snapshot.rows.map((row) => row.id)).toEqual([1, 2, 3, 4]);
 			expect(snapshot.rows.filter((row) => row.id === 4)).toHaveLength(1);
 			expect(snapshot.rows.find((row) => row.id === 3)?.classification).toEqual({
@@ -400,7 +412,7 @@ describe("semantic classification", () => {
 		}
 	});
 
-	test("a failed batch keeps candidates visible with a failure classification", async () => {
+	test("a failed batch ends classification; dim mode shows the failed rows", async () => {
 		const classifier = new ScriptedClassifier();
 
 		const scenario = await openScenario({
@@ -416,12 +428,18 @@ describe("semantic classification", () => {
 			scenario.session.dispatch({
 				kind: "set-filter",
 				filter: { minLevel: null, tag: null, pid: null, text: "database locks" },
+				searchMode: "jev",
 			});
 			await tick(scenario.scheduler);
 			classifier.pending[0]?.resolve(err({ kind: "auth" }));
 
-			const snapshot = await scenario.waitUntil((current) => current.semantic?.failedEvents === 1);
+			let snapshot = await scenario.waitUntil((current) => current.semantic?.failedEvents === 1);
 
+			expect(snapshot.semantic?.classifying).toBeNull();
+			expect(snapshot.rows).toHaveLength(0);
+
+			scenario.session.dispatch({ kind: "toggle-below-threshold" });
+			snapshot = scenario.session.snapshot();
 			expect(snapshot.rows.map((row) => row.id)).toEqual([1]);
 			expect(snapshot.rows[0]?.classification).toEqual({ kind: "unknown", reason: "failed" });
 			expect(snapshot.stats.matchedEvents).toBe(1);
@@ -451,6 +469,7 @@ describe("semantic classification", () => {
 		scenario.session.dispatch({
 			kind: "set-filter",
 			filter: { minLevel: null, tag: null, pid: null, text: "query-a" },
+			searchMode: "jev",
 		});
 		await tick(scenario.scheduler);
 		expect(classifier.pending.length).toBeGreaterThan(0);
@@ -460,6 +479,7 @@ describe("semantic classification", () => {
 		scenario.session.dispatch({
 			kind: "set-filter",
 			filter: { minLevel: null, tag: null, pid: null, text: "query-b" },
+			searchMode: "jev",
 		});
 		await tick(scenario.scheduler);
 
@@ -487,7 +507,7 @@ describe("semantic classification", () => {
 		);
 
 		expect(snap.activeFilter.text).toBe("query-b");
-		expect(snap.rows.map((row) => row.id)).toEqual([1, 2, 3, 4]);
+		expect(snap.rows.map((row) => row.id)).toEqual([2, 4]);
 
 		await scenario.session.stop();
 	});
@@ -507,6 +527,7 @@ describe("semantic classification", () => {
 		scenario.session.dispatch({
 			kind: "set-filter",
 			filter: { minLevel: null, tag: null, pid: null, text: "noise" },
+			searchMode: "jev",
 		});
 		await tick(scenario.scheduler);
 
@@ -549,7 +570,7 @@ describe("semantic query line", () => {
 		}
 	});
 
-	test("v hides rows below the threshold and shows them again", async () => {
+	test("h hides rows below the threshold and shows them again", async () => {
 		const classifier = new ScriptedClassifier();
 		const scenario = await openScenario({ maxEvents: 20, rows: 24, columns: 120, classifier, semantic: { flushDelayMs: 0 } });
 
@@ -559,18 +580,51 @@ describe("semantic query line", () => {
 			await scenario.waitUntil(() => classifier.pending.length > 0);
 			classifier.resolveShuffled((id) => (id === 2 ? 0.1 : 0.9));
 
-			const scored = await scenario.waitUntil((current) => current.semantic?.classifiedEvents === 3);
-			expect(scored.rows.map((row) => row.id)).toEqual([1, 2, 3]);
-			expect(scored.belowThreshold).toBe("dim");
-
-			scenario.session.dispatch({ kind: "toggle-below-threshold" });
-			const hidden = scenario.session.snapshot();
+			const hidden = await scenario.waitUntil((current) => current.semantic?.classifiedEvents === 3);
 			expect(hidden.belowThreshold).toBe("hide");
 			expect(hidden.rows.map((row) => row.id)).toEqual([1, 3]);
 			expect(scenario.session.readMatches(null, 10).map((event) => event.id)).toEqual([1, 2, 3]);
 
 			scenario.session.dispatch({ kind: "toggle-below-threshold" });
-			expect(scenario.session.snapshot().rows.map((row) => row.id)).toEqual([1, 2, 3]);
+			const dimmed = scenario.session.snapshot();
+			expect(dimmed.belowThreshold).toBe("dim");
+			expect(dimmed.rows.map((row) => row.id)).toEqual([1, 2, 3]);
+
+			scenario.session.dispatch({ kind: "toggle-below-threshold" });
+			expect(scenario.session.snapshot().rows.map((row) => row.id)).toEqual([1, 3]);
+		} finally {
+			await scenario.session.stop();
+		}
+	});
+
+	test("[ and ] move the threshold locally without asking Jev again", async () => {
+		const classifier = new ScriptedClassifier();
+		const scenario = await openScenario({ maxEvents: 20, rows: 24, columns: 120, classifier, semantic: { flushDelayMs: 0, threshold: 0.5 } });
+
+		try {
+			await scenario.deliver([1, 2, 3], () => ({ message: "database event" }));
+			scenario.session.dispatch({ kind: "set-filter", filter: { ...empty, text: "database" }, searchMode: "jev" });
+			await scenario.waitUntil(() => classifier.pending.length > 0);
+			classifier.resolveShuffled((id) => [0, 0.4, 0.52, 0.8][id] ?? 0);
+
+			const start = await scenario.waitUntil((current) => current.semantic?.classifiedEvents === 3);
+			expect(start.rows.map((row) => row.id)).toEqual([2, 3]);
+			expect(start.semantic?.relevantEvents).toBe(2);
+
+			scenario.session.dispatch({ kind: "adjust-threshold", delta: 1 });
+			const raised = scenario.session.snapshot();
+			expect(raised.semantic?.threshold).toBe(0.55);
+			expect(raised.semantic?.relevantEvents).toBe(1);
+			expect(raised.rows.map((row) => row.id)).toEqual([3]);
+
+			for (let i = 0; i < 3; i += 1) scenario.session.dispatch({ kind: "adjust-threshold", delta: -1 });
+			const lowered = scenario.session.snapshot();
+			expect(lowered.semantic?.threshold).toBe(0.4);
+			expect(lowered.rows.map((row) => row.id)).toEqual([1, 2, 3]);
+
+			for (let i = 0; i < 30; i += 1) scenario.session.dispatch({ kind: "adjust-threshold", delta: 1 });
+			expect(scenario.session.snapshot().semantic?.threshold).toBe(0.95);
+			expect(classifier.pending).toHaveLength(0);
 		} finally {
 			await scenario.session.stop();
 		}
@@ -595,7 +649,9 @@ describe("semantic query line", () => {
 
 		try {
 			await scenario.deliver([1, 2]);
-			scenario.session.dispatch({ kind: "set-filter", filter: { ...empty, text: "database" } });
+			scenario.session.dispatch({ kind: "set-filter", filter: { ...empty, text: "database" },
+				searchMode: "jev",
+			});
 
 			const failed = await scenario.waitUntil((current) => current.semantic?.lastError === "auth");
 			expect(failed.semantic?.failedEvents).toBe(2);

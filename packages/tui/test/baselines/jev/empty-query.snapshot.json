@@ -298,10 +298,10 @@
         "overline": false,
         "underline": null
       },
-      "text": "type to filter · ~question asks Jev"
+      "text": "type to filter · ~description classifies"
     },
     {
-      "x": 40,
+      "x": 45,
       "y": 1,
       "foreground": {
         "r": 195,
@@ -322,7 +322,7 @@
         "overline": false,
         "underline": null
       },
-      "text": "                                                                                "
+      "text": "                                                                           "
     },
     {
       "x": 0,
@@ -4327,10 +4327,10 @@
         "overline": false,
         "underline": null
       },
-      "text": " Ask Jev"
+      "text": " Classify"
     },
     {
-      "x": 50,
+      "x": 51,
       "y": 22,
       "foreground": {
         "r": 195,
@@ -4354,7 +4354,7 @@
       "text": "  "
     },
     {
-      "x": 52,
+      "x": 53,
       "y": 22,
       "foreground": {
         "r": 195,
@@ -4378,7 +4378,7 @@
       "text": " ↑↓ "
     },
     {
-      "x": 56,
+      "x": 57,
       "y": 22,
       "foreground": {
         "r": 135,
@@ -4402,7 +4402,7 @@
       "text": " History"
     },
     {
-      "x": 64,
+      "x": 65,
       "y": 22,
       "foreground": {
         "r": 195,
@@ -4426,7 +4426,7 @@
       "text": "  "
     },
     {
-      "x": 66,
+      "x": 67,
       "y": 22,
       "foreground": {
         "r": 195,
@@ -4450,7 +4450,7 @@
       "text": " Esc "
     },
     {
-      "x": 71,
+      "x": 72,
       "y": 22,
       "foreground": {
         "r": 135,
@@ -4474,7 +4474,7 @@
       "text": " Cancel"
     },
     {
-      "x": 78,
+      "x": 79,
       "y": 22,
       "foreground": {
         "r": 195,
@@ -4498,7 +4498,7 @@
       "text": "  "
     },
     {
-      "x": 80,
+      "x": 81,
       "y": 22,
       "foreground": {
         "r": 195,
@@ -4522,7 +4522,7 @@
       "text": " ^C "
     },
     {
-      "x": 84,
+      "x": 85,
       "y": 22,
       "foreground": {
         "r": 135,
@@ -4546,7 +4546,7 @@
       "text": " Quit"
     },
     {
-      "x": 89,
+      "x": 90,
       "y": 22,
       "foreground": {
         "r": 195,
@@ -4567,7 +4567,7 @@
         "overline": false,
         "underline": null
       },
-      "text": "                               "
+      "text": "                              "
     },
     {
       "x": 0,

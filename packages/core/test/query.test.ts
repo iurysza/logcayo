@@ -122,7 +122,7 @@ describe("Jev prefix", () => {
 		return result.value;
 	}
 
-	test("~ before the text asks Jev and keeps the other keys local", () => {
+	test("~ before the text classifies with Jev and keeps the other keys local", () => {
 		expect(jev("level:W ~database locks")).toEqual({
 			filter: { ...EMPTY_FILTER, minLevel: "W", text: "database locks" },
 			searchMode: "jev",

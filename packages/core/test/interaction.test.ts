@@ -114,10 +114,14 @@ describe("reduceInteraction", () => {
 		expect(upper.command).toEqual({ kind: "toggle-line-display" });
 	});
 
-	test("m toggles the search mode", () => {
-		const toggle = reduceInteraction(LIST_FOCUS, { kind: "key", key: "m", ctrl: false, shift: false }, EMPTY_FILTER);
+	test("m no longer switches search mode; [ and ] step the Jev threshold", () => {
+		const key = (k: string, mode: "text" | "jev") =>
+			reduceInteraction(LIST_FOCUS, { kind: "key", key: k, ctrl: false, shift: false }, EMPTY_FILTER, undefined, mode).command;
 
-		expect(toggle.command).toEqual({ kind: "toggle-search-mode" });
+		expect(key("m", "jev")).toBeNull();
+		expect(key("[", "jev")).toEqual({ kind: "adjust-threshold", delta: -1 });
+		expect(key("]", "jev")).toEqual({ kind: "adjust-threshold", delta: 1 });
+		expect(key("]", "text")).toBeNull();
 	});
 
 	test("Enter opens inspect and t filters the selected tag", () => {
@@ -298,7 +302,7 @@ describe("query editor", () => {
 		const entered = applyKey(state, "enter", EMPTY_FILTER);
 
 		expect(entered.command).toBeNull();
-		expect(entered.state.focus === "query" && entered.state.error?.message).toContain("--semantic");
+		expect(entered.state.focus === "query" && entered.state.error?.message).toContain("TYPESAFE_API_KEY");
 	});
 
 	test("a trailing key: waits quietly while typing and errors only on Enter", () => {

@@ -71,9 +71,9 @@ function helpLines(width: number): string[] {
 		"PgUp PgDn / ^U ^D  move one page",
 		"G / End      follow newest logs · Home first event",
 		"w            toggle line wrapping",
-		"~            ask Jev in the query: / ~database locks",
-		"m · v        switch literal/Jev · hide or dim weak Jev rows",
-		"h            fill empty list space",
+		"~            classify by meaning in the query: / ~database locks",
+		"[ ] · h      Jev threshold down/up · show or hide weak rows",
+		"b            toggle list background",
 		"y            copy selected event",
 		"Enter        inspect event · t tag · p PID · y copy",
 		"/            query  Tab complete  x clear  u undo  c copy",
@@ -124,7 +124,7 @@ function jevNote(row: SessionSnapshot["rows"][number], compact: boolean, thresho
 	return { bar: "", rest: "", label: "", color: "subtle" };
 }
 
-function paintJevNote(note: JevNote, width: number, style: PaintStyle, background: Rgb): string {
+function paintJevNote(note: JevNote, width: number, style: PaintStyle, background: Rgb | null): string {
 	const color = THEME[note.color];
 	const text = padToWidth(`${note.bar}${note.rest}${note.label}`, width);
 
@@ -170,7 +170,7 @@ function paintLogRows(
 		for (const row of rows) {
 			if (lines.length >= count) break;
 
-			lines.push(paintRow(row, style, columns, { filter }));
+			lines.push(paintRow(row, style, columns, { filter, fill: listBackground }));
 		}
 	} else {
 		const jevLayout = classificationColumnLayout(columns);
@@ -179,9 +179,9 @@ function paintLogRows(
 			if (lines.length >= count) break;
 
 			const dimmed = isBelowJevThreshold(row, semantic.threshold);
-			const logLine = paintRow(row, style, jevLayout.listWidth, { dimmed, filter });
+			const logLine = paintRow(row, style, jevLayout.listWidth, { dimmed, filter, fill: listBackground });
 			const divider = style === "plain" ? "│" : paintChrome("│", THEME.subtle, style);
-			const background = row.selected ? THEME.selection : THEME.canvas;
+			const background = row.selected ? THEME.selection : listBackground ? THEME.canvas : null;
 			const note = row.kind === "header" ? jevNote(row, jevLayout.noteWidth < 14, semantic.threshold) : null;
 
 			const noteLine = note === null
@@ -570,7 +570,7 @@ export async function attachTui(
 
 			const snapshot = session.snapshot();
 
-			if (interaction.focus === "list" && (mapped.key === "h" || mapped.key === "H")) {
+			if (interaction.focus === "list" && (mapped.key === "b" || mapped.key === "B")) {
 				listBackground = !listBackground;
 				paint();
 				continue;

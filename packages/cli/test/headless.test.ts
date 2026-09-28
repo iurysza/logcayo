@@ -82,58 +82,27 @@ describe("headless CLI", () => {
 		expect(code).toBe(2);
 	});
 
-	test("--semantic without TYPESAFE_API_KEY is exit 2", async () => {
-		const previous = process.env.TYPESAFE_API_KEY;
-		delete process.env.TYPESAFE_API_KEY;
-		const code = await main(["bun", "logcayo", "replay", "missing.lvr.jsonl", "--semantic"]);
-
-		if (previous === undefined) delete process.env.TYPESAFE_API_KEY;
-		else process.env.TYPESAFE_API_KEY = previous;
-
-		expect(code).toBe(2);
-	});
-
-	test("--config with semantic.enabled and no TYPESAFE_API_KEY is exit 2", async () => {
+	test("without TYPESAFE_API_KEY, Jev is off and replay still runs", async () => {
 		const previous = process.env.TYPESAFE_API_KEY;
 		delete process.env.TYPESAFE_API_KEY;
 		const dir = await mkdtemp(join(tmpdir(), "logcayo-cli-config-"));
 		const path = join(dir, "logcayo.json");
 
-		await writeFile(path, JSON.stringify({ semantic: { enabled: true } }));
-
-		const code = await main(["bun", "logcayo", "replay", "missing.lvr.jsonl", "--config", path]);
-
-		if (previous === undefined) delete process.env.TYPESAFE_API_KEY;
-		else process.env.TYPESAFE_API_KEY = previous;
-
-		expect(code).toBe(2);
-	});
-
-	test("--no-semantic overrides a config that enables Jev", async () => {
-		const previous = process.env.TYPESAFE_API_KEY;
-		delete process.env.TYPESAFE_API_KEY;
-		const dir = await mkdtemp(join(tmpdir(), "logcayo-cli-config-"));
-		const path = join(dir, "logcayo.json");
-
-		await writeFile(path, JSON.stringify({ semantic: { enabled: true } }));
+		await writeFile(path, JSON.stringify({ semantic: { enabled: true, threshold: 0.4 } }));
 
 		const fixture = join(process.cwd(), "tests/fixtures/synthetic/hello.lvr.jsonl");
-
-		const code = await main([
-			"bun",
-			"logcayo",
-			"replay",
-			fixture,
-			"--headless",
-			"--config",
-			path,
-			"--no-semantic",
-		]);
+		const code = await main(["bun", "logcayo", "replay", fixture, "--headless", "--config", path]);
 
 		if (previous === undefined) delete process.env.TYPESAFE_API_KEY;
 		else process.env.TYPESAFE_API_KEY = previous;
 
 		expect(code).toBe(0);
+	});
+
+	test("--semantic is no longer an option", async () => {
+		const code = await main(["bun", "logcayo", "replay", "missing.lvr.jsonl", "--semantic"]);
+
+		expect(code).toBe(2);
 	});
 
 	test("missing --config path is exit 2", async () => {

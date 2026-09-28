@@ -108,9 +108,9 @@ export function keyHints(
 		const jev = draftSearchMode(interaction.draft) === "jev";
 
 		return [
-			{ key: "Enter", label: jev ? "Ask Jev" : "Done" },
+			{ key: "Enter", label: jev ? "Classify" : "Done" },
 			{ key: "Tab", label: "Complete" },
-			...(semanticAvailable && !jev ? [{ key: "~", label: "Ask Jev" }] : []),
+			...(semanticAvailable && !jev ? [{ key: "~", label: "Classify" }] : []),
 			{ key: "↑↓", label: "History" },
 			{ key: "Esc", label: "Cancel" },
 			{ key: "^C", label: "Quit" },
@@ -131,8 +131,12 @@ export function keyHints(
 	return [
 		{ key: "Enter", label: "Inspect" },
 		{ key: "/", label: "Query" },
-		...(semanticAvailable ? [{ key: "m", label: searchMode === "jev" ? "Use text" : "Ask Jev" }] : []),
-		...(semanticAvailable && searchMode === "jev" ? [{ key: "v", label: belowThreshold === "hide" ? "Show all" : "Hide weak" }] : []),
+		...(semanticAvailable && searchMode === "jev"
+			? [
+					{ key: "[ ]", label: "Threshold" },
+					{ key: "h", label: belowThreshold === "hide" ? "Show all" : "Hide weak" },
+				]
+			: []),
 		{ key: "f", label: "Filters" },
 		{ key: "x", label: "Clear" },
 		{ key: "u", label: "Undo" },
@@ -222,7 +226,7 @@ function fitGroups(groups: readonly ChromeSpan[], columns: number): ChromeSpan[]
 	return out;
 }
 
-/** The mode the draft will apply in: `~` before the text asks Jev. */
+/** The mode the draft will apply in: `~` before the text classifies with Jev. */
 export function draftSearchMode(draft: string): SearchMode {
 	const parsed = parseQuery(draft);
 
@@ -249,16 +253,23 @@ export function jevStatusSpans(snapshot: Snapshot): ChromeSpan[] | null {
 
 	if (semantic.lastError !== null) return [badge, plain(` ${JEV_ERROR_COPY[semantic.lastError]}`, THEME.red)];
 
-	if (semantic.pendingEvents > 0 || semantic.inFlight > 0) {
-		return [badge, plain(` asking · ${semantic.pendingEvents} left`, THEME.muted)];
+	if (semantic.classifying !== null) {
+		const { done, total } = semantic.classifying;
+		const progress = total === 0 ? "" : ` ${done}/${total}`;
+
+		return [badge, plain(` classifying${progress}…`, THEME.muted)];
 	}
 
 	const relevant = plain(` ${semantic.relevantEvents} relevant`, THEME.purple);
+	const cutoff = plain(` ≥ ${semantic.threshold.toFixed(2)}`, THEME.muted);
 	const below = semantic.classifiedEvents - semantic.relevantEvents;
+	const live = semantic.pendingEvents > 0 ? [plain(` · ${semantic.pendingEvents} new`, THEME.muted)] : [];
 
-	if (snapshot.belowThreshold === "hide" && below > 0) return [badge, relevant, plain(` · ${below} hidden`, THEME.muted)];
+	if (snapshot.belowThreshold === "hide" && below > 0) {
+		return [badge, relevant, cutoff, plain(` · ${below} hidden`, THEME.muted), ...live];
+	}
 
-	return [badge, relevant];
+	return [badge, relevant, cutoff, ...live];
 }
 
 export function paintStatus(snapshot: Snapshot, columns: number, style: PaintStyle): string {
@@ -340,11 +351,11 @@ function queryEditorSpans(
 	if (atCursor !== undefined) spans.push(plain(chars.slice(index + 1).join(""), THEME.text));
 
 	if (error) spans.push(plain(`  ! ${error.message}`, THEME.red));
-	else if (jev) spans.push(plain("   Enter asks Jev", THEME.muted));
+	else if (jev) spans.push(plain("   Enter classifies", THEME.muted));
 	else if (completion !== null && completion.alternatives.length > 0) {
 		spans.push(plain(`   ${completion.alternatives.join("  ")}`, THEME.subtle));
 	} else if (draft.length === 0) {
-		spans.push(plain(semanticAvailable ? "type to filter · ~question asks Jev" : "type to filter · Tab completes", THEME.subtle));
+		spans.push(plain(semanticAvailable ? "type to filter · ~description classifies" : "type to filter · Tab completes", THEME.subtle));
 	}
 
 	return spans;

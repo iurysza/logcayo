@@ -298,10 +298,10 @@
         "overline": false,
         "underline": null
       },
-      "text": "   Enter asks Jev"
+      "text": "   Enter classifies"
     },
     {
-      "x": 41,
+      "x": 43,
       "y": 1,
       "foreground": {
         "r": 195,
@@ -322,7 +322,7 @@
         "overline": false,
         "underline": null
       },
-      "text": "                                                                               "
+      "text": "                                                                             "
     },
     {
       "x": 0,
@@ -4183,10 +4183,10 @@
         "overline": false,
         "underline": null
       },
-      "text": " Ask Jev"
+      "text": " Classify"
     },
     {
-      "x": 24,
+      "x": 25,
       "y": 22,
       "foreground": {
         "r": 195,
@@ -4210,7 +4210,7 @@
       "text": "  "
     },
     {
-      "x": 26,
+      "x": 27,
       "y": 22,
       "foreground": {
         "r": 195,
@@ -4234,7 +4234,7 @@
       "text": " Tab "
     },
     {
-      "x": 31,
+      "x": 32,
       "y": 22,
       "foreground": {
         "r": 135,
@@ -4258,7 +4258,7 @@
       "text": " Complete"
     },
     {
-      "x": 40,
+      "x": 41,
       "y": 22,
       "foreground": {
         "r": 195,
@@ -4282,7 +4282,7 @@
       "text": "  "
     },
     {
-      "x": 42,
+      "x": 43,
       "y": 22,
       "foreground": {
         "r": 195,
@@ -4306,7 +4306,7 @@
       "text": " ↑↓ "
     },
     {
-      "x": 46,
+      "x": 47,
       "y": 22,
       "foreground": {
         "r": 135,
@@ -4330,7 +4330,7 @@
       "text": " History"
     },
     {
-      "x": 54,
+      "x": 55,
       "y": 22,
       "foreground": {
         "r": 195,
@@ -4354,7 +4354,7 @@
       "text": "  "
     },
     {
-      "x": 56,
+      "x": 57,
       "y": 22,
       "foreground": {
         "r": 195,
@@ -4378,7 +4378,7 @@
       "text": " Esc "
     },
     {
-      "x": 61,
+      "x": 62,
       "y": 22,
       "foreground": {
         "r": 135,
@@ -4402,7 +4402,7 @@
       "text": " Cancel"
     },
     {
-      "x": 68,
+      "x": 69,
       "y": 22,
       "foreground": {
         "r": 195,
@@ -4426,7 +4426,7 @@
       "text": "  "
     },
     {
-      "x": 70,
+      "x": 71,
       "y": 22,
       "foreground": {
         "r": 195,
@@ -4450,7 +4450,7 @@
       "text": " ^C "
     },
     {
-      "x": 74,
+      "x": 75,
       "y": 22,
       "foreground": {
         "r": 135,
@@ -4474,7 +4474,7 @@
       "text": " Quit"
     },
     {
-      "x": 79,
+      "x": 80,
       "y": 22,
       "foreground": {
         "r": 195,
@@ -4495,7 +4495,7 @@
         "overline": false,
         "underline": null
       },
-      "text": "                                         "
+      "text": "                                        "
     },
     {
       "x": 0,

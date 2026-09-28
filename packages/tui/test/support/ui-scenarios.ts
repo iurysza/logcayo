@@ -70,7 +70,7 @@ type UiScenario = Readonly<{
 	name: UiScenarioName;
 	viewport: Viewport;
 	color: "always" | "never";
-	/** Starts a local fake Jev and launches with `--semantic`. */
+	/** Starts a local fake Jev and sets its key, which turns Jev on. */
 	jev?: "score" | "auth-error";
 	run: (context: ScenarioContext) => Promise<void>;
 }>;
@@ -98,11 +98,10 @@ export async function runUiScenario(options: {
 				REPLAY_FIXTURE,
 				"--speed",
 				"instant",
-				...(jev ? ["--semantic"] : ["--no-semantic"]),
 			],
 			viewport: scenario.viewport,
 			color: scenario.color,
-			env: jev?.env ?? {},
+			env: jev?.env ?? { TYPESAFE_API_KEY: "" },
 		},
 		async (session) => {
 			await waitForText(session, REPLAY_DONE);
@@ -265,7 +264,7 @@ const SCENARIOS: readonly UiScenario[] = [
 			await send(context.session, ["text:?"]);
 			await waitForText(context.session, "Keys");
 			const final = await context.capture("final", DEFAULT_VIEWPORT);
-			expectText(final, "h            fill empty list space", "help overlay");
+			expectText(final, "b            toggle list background", "help overlay");
 		},
 	},
 	{
@@ -360,17 +359,17 @@ const SCENARIOS: readonly UiScenario[] = [
 		jev: "score",
 		async run(context) {
 			await send(context.session, ["text:/"]);
-			await waitForText(context.session, "~question asks Jev");
+			await waitForText(context.session, "~description classifies");
 			await context.capture("empty-query", { cols: 120, rows: 24 });
 
 			await send(context.session, ["text:~database locks"]);
-			await waitForText(context.session, "Enter asks Jev");
+			await waitForText(context.session, "Enter classifies");
 			await context.capture("draft", { cols: 120, rows: 24 });
 
 			context.jev?.hold();
 			await send(context.session, ["enter"]);
-			await waitForText(context.session, "asking");
-			await context.capture("asking", { cols: 120, rows: 24 });
+			await waitForText(context.session, "classifying");
+			await context.capture("classifying", { cols: 120, rows: 24 });
 
 			context.jev?.release();
 			await waitForText(context.session, "relevant");
@@ -378,18 +377,18 @@ const SCENARIOS: readonly UiScenario[] = [
 
 			expectText(scored, "✦ Jev database locks", "scored");
 			expectText(scored, "━━━━━ 0.93", "scored");
+			expectText(scored, "≥ 0.50", "scored");
+			expectText(scored, "Show all", "scored");
 
-			await send(context.session, ["text:v"]);
-			await waitForText(context.session, "hidden");
-			const hidden = await context.capture("hidden", { cols: 120, rows: 24 });
-
-			expectText(hidden, "Show all", "hidden");
-			await send(context.session, ["text:v"]);
+			await send(context.session, ["text:h"]);
 			await waitForText(context.session, "Hide weak");
+			await context.capture("dimmed", { cols: 120, rows: 24 });
 
-			await send(context.session, ["text:m"]);
-			await waitForText(context.session, "Text / database locks");
-			await context.capture("literal", { cols: 120, rows: 24 });
+			await send(context.session, ["text:h", "text:]", "text:]", "text:]", "text:]", "text:]"]);
+			await waitForText(context.session, "≥ 0.75");
+			const raised = await context.capture("threshold", { cols: 120, rows: 24 });
+
+			expectText(raised, "2 relevant ≥ 0.75 · 13 hidden", "threshold");
 		},
 	},
 	{

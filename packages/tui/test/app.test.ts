@@ -170,6 +170,7 @@ const jevSnapshot: SessionSnapshot = {
 		skippedEvents: 1,
 		failedEvents: 1,
 		inFlight: 0,
+		classifying: null,
 		lastError: null,
 	},
 };
@@ -225,8 +226,9 @@ describe("tui chrome", () => {
 		expect(formatHints()).toContain("c Copy query");
 		expect(formatHints()).toContain("y Copy");
 		expect(formatHints()).not.toMatch(/\bw /);
-		expect(formatHints(LIST_FOCUS, "jev", true)).toContain("m Use text");
-		expect(formatHints(LIST_FOCUS, "text", true)).toContain("m Ask Jev");
+		expect(formatHints(LIST_FOCUS, "jev", true)).toContain("[ ] Threshold");
+		expect(formatHints(LIST_FOCUS, "jev", true)).not.toMatch(/\bm /);
+		expect(formatHints(LIST_FOCUS, "text", true)).not.toContain("Threshold");
 		expect(layoutSession(snapshot, LIST_FOCUS).join("\n")).toContain("Quit");
 	});
 
@@ -255,10 +257,22 @@ describe("tui chrome", () => {
 		expect(transparent[3]).not.toContain(rgbSgr(THEME.canvas, "bg"));
 	});
 
+	test("the list background toggle also clears log row backgrounds but keeps the selection", () => {
+		const first = jevSnapshot.rows[0]!;
+		const twoRows = { ...snapshot, rows: [{ ...first, selected: false }, { ...first, id: first.id + 1, selected: true }] };
+		const filled = layoutFrame(twoRows, LIST_FOCUS, 72, 16, "ansi");
+		const transparent = layoutFrame(twoRows, LIST_FOCUS, 72, 16, "ansi", false);
+		const firstRowLine = 3;
+
+		expect(filled[firstRowLine]).toContain(rgbSgr(THEME.canvas, "bg"));
+		expect(transparent[firstRowLine]).not.toContain(rgbSgr(THEME.canvas, "bg"));
+		expect(transparent[firstRowLine + 1]).toContain(rgbSgr(THEME.selection, "bg"));
+	});
+
 	test("documents the list background toggle in Help, not the footer", () => {
 		const help = layoutFrame(snapshot, HELP_FOCUS, 72, 16, "plain").join("\n");
 
-		expect(help).toMatch(/h\s+fill empty list space/);
+		expect(help).toMatch(/b\s+toggle list background/);
 		expect(help).toContain("x clear");
 		expect(help).toContain("u undo");
 		expect(help).toContain("c copy");

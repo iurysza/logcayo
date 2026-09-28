@@ -93,6 +93,8 @@ export type SemanticStats = Readonly<{
 	skippedEvents: number;
 	failedEvents: number;
 	inFlight: number;
+	/** Set while a new query classifies its first batch. The list shows the previous result until then. */
+	classifying: Readonly<{ done: number; total: number }> | null;
 	/** Last batch failure for the active query. Cleared by the next success or query. */
 	lastError: SemanticErrorKind | null;
 }>;
