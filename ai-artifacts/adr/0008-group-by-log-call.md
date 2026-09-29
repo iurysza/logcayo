@@ -23,6 +23,6 @@ The original technical design already said to preserve unmatched lines as unpars
 
 - Stack traces still group, through the same-call rule (`dbe0493`).
 - Unknown named UIDs parse with `uid: null` rather than failing the whole header.
-- [?] NDJSON `continuations` hold raw lines including the repeated header. The TUI strips it with `continuationText`; the CLI does not.
+- NDJSON `continuations` keep raw lines, including the repeated header, to match `raw` and `--format text`. The TUI strips the header for display with `continuationText`. Changing this would break the `v: 1` output format. [existing]
 
 Source: commits `dbe0493`, `fbfa490` and `0f62fde` (PR #12).

@@ -76,5 +76,4 @@ The snapshot holds rows for the visible window only. `packages/core/src/projecti
 
 ## Open points
 
-- [?] `logcayo query` NDJSON `continuations` still hold raw lines with the repeated header.
 - [?] An OEM could add short vendor account names. They parse with `uid: null`, so the event keeps its place but loses package attribution.

@@ -8,7 +8,6 @@
 * **core:** parse logcat headers with named UIDs ([fbfa490](https://github.com/iurysza/logcayo/commit/fbfa490f04fb4744a9af2ffbf4a3ad448d64a4fe))
 * **engine:** group lines from one log call into one event ([dbe0493](https://github.com/iurysza/logcayo/commit/dbe04934bd7c1d9e1c4024b7ef36a37a868d3dcf))
 * **engine:** keep unparsed lines as their own events ([0f62fde](https://github.com/iurysza/logcayo/commit/0f62fde48bcd08929b56b01a64c3590f4f5079cb))
-* parse named UIDs and stop misgrouping log lines ([938db5a](https://github.com/iurysza/logcayo/commit/938db5a6d0341463920dce350b17b7590b9c9b2d))
 * **tui:** align list messages and wrap at word boundaries ([01fee65](https://github.com/iurysza/logcayo/commit/01fee65af3b9892bf7d062fda0a12cc15184d6b2))
 
 ## [0.4.0](https://github.com/iurysza/logcayo/compare/v0.3.0...v0.4.0) (2026-09-28)

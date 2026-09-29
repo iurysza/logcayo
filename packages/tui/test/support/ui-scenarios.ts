@@ -446,6 +446,10 @@ const SCENARIOS: readonly UiScenario[] = [
 					throw new Error(`quit did not restore terminal sequence ${JSON.stringify(sequence)}`);
 				}
 			}
+
+			if (transcript.includes("\u001b[31m")) throw new Error("output used the basic ANSI red foreground");
+
+			if (transcript.includes("\n.M") || transcript.includes("\r.M")) throw new Error("output leaked a stray .M after a line break");
 		},
 	},
 ];
