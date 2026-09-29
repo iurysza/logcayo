@@ -52,7 +52,7 @@ adb -s <serial> logcat -b main -b system -b crash -v threadtime -v epoch -v usec
 
 An event has `v`, `type`, `id`, `time` (ISO 8601), `epochMicros`, `level`, `pid`, `tid`, `uid`, `tag`, `message`, `raw`, and `continuations`. Metadata fields are null for lines logcayo could not parse.
 
-`raw` and `continuations` hold the lines exactly as logcat wrote them. `message` is the first line's message only. When one log call spans several lines, such as a stack trace, each continuation keeps its own logcat header, as in `raw` and `--format text`. To read the whole message, parse each continuation's header or strip everything up to the tag and `: `.
+`raw` and `continuations` hold each line's decoded text, including its logcat header. logcayo removes the line ending, replaces invalid UTF-8, and truncates very long lines. `message` is the first line's message only. When one log call spans several lines, such as a stack trace, each continuation keeps its own logcat header, as in `raw` and `--format text`. To read the whole message, parse each continuation's header or strip everything up to the tag and `: `.
 
 The summary has `query`, `emitted`, `matched`, `stop`, `terminal`, `evictedBeforeRead`, and, for live queries, `timeout_ms`. `evictedBeforeRead` estimates how many events were dropped before the command read them. The estimate can include events that would not have matched.
 
