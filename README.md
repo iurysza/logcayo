@@ -43,7 +43,7 @@ On macOS or Linux:
 curl -fsSL https://github.com/iurysza/logcayo/releases/latest/download/install.sh | sh
 ```
 
-The script downloads a standalone binary for your platform, checks its SHA-256 checksum, and puts `logcayo` in `~/.local/bin`. You do not need Bun. Set `LOGCAYO_INSTALL_DIR` to install somewhere else, or `LOGCAYO_VERSION=v0.2.0` to pin a release.
+The script downloads a standalone binary for your platform, checks its SHA-256 checksum, and puts `logcayo` in `~/.local/bin`. You do not need Bun. Set `LOGCAYO_INSTALL_DIR` to install somewhere else, or `LOGCAYO_VERSION=v0.4.1` to pin a release.
 
 You need `adb` from the Android SDK platform tools only for live capture.
 
@@ -100,13 +100,16 @@ logcayo replay sessions/bug.lvr.jsonl --speed 4
 | `PgUp` `PgDn` or `Ctrl-U` `Ctrl-D` | Move one page |
 | `G` or `End` | Follow the newest logs |
 | `Home` | Go to the first event |
-| `/` | Edit the query. Tab completes, `x` clears, `u` undoes, `c` copies |
+| `/` | Edit the query. Tab completes, `↑` `↓` recall earlier queries |
+| `x` / `u` / `c` | Clear filters, undo the last filter change, copy the query |
 | `f` | Change filters |
 | `Enter` | Inspect the event. In the inspector, `t` filters by tag and `p` by PID |
 | `y` | Copy the selected event |
 | `w` | Turn line wrapping on or off |
+| `b` | Turn the list background on or off |
+| `[` `]` / `h` | Jev only: lower or raise the threshold, hide or show weak matches |
 | `?` | Show help |
-| `q` | Quit |
+| `q` or `Ctrl-C` | Quit |
 
 Set `NO_COLOR=1` for plain output.
 
@@ -153,7 +156,7 @@ Keyed terms such as `level:` still filter on your machine first. Jev scores only
 
 ![Asking Jev about database locks](./assets/demo/jev.gif)
 
-Agents can ask the same question: `logcayo query sessions/bug.lvr.jsonl '~database locks'`.
+Agents can ask the same question about a recording: `logcayo query sessions/bug.lvr.jsonl '~database locks'`. `logcayo query --live` does not support Jev.
 
 ## Documentation
 
@@ -161,6 +164,7 @@ Agents can ask the same question: `logcayo query sessions/bug.lvr.jsonl '~databa
 - [Query line and Jev](docs/query-and-jev.md): grammar, completion, and Jev states
 - [Architecture](docs/architecture.md): packages, the session lifecycle, and rendering
 - [Development](docs/development.md): tests, the lint gate, UI baselines, and benchmarks
+- [Maintainer knowledge base](ai-artifacts/index.md): glossary, architecture decisions, and how a log line becomes a row
 
 ## Name
 
