@@ -17,6 +17,6 @@ Migrating to OpenTUI or another runner only to get screenshots was rejected; `te
 - Baselines compare styled cells, not pixels. PNGs are review evidence only.
 - Only `bun run ui:update` writes baselines, after a person reviews each screen. A first baseline otherwise freezes existing bugs.
 - `bun run check` stays headless; `bun run test:ui` runs in its own CI job.
-- The Python PTY driver and `pty-smoke.test.ts` were removed on 2026-09-29. The `replay`, `inspect` and `quit` scenarios cover the same checks. [existing]
+- The Python PTY driver and `pty-smoke.test.ts` were removed on 2026-09-29. Only `bun run test:tui` ran them; no CI workflow did. The `replay`, `inspect` and `quit` scenarios cover their screen checks, and `quit` now checks the transcript for basic ANSI red and a stray `.M`. The old driver's 12×48 → 32×160 → 12×48 resize sequence is not repeated; the scenarios test other resizes. [existing]
 
 Source: UI testing research (`19b4829`); the removed file is in git history at `d5ddbe4^:ai-artifacts/research/2026-09-19-ui-testing.md`.

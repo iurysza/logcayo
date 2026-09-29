@@ -34,4 +34,4 @@ Preconditions:
 - Instant replay reaches `REPLAY • END` before you send keys. Do not send movement before that marker is on the current screen.
 - `G` is Shift+g. A lowercase `g` does nothing.
 - A split escape sequence (`ESC [` then `A`) is a required case. One burst of `↑` can be decoded as Escape and then discarded.
-- The Python PTY smoke searches historical output. Do not use it as proof of the current screen.
+- The Python PTY smoke test was removed on 2026-09-29. The `quit` scenario's transcript checks search historical output; do not use them as proof of the current screen.
