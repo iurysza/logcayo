@@ -10,7 +10,6 @@ This page covers the config file, the capture command, and the machine-readable 
 {
   "filter": { "text": "database locks" },
   "semantic": {
-    "enabled": true,
     "threshold": 0.5,
     "model": "jev-1.13.0",
     "flushMs": 50,
@@ -24,10 +23,10 @@ This page covers the config file, the capture command, and the machine-readable 
 }
 ```
 
-- `semantic.enabled` does the same as `--semantic`. `--no-semantic` turns it off for one run.
+- `TYPESAFE_API_KEY` in the environment turns Jev on. Without it, Jev is off. Older files with `semantic.enabled` still load, but the field is ignored.
 - `semantic.historyEvents` sets how many recent events Jev scores when you apply a question. New events that match are scored as they arrive.
 - `TYPESAFE_DEFAULT_MODEL` overrides `semantic.model`.
-- Keep `TYPESAFE_API_KEY` in the environment. Do not put API keys in the file.
+- Do not put API keys in the file. logcayo rejects a config that contains one.
 
 ## Capture command
 
