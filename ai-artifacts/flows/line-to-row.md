@@ -55,7 +55,7 @@ if (parsed.metadata !== null && this.continuesLastCall(admitted, parsed.rawText,
 
 `continuesLastCall` looks at the last event in this slice, or the newest in history, so a log call split across two packets still groups. `isSameLogCall` compares time, PID, TID, level, UID and tag.
 
-This rule was wrong until v0.4.1: any line with `metadata === null` became a continuation of the previous event. Named UIDs made that common on real devices. See [ADR 0008](../docs/adr/0008-group-by-log-call.md).
+This rule was wrong until v0.4.1: any line with `metadata === null` became a continuation of the previous event. Named UIDs made that common on real devices. See [ADR 0008](../adr/0008-group-by-log-call.md).
 
 ## 4. Commit, evict, index
 

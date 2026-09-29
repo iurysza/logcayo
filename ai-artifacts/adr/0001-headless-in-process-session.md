@@ -25,4 +25,4 @@ source ─► Session (imperative shell) ─► snapshot ─► TUI | logcayo qu
 - `tests/architecture/import-boundaries.test.ts` keeps Bun, files, processes and clocks out of core.
 - This decision made ADR 0004 cheap: `logcayo query` is just another snapshot reader.
 
-Source: [technical design, Alternatives and Recommendation](../../../docs/design/2026-09-18-technical-design.md#alternatives).
+Source: [technical design, Alternatives and Recommendation](../../docs/design/2026-09-18-technical-design.md#alternatives).

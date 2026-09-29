@@ -28,6 +28,6 @@ query ─► parse ─► searchMode = "text" ──► filter as you type
 - Jev waits for Enter because each request costs money; text search applies on every keystroke.
 - Local filters such as `level:` always run first, so Jev scores fewer events.
 - Old config files with `semantic.enabled` still load; the field is ignored.
-- The code still names the module `semantic/`. See [CONTEXT.md](../../CONTEXT.md#finding-events).
+- The code still names the module `semantic/`. See [CONTEXT.md](../CONTEXT.md#finding-events).
 
-Source: commit messages above, [docs/query-and-jev.md](../../../docs/query-and-jev.md).
+Source: commit messages above, [docs/query-and-jev.md](../../docs/query-and-jev.md).
