@@ -31,7 +31,7 @@ value = bare | '"' (char | \" | \\)* '"'
 
 `Session` runs Jev only when three things are true (`semanticQueryActive` in `packages/engine/src/session.ts`):
 
-1. The CLI created a classifier (`--semantic`, `semantic.enabled`, or a `logcayo query` Jev query).
+1. The CLI created a classifier, which happens only when `TYPESAFE_API_KEY` is set.
 2. The active `searchMode` is `"jev"`.
 3. The text is not empty.
 
@@ -51,8 +51,8 @@ stateDiagram-v2
   Query --> Query: edit, ~ mode → draft only
   Query --> List: Enter → set-filter with searchMode
   Query --> List: Esc → restore old filter
-  List --> List: m → same text, other mode
-  List --> List: v (Jev only) → toggle-below-threshold
+  List --> List: h (Jev only) → toggle-below-threshold
+  List --> List: [ ] (Jev only) → threshold ∓ 0.05
 ```
 
 - **Text mode applies on every edit.** `applyQueryDraft` dispatches `set-filter` as you type.
@@ -75,7 +75,7 @@ Each row carries a `ClassificationMark` (`packages/core/src/commands.ts`):
 
 `SemanticStats` in the snapshot adds counts and `lastError`. The status bar turns a `ClassifierError` kind into short copy through `JEV_ERROR_COPY` in `packages/tui/src/chrome.ts`, for example `auth` → "API key rejected". An error shows once in the status bar, not on every row.
 
-The threshold comes from the semantic options and defaults to 0.5. `v` dispatches `toggle-below-threshold`, which flips the snapshot's `belowThreshold` between `"dim"` and `"hide"`. In hide mode, `viewIndex()` builds navigation and rows from the active index minus scored rows below the threshold. It rebuilds that view after any change. `readMatches` ignores hide mode and returns every local match.
+The threshold comes from the semantic options and defaults to 0.5. `[` and `]` move it by 0.05 locally, without a new request. `belowThreshold` starts as `"hide"`. `h` dispatches `toggle-below-threshold`, which flips it between `"hide"` and `"dim"`. In hide mode, `viewIndex()` builds navigation and rows from the active index minus scored rows below the threshold. It rebuilds that view after any change. `readMatches` ignores hide mode and returns every local match.
 
 ## CLI: one code path
 
@@ -87,7 +87,7 @@ sequenceDiagram
   participant Core as parseQuery
   participant S as Session
   participant J as SemanticCoordinator → Jev
-  CLI->>Core: '~database locks' or --semantic
+  CLI->>Core: '~database locks'
   Core-->>CLI: filter + searchMode "jev"
   CLI->>S: start() with replay source and classifier
   S->>J: classify locally matching events
@@ -129,5 +129,4 @@ The summary gains `jev: {threshold, relevant, belowThreshold, unscored, error}`.
 
 ## Open points
 
-- [?] The TUI does not yet hide `v` when the query has no text. With Jev enabled and an empty query, the footer still offers `m Use text` and `v Hide weak`.
 - [proposed] A CLI flag to print below-threshold and unscored events, not only count them.
