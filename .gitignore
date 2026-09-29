@@ -20,5 +20,10 @@ agent-tools/
 uploads/
 
 # Internal agent notes, plans, and handoffs
-ai-artifacts/
+# Durable project knowledge is tracked; plans, handoffs and research are not.
+ai-artifacts/*
+!ai-artifacts/README.md
+!ai-artifacts/CONTEXT.md
+!ai-artifacts/docs/
+!ai-artifacts/flows/
 .*.bun-build
